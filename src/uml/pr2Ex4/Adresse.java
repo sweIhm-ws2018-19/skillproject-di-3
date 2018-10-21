@@ -1,4 +1,4 @@
-package pr2Ex4;
+package uml.pr2Ex4;
 
 public class Adresse {
     private String strasse;

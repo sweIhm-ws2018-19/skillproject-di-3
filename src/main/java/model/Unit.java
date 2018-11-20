@@ -6,9 +6,9 @@ package main.java.model;
 public enum Unit {
 	MILLILITER("Milliliter"), 
 	GRAMM("Gramm"), 
-	STUECK("Stük"),
-	TEELOEFFEL("Teelöffel"), 
-	ESSLOEFFEL("Esslöffel"), 
+	STUECK("Stueck"),
+	TEELOEFFEL("Teeloeffel"), 
+	ESSLOEFFEL("Essloeffel"), 
 	BRISE("Brise"), 
 	SCHUSS("Schuss"),
 	TASSE("Tasse");

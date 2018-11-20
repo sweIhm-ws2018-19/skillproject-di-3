@@ -1,4 +1,4 @@
-package main.java.model;
+package main.java.verkocht.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +19,11 @@ public enum Category {
 		return name;
 	}
 	
-	public List<Category> getCategories() {
+	static public List<Category> getCategories() {
 		List<Category> returnList = new ArrayList<Category>();
 		returnList.add(MEAT);
-		returnList.add(VEGAN);
 		returnList.add(VEGETARIAN);
+		returnList.add(VEGAN);
 		
 		return returnList;
 	}

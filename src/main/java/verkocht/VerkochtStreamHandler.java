@@ -23,14 +23,16 @@ import main.java.verkocht.handlers.HelpIntentHandler;
 import main.java.verkocht.handlers.LaunchRequestHandler;
 import main.java.verkocht.handlers.MyColorIsIntentHandler;
 import main.java.verkocht.handlers.SessionEndedRequestHandler;
+import main.java.verkocht.handlers.TellMeCategoriesIntentHandler;
 import main.java.verkocht.handlers.WhatsMyColorIntentHandler;
 
-public class ColorPickerStreamHandler extends SkillStreamHandler {
+public class VerkochtStreamHandler extends SkillStreamHandler {
 
     private static Skill getSkill() {
         return Skills.standard()
                 .addRequestHandlers(
                         new WhatsMyColorIntentHandler(),
+                        new TellMeCategoriesIntentHandler(),
                         new MyColorIsIntentHandler(),
                         new LaunchRequestHandler(),
                         new CancelandStopIntentHandler(),
@@ -42,7 +44,7 @@ public class ColorPickerStreamHandler extends SkillStreamHandler {
                 .build();
     }
 
-    public ColorPickerStreamHandler() {
+    public VerkochtStreamHandler() {
         super(getSkill());
     }
 

@@ -38,6 +38,15 @@
           ]
         },
         {
+          "name": "TellMeCategoriesIntent",
+          "slots": [],
+          "samples": [
+            "welche Kategorien gibt es",
+            "was für Kategorien stehen zur Auswahl",
+            "sag mir alle Kategorien"
+          ]
+        },
+        {
           "name": "AMAZON.PauseIntent",
           "samples": []
         },

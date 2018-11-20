@@ -1,4 +1,4 @@
-package main.java.colorpicker.handlers;
+package main.java.verkocht.handlers;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;

@@ -15,7 +15,6 @@ package main.java.verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-import java.util.List;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -37,13 +36,13 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
     public Optional<Response> handle(HandlerInput input) {
         String speechText;
 //        String favoriteColor = (String) input.getAttributesManager().getSessionAttributes().get(COLOR_KEY);
-        List<Category> categories = Category.getCategories();
+        Category[] categories = Category.values();
         
         StringBuilder categoryString = new StringBuilder();
-        int length = categories.size();
+        int length = categories.length;
         
         for (int i = 0; i < length; i++) {
-            categoryString.append(categories.get(i).getName());
+            categoryString.append(categories[i].getName());
             
             if (i == length - 2) {
                 categoryString.append(" und ");

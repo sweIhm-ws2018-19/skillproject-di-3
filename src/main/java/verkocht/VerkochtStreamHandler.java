@@ -21,9 +21,16 @@ import main.java.verkocht.handlers.CancelandStopIntentHandler;
 import main.java.verkocht.handlers.FallbackIntentHandler;
 import main.java.verkocht.handlers.HelpIntentHandler;
 import main.java.verkocht.handlers.LaunchRequestHandler;
+import main.java.verkocht.handlers.ModifyRecipeIntentHandler;
 import main.java.verkocht.handlers.MyColorIsIntentHandler;
+import main.java.verkocht.handlers.SelectRecipeByCategorieIntentHandler;
+import main.java.verkocht.handlers.SelectRecipeByFavoritsIntentHandler;
+import main.java.verkocht.handlers.SelectRecipeByNameIntentHandler;
+import main.java.verkocht.handlers.SelectRecipeIntentHandler;
 import main.java.verkocht.handlers.SessionEndedRequestHandler;
+import main.java.verkocht.handlers.SetFavoriteIntentHandler;
 import main.java.verkocht.handlers.TellMeCategoriesIntentHandler;
+import main.java.verkocht.handlers.TellRecipeStepsIntentHandler;
 import main.java.verkocht.handlers.WhatsMyColorIntentHandler;
 
 public class VerkochtStreamHandler extends SkillStreamHandler {
@@ -31,9 +38,16 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
     private static Skill getSkill() {
         return Skills.standard()
                 .addRequestHandlers(
-                        new WhatsMyColorIntentHandler(),
+//                        new WhatsMyColorIntentHandler(),
+//                        new MyColorIsIntentHandler(),
                         new TellMeCategoriesIntentHandler(),
-                        new MyColorIsIntentHandler(),
+                        new ModifyRecipeIntentHandler(),
+                        new SelectRecipeByCategorieIntentHandler(),
+                        new SelectRecipeByFavoritsIntentHandler(),
+                        new SelectRecipeByNameIntentHandler(),
+                        new SelectRecipeIntentHandler(),
+                        new SetFavoriteIntentHandler(),
+                        new TellRecipeStepsIntentHandler(),
                         new LaunchRequestHandler(),
                         new CancelandStopIntentHandler(),
                         new SessionEndedRequestHandler(),

@@ -13,29 +13,28 @@
 
 package main.java.verkocht.handlers;
 
-import com.amazon.ask.dispatcher.request.handler.HandlerInput;
-import com.amazon.ask.dispatcher.request.handler.RequestHandler;
-import com.amazon.ask.model.LaunchRequest;
-import com.amazon.ask.model.Response;
+import static com.amazon.ask.request.Predicates.intentName;
 
 import java.util.Optional;
 
-import static com.amazon.ask.request.Predicates.requestType;
+import com.amazon.ask.dispatcher.request.handler.HandlerInput;
+import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.model.Response;
 
-public class LaunchRequestHandler implements RequestHandler {
+public class SelectRecipeIntentHandler implements RequestHandler {
+
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(requestType(LaunchRequest.class));
+        return input.matches(intentName("SelectRecipeIntent"));
     }
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hallo. Ich bin dein interaktives Kochbuch \"Verkocht\"! Was willst du tun?";
-        String repromptText = "Bitte nenne mir dein Anliegen.";
+        String speechText = "Hier kannst du spaeter ein Rezept auswaehlen.";
+
         return input.getResponseBuilder()
-                .withSimpleCard("CookingSession", speechText)
                 .withSpeech(speechText)
-                .withReprompt(repromptText)
+                .withSimpleCard("CookingSession", speechText)
                 .build();
     }
 }

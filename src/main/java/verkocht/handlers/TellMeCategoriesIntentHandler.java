@@ -63,7 +63,7 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("ColorSession", speechText)
+                .withSimpleCard("CookingSession", speechText)
                 .build();
     }
 }

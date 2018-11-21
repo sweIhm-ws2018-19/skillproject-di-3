@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "lieblingsfarbe",
+      "invocationName": "verkocht",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -16,34 +16,75 @@
           "samples": []
         },
         {
-          "name": "MyColorIsIntent",
-          "slots": [
-            {
-              "name": "Color",
-              "type": "LIST_OF_COLORS"
-            }
-          ],
-          "samples": [
-            " Meine Lieblingsfarbe ist {Color}",
-            " Ich mag {Color}"
-          ]
-        },
-        {
-          "name": "WhatsMyColorIntent",
-          "slots": [],
-          "samples": [
-            "was ist meine Lieblingsfarbe",
-            "welche Farbe mag ich am liebsten",
-            "sag mir meine Lieblingsfarbe"
-          ]
-        },
-        {
           "name": "TellMeCategoriesIntent",
           "slots": [],
           "samples": [
             "welche Kategorien gibt es",
             "was für Kategorien stehen zur Auswahl",
             "sag mir alle Kategorien"
+          ]
+        },
+        {
+          "name": "SetFavoriteIntent",
+          "slots": [],
+          "samples": [
+            "ich möchte ein Rezept favorisieren",
+            "ich habe einen Favoriten",
+            "speicherst du einen Favorit für mich"
+          ]
+        },
+        {
+          "name": "SelectRecipeIntent",
+          "slots": [],
+          "samples": [
+            "ich möchte ein Rezept auswählen",
+            "wie wähle ich ein Rezept aus",
+            "zur Rezeptauswahl"
+          ]
+        },
+        {
+          "name": "SelectRecipeByFavoritsIntent",
+          "slots": [],
+          "samples": [
+            "ich möchte einen Favoriten auswählen",
+            "welche Favoriten kann ich wählen",
+            "zur Favoritenauswahl"
+          ]
+        },
+        {
+          "name": "SelectRecipeByCategoryIntent",
+          "slots": [],
+          "samples": [
+            "ich möchte nach Kategorien auswählen",
+            "nach welchen Kategorien kann ich ein Rezept wählen",
+            "zur Kategorieauswahl"
+          ]
+        },
+        {
+          "name": "SelectRecipeByNameIntent",
+          "slots": [],
+          "samples": [
+            "ich möchte direkt ein Rezept auswählen",
+            "Rezeptnamen sagen",
+            "zur Namenauswahl"
+          ]
+        },
+        {
+          "name": "TellRecipeStepsIntent",
+          "slots": [],
+          "samples": [
+            "kannst du mir die Rezeptschritte sagen",
+            "welche Schritte muss ich befolge",
+            "was für Schritte sind wichtig"
+          ]
+        },
+        {
+          "name": "ModifyRecipeIntent",
+          "slots": [],
+          "samples": [
+            "ich möchte das Rezept ändern",
+            "kann ich ein Rezept ändern",
+            "Ändere ein Rezept für mich"
           ]
         },
         {
@@ -55,53 +96,6 @@
           "samples": []
         }
       ],
-      "types": [
-        {
-          "name": "LIST_OF_COLORS",
-          "values": [
-            {
-              "name": {
-                "value": "grÃ¼n"
-              }
-            },
-            {
-              "name": {
-                "value": "blau"
-              }
-            },
-            {
-              "name": {
-                "value": "lila"
-              }
-            },
-            {
-              "name": {
-                "value": "rot"
-              }
-            },
-            {
-              "name": {
-                "value": "orange"
-              }
-            },
-            {
-              "name": {
-                "value": "rosa"
-              }
-            },
-            {
-              "name": {
-                "value": "tÃ¼rkis"
-              }
-            },
-            {
-              "name": {
-                "value": "gelb"
-              }
-            }
-          ]
-        }
-      ]
     }
   }
 }

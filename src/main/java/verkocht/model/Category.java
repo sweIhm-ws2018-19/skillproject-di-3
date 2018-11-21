@@ -1,10 +1,7 @@
 package main.java.verkocht.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /*
- * 
+ * Class that represents all categories of the cooking book.
  */
 public enum Category {
 	MEAT("Fleisch"), VEGETARIAN("Vegetarisch"), VEGAN("Vegan");
@@ -17,14 +14,5 @@ public enum Category {
 	
 	public String getName() {
 		return name;
-	}
-	
-	static public List<Category> getCategories() {
-		List<Category> returnList = new ArrayList<Category>();
-		returnList.add(MEAT);
-		returnList.add(VEGETARIAN);
-		returnList.add(VEGAN);
-		
-		return returnList;
 	}
 }

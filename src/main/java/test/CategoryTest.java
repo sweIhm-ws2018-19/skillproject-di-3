@@ -1,6 +1,6 @@
-package main.java.verkocht.tests;
+package main.java.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 

@@ -11,27 +11,25 @@
      the specific language governing permissions and limitations under the License.
 */
 
-package main.java.verkocht;
+package verkocht;
 
 import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
 
-import main.java.verkocht.handlers.CancelandStopIntentHandler;
-import main.java.verkocht.handlers.FallbackIntentHandler;
-import main.java.verkocht.handlers.HelpIntentHandler;
-import main.java.verkocht.handlers.LaunchRequestHandler;
-import main.java.verkocht.handlers.ModifyRecipeIntentHandler;
-import main.java.verkocht.handlers.MyColorIsIntentHandler;
-import main.java.verkocht.handlers.SelectRecipeByCategorieIntentHandler;
-import main.java.verkocht.handlers.SelectRecipeByFavoritsIntentHandler;
-import main.java.verkocht.handlers.SelectRecipeByNameIntentHandler;
-import main.java.verkocht.handlers.SelectRecipeIntentHandler;
-import main.java.verkocht.handlers.SessionEndedRequestHandler;
-import main.java.verkocht.handlers.SetFavoriteIntentHandler;
-import main.java.verkocht.handlers.TellMeCategoriesIntentHandler;
-import main.java.verkocht.handlers.TellRecipeStepsIntentHandler;
-import main.java.verkocht.handlers.WhatsMyColorIntentHandler;
+import verkocht.handlers.CancelandStopIntentHandler;
+import verkocht.handlers.FallbackIntentHandler;
+import verkocht.handlers.HelpIntentHandler;
+import verkocht.handlers.LaunchRequestHandler;
+import verkocht.handlers.ModifyRecipeIntentHandler;
+import verkocht.handlers.SelectRecipeByCategorieIntentHandler;
+import verkocht.handlers.SelectRecipeByFavoritsIntentHandler;
+import verkocht.handlers.SelectRecipeByNameIntentHandler;
+import verkocht.handlers.SelectRecipeIntentHandler;
+import verkocht.handlers.SessionEndedRequestHandler;
+import verkocht.handlers.SetFavoriteIntentHandler;
+import verkocht.handlers.TellMeCategoriesIntentHandler;
+import verkocht.handlers.TellRecipeStepsIntentHandler;
 
 public class VerkochtStreamHandler extends SkillStreamHandler {
 

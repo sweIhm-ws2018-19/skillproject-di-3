@@ -1,4 +1,4 @@
-package main.java.verkocht.model;
+package verkocht.model;
 
 /*
  * Class that represents all categories of the cooking book.

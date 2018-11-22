@@ -11,7 +11,7 @@
      the specific language governing permissions and limitations under the License.
 */
 
-package main.java.verkocht.handlers;
+package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
@@ -21,7 +21,7 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
-import main.java.verkocht.model.Category;
+import verkocht.model.Category;
 
 public class TellMeCategoriesIntentHandler implements RequestHandler {
 //    public static final String COLOR_KEY = "COLOR";

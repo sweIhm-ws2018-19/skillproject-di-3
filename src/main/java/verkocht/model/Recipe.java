@@ -1,4 +1,4 @@
-package main.java.verkocht.model;
+package verkocht.model;
 
 import java.util.List;
 import java.util.Map;

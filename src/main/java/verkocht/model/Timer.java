@@ -1,4 +1,4 @@
-package main.java.verkocht.model;
+package verkocht.model;
 
 /*
  * 

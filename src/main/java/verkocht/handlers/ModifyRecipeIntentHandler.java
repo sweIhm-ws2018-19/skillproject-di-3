@@ -11,7 +11,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 the specific language governing permissions and limitations under the License.
 */
 
-package main.java.verkocht.handlers;
+package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 

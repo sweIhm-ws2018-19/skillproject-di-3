@@ -1,8 +1,10 @@
-package main.java.verkocht.model;
+package main.java.verkocht.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import main.java.verkocht.model.Category;
 
 public class CategoryTest {
 	

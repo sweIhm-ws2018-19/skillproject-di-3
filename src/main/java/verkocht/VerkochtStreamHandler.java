@@ -40,7 +40,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                 .addRequestHandlers(
 //                        new WhatsMyColorIntentHandler(),
 //                        new MyColorIsIntentHandler(),
-                        new TellMeCategoriesIntentHandler(),
+                		new TellMeCategoriesIntentHandler(),
                         new ModifyRecipeIntentHandler(),
                         new SelectRecipeByCategorieIntentHandler(),
                         new SelectRecipeByFavoritsIntentHandler(),

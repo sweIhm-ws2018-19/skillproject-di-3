@@ -13,6 +13,10 @@ public class Recipe {
 	private Category category;
 	private Map<Ingredient, Integer> ingredientAmounts;
 	
+	public Category getCategory(){
+		return category;
+	}
+	
 	/**
 	 * 
 	 * @return
@@ -20,6 +24,7 @@ public class Recipe {
 	public Map<Ingredient, Integer> getIngredients() {
 		return this.ingredientAmounts;
 	}
+	
 	
 	/**
 	 * 

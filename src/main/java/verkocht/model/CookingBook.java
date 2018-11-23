@@ -7,11 +7,8 @@ import java.util.List;
  */
 public class CookingBook {
 	private List<Recipe> favorites;
-	private List<Recipe> allRecipes;
+	private static List<Recipe> allRecipes;
 	private List<Ingredient> allIngredients;
-	private List<Recipe> meatRecipes;
-	private List<Recipe> vegetarianRecipes;
-	private List<Recipe> veganRecipes;
 	
 	public CookingBook() {
 		// Schnitzel
@@ -19,21 +16,38 @@ public class CookingBook {
 		meatRecipe.getIngredients().put(new Ingredient("Fleisch", Unit.GRAMM), 200);
 		meatRecipe.getIngredients().put(new Ingredient("Eier", Unit.STUECK), 1);
 		meatRecipe.getIngredients().put(new Ingredient("Mehl", Unit.GRAMM), 100);
-		meatRecipes.add(meatRecipe);
+		allRecipes.add(meatRecipe);
 		
 		// Erdbeermilchshake
 		Recipe vegetarianRecipe = new Recipe();
 		vegetarianRecipe.getIngredients().put(new Ingredient("Erdbeeren", Unit.GRAMM), 100);
 		vegetarianRecipe.getIngredients().put(new Ingredient("Milch", Unit.MILLILITER), 500);
 		vegetarianRecipe.getIngredients().put(new Ingredient("Zucker", Unit.GRAMM), 50);
-		vegetarianRecipes.add(vegetarianRecipe);
+		allRecipes.add(vegetarianRecipe);
 		
 		// Nudeln mit Tomatensauce
 		Recipe veganRecipe = new Recipe();
 		veganRecipe.getIngredients().put(new Ingredient("Nudeln", Unit.GRAMM), 200);
 		veganRecipe.getIngredients().put(new Ingredient("Salz", Unit.BRISE), 1);
 		veganRecipe.getIngredients().put(new Ingredient("Tomatensauce", Unit.GRAMM), 100);
-		veganRecipes.add(veganRecipe);
+		allRecipes.add(veganRecipe);
+		
+		Recipe asiaWok = new Recipe();
+		asiaWok.getIngredients().put(new Ingredient("Knochblauchzehe", Unit.STUECK), 1);
+		asiaWok.getIngredients().put(new Ingredient("Ingwer", Unit.GRAMM), 20);
+		asiaWok.getIngredients().put(new Ingredient("Tofu", Unit.GRAMM), 400);
+		asiaWok.getIngredients().put(new Ingredient("Sojasauce", Unit.ESSLOEFFEL), 4);
+		asiaWok.getIngredients().put(new Ingredient("Currypulver", Unit.TEELOEFFEL), 2);
+		asiaWok.getIngredients().put(new Ingredient("Aubergine", Unit.STUECK), 1);
+		asiaWok.getIngredients().put(new Ingredient("gelbe Paprika", Unit.STUECK), 1);
+		asiaWok.getIngredients().put(new Ingredient("grüne Paprika", Unit.STUECK), 1);
+		asiaWok.getIngredients().put(new Ingredient("Sonnenblumenoel", Unit.SCHUSS), 1);
+		asiaWok.getIngredients().put(new Ingredient("Salz", Unit.BRISE), 1);
+		asiaWok.getIngredients().put(new Ingredient("Spinat", Unit.GRAMM), 250);
+		asiaWok.getIngredients().put(new Ingredient("Koriander", Unit.STUECK), 1);
+		asiaWok.getIngredients().put(new Ingredient("Kokusmilch", Unit.MILLILITER), 300);
+		asiaWok.getIngredients().put(new Ingredient("Woknudeln", Unit.GRAMM), 250);
+		allRecipes.add(asiaWok);
 	}
 	
 	/**
@@ -50,14 +64,30 @@ public class CookingBook {
 	 * @param category
 	 * @return
 	 */
-	public List<Recipe> findByCategory(Category category) {
+	public static List<Recipe> findByCategory(Category category) {
+		List<Recipe> a = null;
 		switch (category) {
 		case MEAT:
-			return  meatRecipes;
+			for (int i = 0; i < allRecipes.size(); i++) {
+				if(allRecipes.get(i).getCategory() == category.MEAT) {
+				a.add(allRecipes.get(i));
+				}
+			}
+			return a;
 		case VEGETARIAN:
-			return vegetarianRecipes;
+			for (int i = 0; i < allRecipes.size(); i++) {
+				if(allRecipes.get(i).getCategory() == category.VEGETARIAN) {
+				a.add(allRecipes.get(i));
+				}
+			}
+			return a;
 		case VEGAN:
-			return veganRecipes;
+			for (int i = 0; i < allRecipes.size(); i++) {
+				if(allRecipes.get(i).getCategory() == category.VEGAN) {
+				a.add(allRecipes.get(i));
+				}
+			}
+			return a;
 		default:
 			throw new IllegalArgumentException("Unbekannte Kategorie: "+ category);
 		}

@@ -45,7 +45,19 @@ public class CookingBook {
 	 * @return
 	 */
 	public Recipe findByCategory(Category category) {
-		return null;
+		switch (category) {
+		case MEAT:
+			return meatRecipe;
+			break;
+		case VEGETARIAN:
+			return vegetarianRecipe;
+			break;
+		case VEGAN:
+			return veganRecipe;
+			break;
+		default:
+			throw new IllegalArgumentException("Unbekannte Kategorie: "+ category);
+		}
 	}
 	
 	/**

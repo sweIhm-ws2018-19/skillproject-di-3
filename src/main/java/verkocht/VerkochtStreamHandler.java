@@ -22,7 +22,7 @@ import verkocht.handlers.FallbackIntentHandler;
 import verkocht.handlers.HelpIntentHandler;
 import verkocht.handlers.LaunchRequestHandler;
 import verkocht.handlers.ModifyRecipeIntentHandler;
-import verkocht.handlers.SelectRecipeByCategorieIntentHandler;
+import verkocht.handlers.SelectRecipeByCategoryIntentHandler;
 import verkocht.handlers.SelectRecipeByFavoritsIntentHandler;
 import verkocht.handlers.SelectRecipeByNameIntentHandler;
 import verkocht.handlers.SelectRecipeIntentHandler;
@@ -40,7 +40,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
 //                        new MyColorIsIntentHandler(),
                 		new TellMeCategoriesIntentHandler(),
                         new ModifyRecipeIntentHandler(),
-                        new SelectRecipeByCategorieIntentHandler(),
+                        new SelectRecipeByCategoryIntentHandler(),
                         new SelectRecipeByFavoritsIntentHandler(),
                         new SelectRecipeByNameIntentHandler(),
                         new SelectRecipeIntentHandler(),

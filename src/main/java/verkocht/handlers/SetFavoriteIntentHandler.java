@@ -34,7 +34,8 @@ public class SetFavoriteIntentHandler implements RequestHandler {
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("CookingSession", speechText)
+                .withSimpleCard("Favorit setzen", speechText)
+                .withShouldEndSession(false)
                 .build();
     }
 }

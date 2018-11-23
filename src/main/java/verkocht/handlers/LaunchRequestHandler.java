@@ -31,9 +31,9 @@ public class LaunchRequestHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput input) {
         String speechText = "Hallo. Ich bin dein interaktives Kochbuch \"Verkocht\"! Was willst du tun?";
-        String repromptText = "Bitte nenne mir dein Anliegen.";
+        String repromptText = "Sage zum Beispiel: Welche Kategorien gibt es?";
         return input.getResponseBuilder()
-                .withSimpleCard("CookingSession", speechText)
+                .withSimpleCard("Verkocht!", speechText)
                 .withSpeech(speechText)
                 .withReprompt(repromptText)
                 .build();

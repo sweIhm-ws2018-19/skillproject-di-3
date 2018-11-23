@@ -34,7 +34,8 @@ public class SelectRecipeIntentHandler implements RequestHandler {
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("CookingSession", speechText)
+                .withSimpleCard("Rezeptauswahl", speechText)
+                .withShouldEndSession(false)
                 .build();
     }
 }

@@ -21,11 +21,11 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
-public class SelectRecipeByCategorieIntentHandler implements RequestHandler {
+public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("SelectRecipeByCategorieIntent"));
+        return input.matches(intentName("SelectRecipeByCategoryIntent"));
     }
 
     @Override
@@ -34,7 +34,8 @@ public class SelectRecipeByCategorieIntentHandler implements RequestHandler {
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("CookingSession", speechText)
+                .withSimpleCard("Rezeptauswahl", speechText)
+                .withShouldEndSession(false)
                 .build();
     }
 }

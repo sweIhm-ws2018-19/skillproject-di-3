@@ -24,8 +24,6 @@ import com.amazon.ask.model.Response;
 import verkocht.model.Category;
 
 public class TellMeCategoriesIntentHandler implements RequestHandler {
-//    public static final String COLOR_KEY = "COLOR";
-//    public static final String COLOR_SLOT = "Color";
 
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -54,7 +52,7 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
         String respone = categoryString.toString();
 
         if (respone != null && !respone.isEmpty()) {
-            speechText = String.format("Folgende Kategorien stehen zur Auswahl: %s. Auf Wiedersehen.", respone);
+            speechText = String.format("Folgende Kategorien stehen zur Auswahl: %s.", respone);
         } else {
             // Since the user's favorite color is not set render an error message.
             speechText = "Ich kann dir leider im Moment nicht helfen. Tut mir Leid.";
@@ -62,7 +60,8 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("CookingSession", speechText)
+                .withSimpleCard("Deine Kategorien", speechText)
+                .withShouldEndSession(false)
                 .build();
     }
 }

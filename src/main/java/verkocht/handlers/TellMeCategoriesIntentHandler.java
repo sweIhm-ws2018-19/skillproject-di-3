@@ -23,6 +23,10 @@ import com.amazon.ask.model.Response;
 
 import verkocht.model.Category;
 
+/**
+ * Intent handler that tells the user the current available categories out
+ * of a array of value from the Enum "Category" of the cooking book.
+ */
 public class TellMeCategoriesIntentHandler implements RequestHandler {
 
     @Override
@@ -33,7 +37,6 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput input) {
         String speechText;
-//        String favoriteColor = (String) input.getAttributesManager().getSessionAttributes().get(COLOR_KEY);
         Category[] categories = Category.values();
         
         StringBuilder categoryString = new StringBuilder();

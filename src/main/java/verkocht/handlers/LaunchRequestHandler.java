@@ -23,6 +23,10 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 
+/**
+ * Intent handler that greets the user. If nothing is said, the skill will repromt
+ * with a random pick of available repromts.
+ */
 public class LaunchRequestHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {

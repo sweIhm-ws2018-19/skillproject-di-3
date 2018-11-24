@@ -10,6 +10,10 @@ public class CookingBook {
 	private static List<Recipe> allRecipes;
 	private List<Ingredient> allIngredients;
 	
+	public List<Recipe> getAllRecipes() {
+		return allRecipes;
+	}
+	
 	public CookingBook() {
 		// Schnitzel
 		Recipe meatRecipe = new Recipe();
@@ -64,25 +68,25 @@ public class CookingBook {
 	 * @param category
 	 * @return
 	 */
-	public static List<Recipe> findByCategory(Category category) {
+	public List<Recipe> findByCategory(Category category) {
 		List<Recipe> a = null;
 		switch (category) {
 		case MEAT:
-			for (int i = 0; i < allRecipes.size(); i++) {
+			for (int i = 0; i <= allRecipes.size(); i++) {
 				if(allRecipes.get(i).getCategory() == category.MEAT) {
 				a.add(allRecipes.get(i));
 				}
 			}
 			return a;
 		case VEGETARIAN:
-			for (int i = 0; i < allRecipes.size(); i++) {
+			for (int i = 0; i <= allRecipes.size(); i++) {
 				if(allRecipes.get(i).getCategory() == category.VEGETARIAN) {
 				a.add(allRecipes.get(i));
 				}
 			}
 			return a;
 		case VEGAN:
-			for (int i = 0; i < allRecipes.size(); i++) {
+			for (int i = 0; i <= allRecipes.size(); i++) {
 				if(allRecipes.get(i).getCategory() == category.VEGAN) {
 				a.add(allRecipes.get(i));
 				}

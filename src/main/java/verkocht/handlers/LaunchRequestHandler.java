@@ -36,7 +36,7 @@ public class LaunchRequestHandler implements RequestHandler {
     	String[] repromts = {"Sage zum Beispiel: Welche Kategorien gibt es?",
     			"Sage zum Beispiel: Zur Rezeptauswahl",
     			"Sage zum Beispiel: Ich habe einen Favoriten",
-    			"Ich kann dir helfen, sage zum Beispiel: Wie wähle ich ein Rezept aus?"};
+    			"Ich kann dir helfen, sage zum Beispiel: Wie waehle ich ein Rezept aus?"};
     	
         String speechText = "Hallo. Ich bin dein interaktives Kochbuch \"Verkocht\"! Was willst du tun?";
         String repromptText = repromts[rnd.nextInt(repromts.length)];

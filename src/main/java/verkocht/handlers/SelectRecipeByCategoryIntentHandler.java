@@ -35,6 +35,7 @@ public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("Rezeptauswahl", speechText)
+                .withReprompt("Wie kann ich dir helfen?")
                 .withShouldEndSession(false)
                 .build();
     }

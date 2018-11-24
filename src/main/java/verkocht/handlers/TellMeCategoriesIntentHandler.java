@@ -61,6 +61,7 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("Deine Kategorien", speechText)
+                .withReprompt("Wie kann ich dir helfen?")
                 .withShouldEndSession(false)
                 .build();
     }

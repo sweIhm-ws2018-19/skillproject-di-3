@@ -23,19 +23,16 @@ import com.amazon.ask.model.Response;
 
 public class SelectRecipeByNameIntentHandler implements RequestHandler {
 
-@Override
-public boolean canHandle(HandlerInput input) {
-   return input.matches(intentName("SelectRecipeByNameIntent"));
-}
+    @Override
+    public boolean canHandle(HandlerInput input) {
+        return input.matches(intentName("SelectRecipeByNameIntent"));
+    }
 
-@Override
-public Optional<Response> handle(HandlerInput input) {
-   String speechText = "Hier kannst du spaeter ein Rezept nach seinem Namen auswaehlen.";
+    @Override
+    public Optional<Response> handle(HandlerInput input) {
+        String speechText = "Hier kannst du spaeter ein Rezept nach seinem Namen auswaehlen.";
 
-   return input.getResponseBuilder()
-           .withSpeech(speechText)
-           .withSimpleCard("Rezeptauswahl", speechText)
-           .withShouldEndSession(false)
-           .build();
-}
+        return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptauswahl", speechText)
+                .withShouldEndSession(false).build();
+    }
 }

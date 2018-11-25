@@ -39,18 +39,19 @@ public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
     public Optional<Response> handle(HandlerInput input) {
         AttributesManager attributesManager = input.getAttributesManager();
         List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get("FavoritRecipes");
-        
         StringBuilder allFavorites = null;
-        for (String string : listOfFavorites) {
-            allFavorites.append(string);
+        if (listOfFavorites != null) {
+            for (String string : listOfFavorites) {
+                allFavorites.append(string);
+            }
         }
-        
+
         String favoritesString = allFavorites.toString();
         String speechText = "Das sind alle deine Favoriten: %s. Wähle eine deiner Favoriten für den nächsten Schritt aus.";
         if (favoritesString.isEmpty()) {
             speechText = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
         }
-       
+
         Request request = input.getRequestEnvelope().getRequest();
         IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();

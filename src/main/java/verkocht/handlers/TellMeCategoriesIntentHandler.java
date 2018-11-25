@@ -23,6 +23,7 @@ import com.amazon.ask.model.Response;
 
 import verkocht.model.Category;
 
+
 public class TellMeCategoriesIntentHandler implements RequestHandler {
 //    public static final String COLOR_KEY = "COLOR";
 //    public static final String COLOR_SLOT = "Color";
@@ -39,7 +40,7 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
         Category[] categories = Category.values();
         
         StringBuilder categoryString = new StringBuilder();
-        int length = categories.length;
+        int length = categories.length; 
         
         for (int i = 0; i < length; i++) {
             categoryString.append(categories[i].getName());

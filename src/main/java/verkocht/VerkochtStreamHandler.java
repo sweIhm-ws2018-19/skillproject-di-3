@@ -24,7 +24,8 @@ import verkocht.handlers.LaunchRequestHandler;
 import verkocht.handlers.ModifyRecipeIntentHandler;
 import verkocht.handlers.SelectRecipeByCategoryIntentHandler;
 import verkocht.handlers.SelectRecipeByFavoritsIntentHandler;
-import verkocht.handlers.SelectRecipeByNameIntentHandler;
+import verkocht.handlers.SelectRecipeByNameStartIntentHandler;
+import verkocht.handlers.SelectRecipeByNameInputRecipeIntentHandler;
 import verkocht.handlers.SelectRecipeIntentHandler;
 import verkocht.handlers.SessionEndedRequestHandler;
 import verkocht.handlers.SetFavoriteIntentHandler;
@@ -42,8 +43,9 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new ModifyRecipeIntentHandler(),
                         new SelectRecipeByCategoryIntentHandler(),
                         new SelectRecipeByFavoritsIntentHandler(),
-                        new SelectRecipeByNameIntentHandler(),
-                        new SelectRecipeIntentHandler(),
+                        new SelectRecipeByNameInputRecipeIntentHandler(),
+                        new SelectRecipeByNameStartIntentHandler(),
+//                        new SelectRecipeIntentHandler(),
                         new SetFavoriteIntentHandler(),
                         new TellRecipeStepsIntentHandler(),
                         new LaunchRequestHandler(),

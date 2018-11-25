@@ -1,101 +1,130 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "verkocht",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "TellMeCategoriesIntent",
-          "slots": [],
-          "samples": [
-            "welche Kategorien gibt es",
-            "was für Kategorien stehen zur Auswahl",
-            "sag mir alle Kategorien"
-          ]
-        },
-        {
-          "name": "SetFavoriteIntent",
-          "slots": [],
-          "samples": [
-            "ich möchte ein Rezept favorisieren",
-            "ich habe einen Favoriten",
-            "speicherst du einen Favorit für mich"
-          ]
-        },
-        {
-          "name": "SelectRecipeIntent",
-          "slots": [],
-          "samples": [
-            "ich möchte ein Rezept auswählen",
-            "wie wähle ich ein Rezept aus",
-            "zur Rezeptauswahl"
-          ]
-        },
-        {
-          "name": "SelectRecipeByFavoritsIntent",
-          "slots": [],
-          "samples": [
-            "ich möchte einen Favoriten auswählen",
-            "welche Favoriten kann ich wählen",
-            "zur Favoritenauswahl"
-          ]
-        },
-        {
-          "name": "SelectRecipeByCategoryIntent",
-          "slots": [],
-          "samples": [
-            "ich möchte nach Kategorien auswählen",
-            "nach welchen Kategorien kann ich ein Rezept wählen",
-            "zur Kategorieauswahl"
-          ]
-        },
-        {
-          "name": "SelectRecipeByNameIntent",
-          "slots": [],
-          "samples": [
-            "ich möchte direkt ein Rezept auswählen",
-            "Rezeptnamen sagen",
-            "zur Namenauswahl"
-          ]
-        },
-        {
-          "name": "TellRecipeStepsIntent",
-          "slots": [],
-          "samples": [
-            "kannst du mir die Rezeptschritte sagen",
-            "welche Schritte muss ich befolge",
-            "was für Schritte sind wichtig"
-          ]
-        },
-        {
-          "name": "ModifyRecipeIntent",
-          "slots": [],
-          "samples": [
-            "ich möchte das Rezept ändern",
-            "kann ich ein Rezept ändern",
-            "Ändere ein Rezept für mich"
-          ]
-        },
-        {
-          "name": "AMAZON.PauseIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.ResumeIntent",
-          "samples": []
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "verkocht",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "TellMeCategoriesIntent",
+                    "slots": [],
+                    "samples": [
+                        "welche Kategorien gibt es",
+                        "was fÃ¼r Kategorien stehen zur Auswahl",
+                        "sag mir alle Kategorien"
+                    ]
+                },
+                {
+                    "name": "SetFavoriteIntent",
+                    "slots": [],
+                    "samples": [
+                        "ich mÃ¶chte ein Rezept favorisieren",
+                        "ich habe einen Favoriten",
+                        "speicherst du einen Favorit fÃ¼r mich"
+                    ]
+                },
+                {
+                    "name": "SelectRecipeByFavoritsIntent",
+                    "slots": [],
+                    "samples": [
+                        "ich mÃ¶chte einen Favoriten auswÃ¤hlen",
+                        "welche Favoriten kann ich wÃ¤hlen",
+                        "zur Favoritenauswahl"
+                    ]
+                },
+                {
+                    "name": "SelectRecipeByCategoryIntent",
+                    "slots": [],
+                    "samples": [
+                        "ich mÃ¶chte nach Kategorien auswÃ¤hlen",
+                        "nach welchen Kategorien kann ich ein Rezept wÃ¤hlen",
+                        "zur Kategorieauswahl"
+                    ]
+                },
+                {
+                    "name": "SelectRecipeByNameStartIntent",
+					"slots": [],
+                    "samples": [
+                        "ich mÃ¶chte direkt ein Rezept auswÃ¤hlen ",
+                        "Rezeptnamen sagen ",
+                        "zur Namenauswahl "
+                    ]
+                },                
+                
+                {
+                    "name": "SelectRecipeByNameInputRecipeIntent",
+                    "slots": [
+                        {
+                            "name": "Recipe",
+                            "type": "LIST_OF_RECIPES"
+                        }
+                    ],
+                    "samples": [
+                        "Ich mÃ¶chte das Rezept {Recipe} anhÃ¶ren",
+                        "Ich hÃ¤tte gerne das Rezept {Recipe}",
+                        "Kannst du das Rezept {Recipe} vorlesen"
+                    ]
+                },
+                
+                {
+                    "name": "TellRecipeStepsIntent",
+                    "slots": [],
+                    "samples": [
+                        "kannst du mir die Rezeptschritte sagen",
+                        "welche Schritte muss ich befolge",
+                        "was fÃ¼r Schritte sind wichtig"
+                    ]
+                },
+                {
+                    "name": "ModifyRecipeIntent",
+                    "slots": [],
+                    "samples": [
+                        "ich mÃ¶chte das Rezept Ã¤ndern",
+                        "kann ich ein Rezept Ã¤ndern",
+                        "Ã¤ndere ein Rezept fÃ¼r mich"
+                    ]
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_RECIPES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "spagettiBolognese"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "schnitzel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "milchschake"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
-      ],
     }
-  }
 }

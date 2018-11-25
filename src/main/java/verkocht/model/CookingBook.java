@@ -2,7 +2,6 @@ package verkocht.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /*
  * The cooking book that holds all recipes and categories.

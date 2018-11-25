@@ -17,6 +17,7 @@ public class CookingBookTest {
         assertEquals("Incorrect value", cookingBook.getAllRecipes().get(0), cookingBook.findByName("schnitzel") );
         assertEquals("Incorrect value",cookingBook.getAllRecipes().get(1), cookingBook.findByName("milchshake"));
         assertEquals("Incorrect value", cookingBook.getAllRecipes().get(2), cookingBook.findByName("nudelnMitTomatensoße"));
+        assertEquals("Incorrect value", null, cookingBook.findByName("nudeln"));
  
         
     }

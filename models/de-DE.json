@@ -72,7 +72,8 @@
                     "samples": [
                         "Ich möchte das Rezept {Recipe} anhören",
                         "Ich hätte gerne das Rezept {Recipe}",
-                        "Kannst du das Rezept {Recipe} vorlesen"
+                        "Kannst du das Rezept {Recipe} vorlesen",
+                        "Ich möchte {Recipe} kochen"
                     ]
                 },
                 

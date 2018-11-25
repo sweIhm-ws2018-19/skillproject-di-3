@@ -31,6 +31,9 @@ import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
+import verkocht.model.CookingBook;
+import verkocht.model.Recipe;
+
 public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandler {
     public static final String RECIPE_KEY = "RECIPE";
     public static final String RECIPE_SLOT = "Recipe";
@@ -59,12 +62,18 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
         String chosenRecipe = chosenRecipeSlot.getValue();
         input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
 
-        String recipe = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
-
+        String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
+        CookingBook cookingBook = new CookingBook();
+        Recipe foundRecipe = cookingBook.findByName(recipeOriginal);
+        String recipe;
+        if (foundRecipe == null) {
+            recipe = null; 
+        }else {
+            recipe = foundRecipe.getName();
+        }
         if (recipe != null && !recipe.isEmpty()) {
             speechText = String.format("Ich lese dir das Rezept %s vor.", recipe);
         } else {
-            // Since the user's favorite color is not set render an error message.
            speechText = "Ich weiss nicht welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich möchte Schnitzel kochen.";
         }
         

@@ -13,14 +13,17 @@
 
 package verkocht.handlers;
 
+import static com.amazon.ask.request.Predicates.requestType;
+
+import java.util.Optional;
+
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 
-import java.util.Optional;
+import verkocht.model.PhrasesForAlexa;
 
-import static com.amazon.ask.request.Predicates.requestType;
 
 public class LaunchRequestHandler implements RequestHandler {
     @Override
@@ -30,7 +33,7 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hallo. Ich bin dein interaktives Kochbuch \"Verkocht\"! Was willst du tun?";
+        String speechText = PhrasesForAlexa.WELCOME;
         String repromptText = "Bitte nenne mir dein Anliegen.";
         return input.getResponseBuilder()
                 .withSimpleCard("CookingSession", speechText)

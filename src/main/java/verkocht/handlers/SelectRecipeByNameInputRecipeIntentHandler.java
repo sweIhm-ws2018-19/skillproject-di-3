@@ -33,7 +33,11 @@ import com.amazon.ask.model.Slot;
 
 import verkocht.model.CookingBook;
 import verkocht.model.Recipe;
-
+/**
+ * Handler to get the requested recipe from the cooking book
+ * 
+ *
+ */
 public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandler {
     public static final String RECIPE_KEY = "RECIPE";
     public static final String RECIPE_SLOT = "Recipe";
@@ -45,33 +49,33 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        
+        //create the welcome message for this intent
         String speechText = "Bitte nenne das Rezept, das vorgelesen werden soll.";
         Request request = input.getRequestEnvelope().getRequest();
+        //get request from the user
         IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();
+        // get slots of the request
         Map<String, Slot> slots = intent.getSlots();
 
-        // Get the recipe slot from the list of slots.
+        // get the recipe slot from the list of slots.
         Slot chosenRecipeSlot = slots.get(RECIPE_SLOT);
 
-        // boolean isAskResponse = false;
-
-        // if (chosenRecipeSlot != null) {
-        // Store the user's recipe in the Session and create response.
+        // store the user's recipe in the session and create response.
         String chosenRecipe = chosenRecipeSlot.getValue();
         input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
 
+        // get recipe name from the response
         String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
         CookingBook cookingBook = new CookingBook();
-        Recipe foundRecipe = cookingBook.findByName(recipeOriginal);
-        String recipe;
-        if (foundRecipe == null) {
+        Recipe foundRecipe = cookingBook.findByName(recipeOriginal);//recipe returned 
+        String recipe; //recipe name as String
+        if (foundRecipe == null) {//recipe could not be found
             recipe = null; 
         }else {
-            recipe = foundRecipe.getName();
+            recipe = foundRecipe.getName(); //recipe could be found
         }
-        if (recipe != null && !recipe.isEmpty()) {
+        if (recipe != null && !recipe.isEmpty()) {//string is not empty and not null
             speechText = String.format("Ich lese dir das Rezept %s vor.", recipe);
         } else {
            speechText = "Ich weiss nicht welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich möchte Schnitzel kochen.";

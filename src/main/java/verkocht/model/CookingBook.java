@@ -71,9 +71,9 @@ public class CookingBook {
     }
 
     /**
-     * 
-     * @param name
-     * @return
+     * Returns recipe for the given name 
+     * @param name name of the recipe to be found
+     * @return recipe if the recipe is in the cooking book and null otherwise
      */
     public Recipe findByName(String name) {
         for (Recipe recipe : allRecipes) {

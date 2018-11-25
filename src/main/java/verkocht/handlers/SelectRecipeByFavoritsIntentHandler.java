@@ -47,7 +47,7 @@ public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
         }
 
         String favoritesString = allFavorites.toString();
-        String speechText = "Das sind alle deine Favoriten: %s. Wähle eine deiner Favoriten für den nächsten Schritt aus.";
+        String speechText = String.format("Das sind alle deine Favoriten: %s. Wähle eine deiner Favoriten für den nächsten Schritt aus.",favoritesString);
         if (favoritesString.isEmpty()) {
             speechText = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
         }
@@ -59,8 +59,12 @@ public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
 
         // Get the color slot from the list of slots.
 
-        return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("CookingSession", speechText)
 
+        return input.getResponseBuilder()
+                .withSpeech(speechText)
+                .withSimpleCard("Rezeptauswahl", speechText)
+                .withReprompt("Wie kann ich dir helfen?")
+                .withShouldEndSession(false)
                 .build();
     }
 

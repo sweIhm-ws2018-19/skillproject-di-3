@@ -16,15 +16,17 @@ package verkocht.handlers;
 import static com.amazon.ask.request.Predicates.requestType;
 
 import java.util.Optional;
+import java.util.Random;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 
-import verkocht.model.PhrasesForAlexa;
-
-
+/**
+ * Intent handler that greets the user. If nothing is said, the skill will repromt
+ * with a random pick of available repromts.
+ */
 public class LaunchRequestHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -33,10 +35,17 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = PhrasesForAlexa.WELCOME;
-        String repromptText = "Bitte nenne mir dein Anliegen.";
+    	Random rnd = new Random();
+    	
+    	String[] repromts = {"Sage zum Beispiel: Welche Kategorien gibt es?",
+    			"Sage zum Beispiel: Zur Rezeptauswahl",
+    			"Sage zum Beispiel: Ich habe einen Favoriten",
+    			"Ich kann dir helfen, sage zum Beispiel: Wie waehle ich ein Rezept aus?"};
+    	
+        String speechText = "Hallo. Ich bin dein interaktives Kochbuch \"Verkocht\"! Was willst du tun?";
+        String repromptText = repromts[rnd.nextInt(repromts.length)];
         return input.getResponseBuilder()
-                .withSimpleCard("CookingSession", speechText)
+                .withSimpleCard("Verkocht!", speechText)
                 .withSpeech(speechText)
                 .withReprompt(repromptText)
                 .build();

@@ -23,15 +23,20 @@ import com.amazon.ask.model.Response;
 
 public class TellRecipeStepsIntentHandler implements RequestHandler {
 
-    @Override
-    public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("TellRecipeStepsIntent"));
-    }
+@Override
+public boolean canHandle(HandlerInput input) {
+   return input.matches(intentName("TellRecipeStepsIntent"));
+}
 
-    @Override
-    public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hier kannst du dir spaeter die Rezeptschritte vorlesen lassen.";
+@Override
+public Optional<Response> handle(HandlerInput input) {
+   String speechText = "Hier kannst du dir spaeter die Rezeptschritte vorlesen lassen.";
 
-        return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("CookingSession", speechText).build();
-    }
+   return input.getResponseBuilder()
+           .withSpeech(speechText)
+           .withSimpleCard("Rezeptschritte", speechText)
+           .withReprompt("Wie kann ich dir helfen?")
+           .withShouldEndSession(false)
+           .build();
+}
 }

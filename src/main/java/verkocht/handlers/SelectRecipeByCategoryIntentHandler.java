@@ -21,20 +21,20 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
-public class SetFavoriteIntentHandler implements RequestHandler {
+public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("SetFavoriteIntent"));
+        return input.matches(intentName("SelectRecipeByCategoryIntent"));
     }
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hier kannst du spaeter ein Rezept favorisieren.";
+        String speechText = "Hier kannst du spaeter ein Rezept nach Kategorie auswaehlen.";
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("Favorit setzen", speechText)
+                .withSimpleCard("Rezeptauswahl", speechText)
                 .withReprompt("Wie kann ich dir helfen?")
                 .withShouldEndSession(false)
                 .build();

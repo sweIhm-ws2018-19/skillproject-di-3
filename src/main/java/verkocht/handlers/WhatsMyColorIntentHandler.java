@@ -45,6 +45,7 @@ public class WhatsMyColorIntentHandler implements RequestHandler {
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("ColorSession", speechText)
+                .withReprompt("Wie kann ich dir helfen?")
                 .build();
     }
 }

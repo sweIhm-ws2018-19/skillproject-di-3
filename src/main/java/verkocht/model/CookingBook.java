@@ -23,26 +23,50 @@ public class CookingBook {
         allIngredients.add(new Ingredient ("Salz", Unit.BRISE));
         allIngredients.add(new Ingredient ("Nudeln", Unit.GRAMM));
         allIngredients.add(new Ingredient ("Tomatensauce", Unit.GRAMM));
-   
+        allIngredients.add(new Ingredient ("Paniermehl", Unit.GRAMM));
+        allIngredients.add(new Ingredient ("Öl", Unit.MILLILITER));
+        allIngredients.add(new Ingredient ("Eis", Unit.GRAMM));
+
+
+
         // Schnitzel
         Recipe schniztelRec = new Recipe("schnitzel");
         schniztelRec. getIngredients().put(getIngredientByName("Fleisch"),200);
         schniztelRec. getIngredients().put(getIngredientByName("Ei"),1);
         schniztelRec. getIngredients().put(getIngredientByName("Mehl"),100);
+        schniztelRec. getIngredients().put(getIngredientByName("Mehl"),50);
+        schniztelRec. getIngredients().put(getIngredientByName("Paniermehl"),50);
+        schniztelRec. getIngredients().put(getIngredientByName("Öl"),40);
+        schniztelRec.getSteps().add("Zuerst wird wird das Mehl auf einen Teller gestreut.");
+        schniztelRec.getSteps().add("Danach das Ei mit der Milch verrühren und in einen Teller gießen");
+        schniztelRec.getSteps().add("Danach wird das Paniermehl im dritten Teller mit einer Prise Salz vermischt.");
+        schniztelRec.getSteps().add("Dann auf beide Seiten der Schnitzel etwas Salz und Pfeffer streuen und es von beiden Seiten mit dem Mehl bestreuen.");
+        schniztelRec.getSteps().add("Danach in dem verquirlten Ei und zuletzt im Paniermehl wälzen");
+        schniztelRec.getSteps().add("Öl in einer Pfanne schmelzen lassen und die Schnitzel goldbraun braten lassen");
         allRecipes.add(schniztelRec);
+
+        
 
         // Erdbeermilchshake
         Recipe milchshakeRec = new Recipe("milchshake");
-        milchshakeRec.getIngredients().put(getIngredientByName("Erdbeeren"),100);
-        milchshakeRec.getIngredients().put(getIngredientByName("Milch"),500);
-        milchshakeRec.getIngredients().put(getIngredientByName("Zucker"),50);
+        milchshakeRec.getIngredients().put(getIngredientByName("Erdbeeren"),200);
+        milchshakeRec.getIngredients().put(getIngredientByName("Milch"),400);
+        milchshakeRec.getIngredients().put(getIngredientByName("Zucker"),20);
+        milchshakeRec.getIngredients().put(getIngredientByName("Eis"),200);
+
+        milchshakeRec.getSteps().add("Erdbeeren waschen, von den Blättern befreien und gut abtropfen lassen.");
+        milchshakeRec.getSteps().add("Alle Zutaten mit einem Mixer vermischen.");
+        milchshakeRec.getSteps().add("In Gläser füllen.");
         allRecipes.add(milchshakeRec);
         
         // Nudeln mit Tomatensauce
         Recipe nudelnMitTomatensoßeRec = new Recipe("nudelnMitTomatensoße");
-        milchshakeRec.getIngredients().put(getIngredientByName("Nudeln"),200);
-        milchshakeRec.getIngredients().put(getIngredientByName("Salz"),1);
-        milchshakeRec.getIngredients().put(getIngredientByName("Tomatensauce"),100);
+        nudelnMitTomatensoßeRec.getIngredients().put(getIngredientByName("Nudeln"),200);
+        nudelnMitTomatensoßeRec.getIngredients().put(getIngredientByName("Salz"),1);
+        nudelnMitTomatensoßeRec.getIngredients().put(getIngredientByName("Tomatensauce"),100);
+        nudelnMitTomatensoßeRec.getSteps().add("Nudeln in kochendem Salzwasser bissfest garen.");
+        nudelnMitTomatensoßeRec.getSteps().add("Tomatensoße aufwärmen.");
+        nudelnMitTomatensoßeRec.getSteps().add("Die Nudeln abgießen und mit der Sauce heiß servieren.");    
         allRecipes.add(nudelnMitTomatensoßeRec);
     }
 

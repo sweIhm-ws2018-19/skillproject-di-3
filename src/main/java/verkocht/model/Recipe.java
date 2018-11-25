@@ -1,5 +1,6 @@
 package verkocht.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +10,7 @@ import java.util.Map;
  */
 public class Recipe {
     private String name;
-	private List<String> steps;
+	private List<String> steps = new ArrayList <String>();
 	private int numberOfPeople;
 	private int cookingTime;
 	private Category category;
@@ -37,6 +38,14 @@ public class Recipe {
 
     public String getName() {
         return name;
+    }
+
+    public List<String> getSteps() {
+        return steps;
+    }
+
+    public void setSteps(List<String> steps) {
+        this.steps = steps;
     }
 
 

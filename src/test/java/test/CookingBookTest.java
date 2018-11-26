@@ -2,10 +2,15 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.Test;
 
+import verkocht.model.*;
 
-import verkocht.model.CookingBook;
+
+
+//import verkocht.model.CookingBook;
 
 public class CookingBookTest {
     CookingBook cookingBook = new CookingBook();
@@ -25,12 +30,19 @@ public class CookingBookTest {
         assertEquals (cookingBook.getAllIngredients().get(0), cookingBook.getIngredientByName("Fleisch"));
         assertEquals (cookingBook.getAllIngredients().get(1), cookingBook.getIngredientByName("Ei"));
         assertEquals (null, cookingBook.getIngredientByName("Pute"));
-            }
+    }
+    
     @Test
     public void testConstructor() {
         assertEquals ("Zuerst wird wird das Mehl auf einen Teller gestreut.", cookingBook.findByName("schnitzel").getSteps().get(0));
         assertEquals ("Alle Zutaten mit einem Mixer vermischen.", cookingBook.findByName("milchshake").getSteps().get(1));
-        assertEquals ("Die Nudeln abgießen und mit der Sauce heiß servieren.", cookingBook.findByName("nudelnMitTomatensoße").getSteps().get(2));
-        
+        assertEquals ("Die Nudeln abgießen und mit der Sauce heiß servieren.", cookingBook.findByName("nudelnMitTomatensoße").getSteps().get(2));    
+    }
+    
+	@Test
+    public void testFindByCategory() {
+    	List<Recipe> b;
+    	b = (List<Recipe>) cookingBook.getAllRecipes().get(1);
+		assertEquals(cookingBook.findByCategory(Category.MEAT),b);
     }
 }

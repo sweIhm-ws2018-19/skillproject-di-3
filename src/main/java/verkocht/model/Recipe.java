@@ -19,6 +19,10 @@ public class Recipe {
 	
 	public Recipe(String name) {
 	    this.name = name;    }
+	
+	public Category getCategory() {
+		return category;
+	}
 
     /**
 	 * 
@@ -47,6 +51,8 @@ public class Recipe {
     public void setSteps(List<String> steps) {
         this.steps = steps;
     }
+
+	
 
 
     

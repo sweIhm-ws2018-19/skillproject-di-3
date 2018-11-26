@@ -30,7 +30,7 @@ public class CookingBook {
 
 
         // Schnitzel
-        Recipe schniztelRec = new Recipe("schnitzel");
+        Recipe schniztelRec = new Recipe("schnitzel", Category.MEAT);
         schniztelRec. getIngredients().put(getIngredientByName("Fleisch"),200);
         schniztelRec. getIngredients().put(getIngredientByName("Ei"),1);
         schniztelRec. getIngredients().put(getIngredientByName("Mehl"),100);
@@ -48,7 +48,7 @@ public class CookingBook {
         
 
         // Erdbeermilchshake
-        Recipe milchshakeRec = new Recipe("milchshake");
+        Recipe milchshakeRec = new Recipe("milchshake", Category.VEGETARIAN);
         milchshakeRec.getIngredients().put(getIngredientByName("Erdbeeren"),200);
         milchshakeRec.getIngredients().put(getIngredientByName("Milch"),400);
         milchshakeRec.getIngredients().put(getIngredientByName("Zucker"),20);
@@ -60,7 +60,7 @@ public class CookingBook {
         allRecipes.add(milchshakeRec);
         
         // Nudeln mit Tomatensauce
-        Recipe nudelnMitTomatensoßeRec = new Recipe("nudelnMitTomatensoße");
+        Recipe nudelnMitTomatensoßeRec = new Recipe("nudelnMitTomatensoße", Category.VEGAN);
         nudelnMitTomatensoßeRec.getIngredients().put(getIngredientByName("Nudeln"),200);
         nudelnMitTomatensoßeRec.getIngredients().put(getIngredientByName("Salz"),1);
         nudelnMitTomatensoßeRec.getIngredients().put(getIngredientByName("Tomatensauce"),100);
@@ -85,37 +85,18 @@ public class CookingBook {
     }
 
     /**
-     * 
+     * This method filters all recipes by their category
      * @param category
-     * @return
+     * @return list of filtered recipes 
      */
     public List<Recipe> findByCategory(Category category) {
-    	List<Recipe> a = null;
-		switch (category) {
-		case MEAT:
-			for (int i = 0; i <= allRecipes.size(); i++) {
-				if(allRecipes.get(i).getCategory() == category.MEAT) {
+    	List<Recipe> a = new ArrayList<Recipe>();
+			for (int i = 0; i < allRecipes.size(); i++) {
+				if(allRecipes.get(i).getCategory() == category) {
 				a.add(allRecipes.get(i));
 				}
 			}
 			return a;
-		case VEGETARIAN:
-			for (int i = 0; i <= allRecipes.size(); i++) {
-				if(allRecipes.get(i).getCategory() == category.VEGETARIAN) {
-				a.add(allRecipes.get(i));
-				}
-			}
-			return a;
-		case VEGAN:
-			for (int i = 0; i <= allRecipes.size(); i++) {
-				if(allRecipes.get(i).getCategory() == category.VEGAN) {
-				a.add(allRecipes.get(i));
-				}
-			}
-			return a;
-		default:
-				throw new IllegalArgumentException("Unbekannte Kategorie: "+ category);
-		}
     }
 
     /**

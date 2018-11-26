@@ -89,8 +89,33 @@ public class CookingBook {
      * @param category
      * @return
      */
-    public Recipe findByCategory(Category category) {
-        return null;
+    public List<Recipe> findByCategory(Category category) {
+    	List<Recipe> a = null;
+		switch (category) {
+		case MEAT:
+			for (int i = 0; i <= allRecipes.size(); i++) {
+				if(allRecipes.get(i).getCategory() == category.MEAT) {
+				a.add(allRecipes.get(i));
+				}
+			}
+			return a;
+		case VEGETARIAN:
+			for (int i = 0; i <= allRecipes.size(); i++) {
+				if(allRecipes.get(i).getCategory() == category.VEGETARIAN) {
+				a.add(allRecipes.get(i));
+				}
+			}
+			return a;
+		case VEGAN:
+			for (int i = 0; i <= allRecipes.size(); i++) {
+				if(allRecipes.get(i).getCategory() == category.VEGAN) {
+				a.add(allRecipes.get(i));
+				}
+			}
+			return a;
+		default:
+				throw new IllegalArgumentException("Unbekannte Kategorie: "+ category);
+		}
     }
 
     /**

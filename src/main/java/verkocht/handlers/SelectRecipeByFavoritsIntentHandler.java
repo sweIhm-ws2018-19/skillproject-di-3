@@ -47,7 +47,7 @@ public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
         }
 
         String favoritesString = allFavorites.toString();
-        String speechText = String.format("Das sind alle deine Favoriten: %s. Wähle eine deiner Favoriten für den nächsten Schritt aus.",favoritesString);
+        String speechText = String.format("Das sind alle deine Favoriten: %s. Waehle eine deiner Favoriten für den nächsten Schritt aus.",favoritesString);
         if (favoritesString.isEmpty()) {
             speechText = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
         }

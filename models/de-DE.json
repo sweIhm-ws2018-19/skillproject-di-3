@@ -37,9 +37,9 @@
                     "name": "SelectRecipeByFavoritsIntent",
                     "slots": [],
                     "samples": [
-                        "ich möchte einen Favoriten auswählen",
+                        "ich möchte meine Favoriten vorlesen lassen",
                         "welche Favoriten kann ich wählen",
-                        "zur Favoritenauswahl"
+                        "lese mir meine Favoriten vor"
                     ]
                 },
                 {
@@ -93,6 +93,15 @@
                         "ich möchte das Rezept ändern",
                         "kann ich ein Rezept ändern",
                         "ändere ein Rezept für mich"
+                    ]
+                },
+				{
+                    "name": "SelectRecipeByFavoritsIntentHandlerSelector",
+                    "slots": [],
+                    "samples": [
+                        "ich möchte einen Favoriten auswählen",
+                        "ich wähle einen Favoriten aus der Liste",
+                        "zur Favoritenauswahl"
                     ]
                 },
                 {

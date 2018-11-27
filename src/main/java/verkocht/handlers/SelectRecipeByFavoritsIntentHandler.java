@@ -39,13 +39,12 @@ public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
     public Optional<Response> handle(HandlerInput input) {
         AttributesManager attributesManager = input.getAttributesManager();
         List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get("FavoritRecipes");
-        StringBuilder allFavorites = null;
+        StringBuilder allFavorites = new StringBuilder("");
         if (listOfFavorites != null) {
             for (String string : listOfFavorites) {
                 allFavorites.append(string);
             }
         }
-
         String favoritesString = allFavorites.toString();
         String speechText = String.format("Das sind alle deine Favoriten: %s. Waehle eine deiner Favoriten fuer den naechsten Schritt aus.",favoritesString);
         if (favoritesString.isEmpty()) {

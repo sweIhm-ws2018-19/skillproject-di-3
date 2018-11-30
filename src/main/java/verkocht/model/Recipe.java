@@ -16,9 +16,11 @@ public class Recipe {
 	private Category category;
 	private Map<Ingredient, Integer> ingredientAmounts = new HashMap<Ingredient, Integer> ();
 	
-	public Recipe(String name, Category category) {
+	public Recipe(String name, Category category, int nrOfPeople, int coockingTime) {
 	    this.name = name;
 	    this.category = category;
+	    this.cookingTime = coockingTime;
+	    this.numberOfPeople = nrOfPeople;
 	    }
 	
 	public Category getCategory() {

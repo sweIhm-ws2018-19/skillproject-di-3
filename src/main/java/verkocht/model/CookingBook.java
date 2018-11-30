@@ -9,10 +9,10 @@ import java.util.List;
 public class CookingBook {
     private List<Recipe> favorites = new ArrayList<Recipe>();
     private List<Recipe> allRecipes = new ArrayList<Recipe>();
-    private List<Ingredient> allIngredients = new ArrayList<Ingredient>();;
+    private List<Ingredient> allIngredients = new ArrayList<Ingredient>();
 
     public CookingBook() {
-        //add Ingredients
+        //add ingredients to the list of ingredients
         allIngredients.add(new Ingredient ("Fleisch", Unit.GRAMM));
         allIngredients.add(new Ingredient ("Ei", Unit.STUECK));
         allIngredients.add(new Ingredient ("Mehl", Unit.GRAMM));
@@ -30,7 +30,7 @@ public class CookingBook {
 
 
         // Schnitzel
-        Recipe schniztelRec = new Recipe("schnitzel", Category.MEAT);
+        Recipe schniztelRec = new Recipe("schnitzel", Category.MEAT,4, 40 );
         schniztelRec. getIngredients().put(getIngredientByName("Fleisch"),200);
         schniztelRec. getIngredients().put(getIngredientByName("Ei"),1);
         schniztelRec. getIngredients().put(getIngredientByName("Mehl"),100);
@@ -48,7 +48,7 @@ public class CookingBook {
         
 
         // Erdbeermilchshake
-        Recipe milchshakeRec = new Recipe("milchshake", Category.VEGETARIAN);
+        Recipe milchshakeRec = new Recipe("milchshake", Category.VEGETARIAN, 2, 15);
         milchshakeRec.getIngredients().put(getIngredientByName("Erdbeeren"),200);
         milchshakeRec.getIngredients().put(getIngredientByName("Milch"),400);
         milchshakeRec.getIngredients().put(getIngredientByName("Zucker"),20);
@@ -60,7 +60,7 @@ public class CookingBook {
         allRecipes.add(milchshakeRec);
         
         // Nudeln mit Tomatensauce
-        Recipe nudelnMitTomatensoßeRec = new Recipe("nudelnMitTomatensoße", Category.VEGAN);
+        Recipe nudelnMitTomatensoßeRec = new Recipe("nudelnMitTomatensoße", Category.VEGAN, 4, 20);
         nudelnMitTomatensoßeRec.getIngredients().put(getIngredientByName("Nudeln"),200);
         nudelnMitTomatensoßeRec.getIngredients().put(getIngredientByName("Salz"),1);
         nudelnMitTomatensoßeRec.getIngredients().put(getIngredientByName("Tomatensauce"),100);
@@ -68,6 +68,11 @@ public class CookingBook {
         nudelnMitTomatensoßeRec.getSteps().add("Tomatensoße aufwärmen.");
         nudelnMitTomatensoßeRec.getSteps().add("Die Nudeln abgießen und mit der Sauce heiß servieren.");    
         allRecipes.add(nudelnMitTomatensoßeRec);
+        
+        // add recipes to the list of favorites
+        favorites.add(milchshakeRec);
+        favorites.add(nudelnMitTomatensoßeRec);
+
     }
 
     /**
@@ -90,13 +95,13 @@ public class CookingBook {
      * @return list of filtered recipes 
      */
     public List<Recipe> findByCategory(Category category) {
-    	List<Recipe> a = new ArrayList<Recipe>();
+    	List<Recipe> recipe = new ArrayList<Recipe>();
 			for (int i = 0; i < allRecipes.size(); i++) {
 				if(allRecipes.get(i).getCategory() == category) {
-				a.add(allRecipes.get(i));
+				recipe.add(allRecipes.get(i));
 				}
 			}
-			return a;
+			return recipe;
     }
 
     /**
@@ -123,5 +128,10 @@ public class CookingBook {
     public List<Ingredient> getAllIngredients() {
         return allIngredients;
     }
+
+    public List<Recipe> getFavorites() {
+        return favorites;
+    }
+    
     
 }

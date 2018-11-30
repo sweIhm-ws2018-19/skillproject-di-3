@@ -38,15 +38,15 @@ public class CookingBookTest {
     
     @Test
     public void testFindByCategory() {
-    	List<Recipe> b = new ArrayList<Recipe>();
-    	b.add(cookingBook.getAllRecipes().get(0));
-		assertEquals(cookingBook.findByCategory(Category.MEAT),b);
-		b.clear();
-    	b.add(cookingBook.getAllRecipes().get(1));
-		assertEquals(cookingBook.findByCategory(Category.VEGETARIAN),b);
-		b.clear();
-    	b.add(cookingBook.getAllRecipes().get(2));
-		assertEquals(cookingBook.findByCategory(Category.VEGAN),b);
+    	List<Recipe> listOfRecipes = new ArrayList<Recipe>();
+    	listOfRecipes.add(cookingBook.getAllRecipes().get(0));
+		assertEquals(cookingBook.findByCategory(Category.MEAT),listOfRecipes);
+		listOfRecipes.clear();
+    	listOfRecipes.add(cookingBook.getAllRecipes().get(1));
+		assertEquals(cookingBook.findByCategory(Category.VEGETARIAN),listOfRecipes);
+		listOfRecipes.clear();
+    	listOfRecipes.add(cookingBook.getAllRecipes().get(2));
+		assertEquals(cookingBook.findByCategory(Category.VEGAN),listOfRecipes);
     }
     
 }

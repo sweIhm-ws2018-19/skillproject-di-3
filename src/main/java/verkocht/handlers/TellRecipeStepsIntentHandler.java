@@ -21,22 +21,33 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
+import verkocht.model.Recipe;
+
 public class TellRecipeStepsIntentHandler implements RequestHandler {
 
-@Override
-public boolean canHandle(HandlerInput input) {
-   return input.matches(intentName("TellRecipeStepsIntent"));
-}
+    @Override
+    public boolean canHandle(HandlerInput input) {
+        return input.matches(intentName("TellRecipeStepsIntent"));
+    }
 
-@Override
-public Optional<Response> handle(HandlerInput input) {
-   String speechText = "Hier kannst du dir spaeter die Rezeptschritte vorlesen lassen.";
+    @Override
+    public Optional<Response> handle(HandlerInput input) {
+        Recipe recipeToRead = Recipe.getRecipeToRead();
+        String recipeStep = recipeToRead.getSteps().get(Recipe.getStepsCounter());
+        String speechText = String.format("Neuer Schritt %s %d toSet %d", recipeStep, Recipe.getStepsCounter(),
+                Recipe.getStepsCounter());
+        Recipe.incStepsCounter();
 
-   return input.getResponseBuilder()
-           .withSpeech(speechText)
-           .withSimpleCard("Rezeptschritte", speechText)
-           .withReprompt("Wie kann ich dir helfen?")
-           .withShouldEndSession(false)
-           .build();
-}
+        return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptschritte", speechText)
+                .withReprompt("Wie kann ich dir helfen?").withShouldEndSession(false).build();
+    }
+
+    public static Recipe getRecipeToRead() {
+        return Recipe.getRecipeToRead();
+    }
+
+    public static void setRecipeToRead(Recipe recipeToRead) {
+        Recipe.setRecipeToRead(recipeToRead);
+    }
+
 }

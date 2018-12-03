@@ -14,10 +14,6 @@ the specific language governing permissions and limitations under the License.
 package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
-import static verkocht.handlers.SelectRecipeByNameInputRecipeIntentHandler.RECIPE_KEY;
-import static verkocht.handlers.SelectRecipeByNameInputRecipeIntentHandler.RECIPE_SLOT;
-import static verkocht.handlers.WhatsMyColorIntentHandler.COLOR_KEY;
-import static verkocht.handlers.WhatsMyColorIntentHandler.COLOR_SLOT;
 
 import java.util.Collections;
 import java.util.Map;
@@ -76,7 +72,12 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
             recipe = foundRecipe.getName(); //recipe could be found
         }
         if (recipe != null && !recipe.isEmpty()) {//string is not empty and not null
+            TellRecipeStepsIntentHandler.setRecipeToRead(foundRecipe);
             speechText = String.format("Ich lese dir das Rezept %s vor.", recipe);
+            
+          
+            
+            
         } else {
            speechText = "Ich weiss nicht welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich möchte Schnitzel kochen.";
         }
@@ -86,4 +87,4 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
                 .withSimpleCard("Rezeptauswahl", speechText)
                 .withShouldEndSession(false).build();
     }
-}
+} 

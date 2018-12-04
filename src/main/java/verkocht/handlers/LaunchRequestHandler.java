@@ -17,7 +17,6 @@ import static com.amazon.ask.request.Predicates.requestType;
 
 import java.security.SecureRandom;
 import java.util.Optional;
-import java.util.Random;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;

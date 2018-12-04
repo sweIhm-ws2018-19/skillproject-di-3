@@ -19,15 +19,12 @@ public class CookingBook {
         allIngredients.add(new Ingredient ("Erdbeeren", Unit.GRAMM));
         allIngredients.add(new Ingredient ("Milch", Unit.MILLILITER));
         allIngredients.add(new Ingredient ("Zucker", Unit.GRAMM));
-        allIngredients.add(new Ingredient ("Nudeln", Unit.GRAMM));
         allIngredients.add(new Ingredient ("Salz", Unit.BRISE));
         allIngredients.add(new Ingredient ("Nudeln", Unit.GRAMM));
         allIngredients.add(new Ingredient ("Tomatensauce", Unit.GRAMM));
         allIngredients.add(new Ingredient ("Paniermehl", Unit.GRAMM));
         allIngredients.add(new Ingredient ("Oel", Unit.MILLILITER));
         allIngredients.add(new Ingredient ("Eis", Unit.GRAMM));
-
-
 
         // Schnitzel
         Recipe schniztelRec = new Recipe("schnitzel", Category.MEAT,4, 40 );
@@ -44,8 +41,6 @@ public class CookingBook {
         schniztelRec.getSteps().add("Danach in dem verquirlten Ei und zuletzt im Paniermehl waelzen");
         schniztelRec.getSteps().add("Oel in einer Pfanne schmelzen lassen und die Schnitzel goldbraun braten lassen");
         allRecipes.add(schniztelRec);
-
-        
 
         // Erdbeermilchshake
         Recipe milchshakeRec = new Recipe("milchshake", Category.VEGETARIAN, 2, 15);
@@ -72,7 +67,6 @@ public class CookingBook {
 		// add recipes to the list of favorites
 		favorites.add(milchshakeRec);
 		favorites.add(nudelnMitTomatensauce);
-
     }
 
     /**

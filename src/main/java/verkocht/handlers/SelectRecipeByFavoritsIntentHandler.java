@@ -45,16 +45,6 @@ public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
         if (favoritesString.isEmpty()) {
             speechText = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
         }
-        
-        /* Moeglicherweise nicht benoetigt:
-        Request request = input.getRequestEnvelope().getRequest();
-        IntentRequest intentRequest = (IntentRequest) request;
-        Intent intent = intentRequest.getIntent();
-        Map<String, Slot> slots = intent.getSlots();
-
-        // Get the color slot from the list of slots.
-         */
-
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)

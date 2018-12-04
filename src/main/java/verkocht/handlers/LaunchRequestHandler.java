@@ -15,6 +15,7 @@ package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.requestType;
 
+import java.security.SecureRandom;
 import java.util.Optional;
 import java.util.Random;
 
@@ -28,7 +29,7 @@ import com.amazon.ask.model.Response;
  * with a random pick of available repromts.
  */
 public class LaunchRequestHandler implements RequestHandler {
-	Random rnd = new Random();
+	SecureRandom rnd = new SecureRandom();
 	
     @Override
     public boolean canHandle(HandlerInput input) {

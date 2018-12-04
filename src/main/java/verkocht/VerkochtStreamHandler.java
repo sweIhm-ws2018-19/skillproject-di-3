@@ -37,8 +37,6 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
     private static Skill getSkill() {
         return Skills.standard()
                 .addRequestHandlers(
-//                        new WhatsMyColorIntentHandler(),
-//                        new MyColorIsIntentHandler(),
                 		new TellMeCategoriesIntentHandler(),
                         new ModifyRecipeIntentHandler(),
                         new SelectRecipeByCategoryIntentHandler(),
@@ -53,8 +51,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new SessionEndedRequestHandler(),
                         new HelpIntentHandler(),
                         new FallbackIntentHandler())
-                // Add your skill id below
-                //.withSkillId("")
+                		.withSkillId("amzn1.ask.skill.5eb7a2b5-a62c-493e-8499-1a96b68b5c89")
                 .build();
     }
 

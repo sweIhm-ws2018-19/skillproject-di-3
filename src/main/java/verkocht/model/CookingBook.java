@@ -24,7 +24,7 @@ public class CookingBook {
         allIngredients.add(new Ingredient ("Nudeln", Unit.GRAMM));
         allIngredients.add(new Ingredient ("Tomatensauce", Unit.GRAMM));
         allIngredients.add(new Ingredient ("Paniermehl", Unit.GRAMM));
-        allIngredients.add(new Ingredient ("√ñl", Unit.MILLILITER));
+        allIngredients.add(new Ingredient ("Oel", Unit.MILLILITER));
         allIngredients.add(new Ingredient ("Eis", Unit.GRAMM));
 
 
@@ -36,13 +36,13 @@ public class CookingBook {
         schniztelRec. getIngredients().put(getIngredientByName("Mehl"),100);
         schniztelRec. getIngredients().put(getIngredientByName("Mehl"),50);
         schniztelRec. getIngredients().put(getIngredientByName("Paniermehl"),50);
-        schniztelRec. getIngredients().put(getIngredientByName("√ñl"),40);
+        schniztelRec. getIngredients().put(getIngredientByName("Oel"),40);
         schniztelRec.getSteps().add("Zuerst wird wird das Mehl auf einen Teller gestreut.");
-        schniztelRec.getSteps().add("Danach das Ei mit der Milch verr√ºhren und in einen Teller gie√üen");
+        schniztelRec.getSteps().add("Danach das Ei mit der Milch verruehren und in einen Teller giessen");
         schniztelRec.getSteps().add("Danach wird das Paniermehl im dritten Teller mit einer Prise Salz vermischt.");
         schniztelRec.getSteps().add("Dann auf beide Seiten der Schnitzel etwas Salz und Pfeffer streuen und es von beiden Seiten mit dem Mehl bestreuen.");
-        schniztelRec.getSteps().add("Danach in dem verquirlten Ei und zuletzt im Paniermehl w√§lzen");
-        schniztelRec.getSteps().add("√ñl in einer Pfanne schmelzen lassen und die Schnitzel goldbraun braten lassen");
+        schniztelRec.getSteps().add("Danach in dem verquirlten Ei und zuletzt im Paniermehl waelzen");
+        schniztelRec.getSteps().add("Oel in einer Pfanne schmelzen lassen und die Schnitzel goldbraun braten lassen");
         allRecipes.add(schniztelRec);
 
         
@@ -54,24 +54,24 @@ public class CookingBook {
         milchshakeRec.getIngredients().put(getIngredientByName("Zucker"),20);
         milchshakeRec.getIngredients().put(getIngredientByName("Eis"),200);
 
-        milchshakeRec.getSteps().add("Erdbeeren waschen, von den Bl√§ttern befreien und gut abtropfen lassen.");
+        milchshakeRec.getSteps().add("Erdbeeren waschen, von den Blaettern befreien und gut abtropfen lassen.");
         milchshakeRec.getSteps().add("Alle Zutaten mit einem Mixer vermischen.");
-        milchshakeRec.getSteps().add("In Gl√§ser f√ºllen.");
+        milchshakeRec.getSteps().add("In Glaeser fuellen.");
         allRecipes.add(milchshakeRec);
         
         // Nudeln mit Tomatensauce
-        Recipe nudelnMitTomatensoﬂe = new Recipe("nudelnMitTomatensoﬂe", Category.VEGAN, 4, 20);
-        nudelnMitTomatensoﬂe.getIngredients().put(getIngredientByName("Nudeln"),200);
-        nudelnMitTomatensoﬂe.getIngredients().put(getIngredientByName("Salz"),1);
-        nudelnMitTomatensoﬂe.getIngredients().put(getIngredientByName("Tomatensauce"),100);
-        nudelnMitTomatensoﬂe.getSteps().add("Nudeln in kochendem Salzwasser bissfest garen.");
-        nudelnMitTomatensoﬂe.getSteps().add("Tomatenso√üe aufw√§rmen.");
-        nudelnMitTomatensoﬂe.getSteps().add("Die Nudeln abgie√üen und mit der Sauce hei√ü servieren.");    
-        allRecipes.add(nudelnMitTomatensoﬂe);
-        
-        // add recipes to the list of favorites
-        favorites.add(milchshakeRec);
-        favorites.add(nudelnMitTomatensoﬂe);
+		Recipe nudelnMitTomatensauce = new Recipe("nudelnMitTomatensauce", Category.VEGAN, 4, 20);
+		nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Nudeln"), 200);
+		nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Salz"), 1);
+		nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Tomatensauce"), 100);
+		nudelnMitTomatensauce.getSteps().add("Nudeln in kochendem Salzwasser bissfest garen.");
+		nudelnMitTomatensauce.getSteps().add("Tomatensauce aufwaermen.");
+		nudelnMitTomatensauce.getSteps().add("Die Nudeln abgiessen und mit der Sauce heiss servieren.");
+		allRecipes.add(nudelnMitTomatensauce);
+
+		// add recipes to the list of favorites
+		favorites.add(milchshakeRec);
+		favorites.add(nudelnMitTomatensauce);
 
     }
 

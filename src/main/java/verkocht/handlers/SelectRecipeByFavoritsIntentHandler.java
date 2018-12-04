@@ -46,7 +46,7 @@ public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
             speechText = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
         }
         
-        /* Möglicherweise nicht benötigt:
+        /* Moeglicherweise nicht benoetigt:
         Request request = input.getRequestEnvelope().getRequest();
         IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();

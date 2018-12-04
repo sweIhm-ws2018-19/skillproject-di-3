@@ -13,13 +13,13 @@ public enum Unit {
 	SCHUSS("Schuss"),
 	TASSE("Tasse");
 	
-	String unit;
+	String unitName;
 	
 	Unit(String unit) {
-		this.unit = unit; 
+		this.unitName = unit; 
 	}
 	
 	public String getUnit() {
-		return this.unit;
+		return this.unitName;
 	}
 }

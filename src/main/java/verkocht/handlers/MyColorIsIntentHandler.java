@@ -46,7 +46,8 @@ public class MyColorIsIntentHandler implements RequestHandler {
         // Get the color slot from the list of slots.
         Slot favoriteColorSlot = slots.get(COLOR_SLOT);
 
-        String speechText, repromptText;
+        String speechText;
+        String repromptText;
         boolean isAskResponse = false;
 
         // Check for favorite color and create output to user.

@@ -7,9 +7,9 @@ import java.util.List;
  * The cooking book that holds all recipes and categories.
  */
 public class CookingBook {
-    private List<Recipe> favorites = new ArrayList<Recipe>();
-    private List<Recipe> allRecipes = new ArrayList<Recipe>();
-    private List<Ingredient> allIngredients = new ArrayList<Ingredient>();
+    private List<Recipe> favorites = new ArrayList<>();
+    private List<Recipe> allRecipes = new ArrayList<>();
+    private List<Ingredient> allIngredients = new ArrayList<>();
 
     public CookingBook() {
         //add ingredients to the list of ingredients
@@ -60,18 +60,18 @@ public class CookingBook {
         allRecipes.add(milchshakeRec);
         
         // Nudeln mit Tomatensauce
-        Recipe nudelnMitTomatenso√üeRec = new Recipe("nudelnMitTomatenso√üe", Category.VEGAN, 4, 20);
-        nudelnMitTomatenso√üeRec.getIngredients().put(getIngredientByName("Nudeln"),200);
-        nudelnMitTomatenso√üeRec.getIngredients().put(getIngredientByName("Salz"),1);
-        nudelnMitTomatenso√üeRec.getIngredients().put(getIngredientByName("Tomatensauce"),100);
-        nudelnMitTomatenso√üeRec.getSteps().add("Nudeln in kochendem Salzwasser bissfest garen.");
-        nudelnMitTomatenso√üeRec.getSteps().add("Tomatenso√üe aufw√§rmen.");
-        nudelnMitTomatenso√üeRec.getSteps().add("Die Nudeln abgie√üen und mit der Sauce hei√ü servieren.");    
-        allRecipes.add(nudelnMitTomatenso√üeRec);
+        Recipe nudelnMitTomatensoﬂe = new Recipe("nudelnMitTomatensoﬂe", Category.VEGAN, 4, 20);
+        nudelnMitTomatensoﬂe.getIngredients().put(getIngredientByName("Nudeln"),200);
+        nudelnMitTomatensoﬂe.getIngredients().put(getIngredientByName("Salz"),1);
+        nudelnMitTomatensoﬂe.getIngredients().put(getIngredientByName("Tomatensauce"),100);
+        nudelnMitTomatensoﬂe.getSteps().add("Nudeln in kochendem Salzwasser bissfest garen.");
+        nudelnMitTomatensoﬂe.getSteps().add("Tomatenso√üe aufw√§rmen.");
+        nudelnMitTomatensoﬂe.getSteps().add("Die Nudeln abgie√üen und mit der Sauce hei√ü servieren.");    
+        allRecipes.add(nudelnMitTomatensoﬂe);
         
         // add recipes to the list of favorites
         favorites.add(milchshakeRec);
-        favorites.add(nudelnMitTomatenso√üeRec);
+        favorites.add(nudelnMitTomatensoﬂe);
 
     }
 
@@ -95,21 +95,13 @@ public class CookingBook {
      * @return list of filtered recipes 
      */
     public List<Recipe> findByCategory(Category category) {
-    	List<Recipe> recipe = new ArrayList<Recipe>();
+    	List<Recipe> recipe = new ArrayList<>();
 			for (int i = 0; i < allRecipes.size(); i++) {
 				if(allRecipes.get(i).getCategory() == category) {
 				recipe.add(allRecipes.get(i));
 				}
 			}
 			return recipe;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public Recipe findByFavorite(String favorite) {
-        return null;
     }
 
     public List<Recipe> getAllRecipes() {

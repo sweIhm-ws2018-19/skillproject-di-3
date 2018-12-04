@@ -46,7 +46,7 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
     @Override
     public Optional<Response> handle(HandlerInput input) {
         //create the welcome message for this intent
-        String speechText = "Bitte nenne das Rezept, das vorgelesen werden soll.";
+        String speechText;
         Request request = input.getRequestEnvelope().getRequest();
         //get request from the user
         IntentRequest intentRequest = (IntentRequest) request;

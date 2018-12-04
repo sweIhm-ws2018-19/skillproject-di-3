@@ -16,17 +16,12 @@ package verkocht.handlers;
 import static com.amazon.ask.request.Predicates.intentName;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
-import com.amazon.ask.model.Intent;
-import com.amazon.ask.model.IntentRequest;
-import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
-import com.amazon.ask.model.Slot;
 
 public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
 
@@ -50,13 +45,15 @@ public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
         if (favoritesString.isEmpty()) {
             speechText = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
         }
-
+        
+        /* Möglicherweise nicht benötigt:
         Request request = input.getRequestEnvelope().getRequest();
         IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();
         Map<String, Slot> slots = intent.getSlots();
 
         // Get the color slot from the list of slots.
+         */
 
 
         return input.getResponseBuilder()

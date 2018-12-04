@@ -28,6 +28,8 @@ import com.amazon.ask.model.Response;
  * with a random pick of available repromts.
  */
 public class LaunchRequestHandler implements RequestHandler {
+	Random rnd = new Random();
+	
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(requestType(LaunchRequest.class));
@@ -35,8 +37,6 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-    	Random rnd = new Random();
-    	
     	String[] repromts = {"Sage zum Beispiel: Welche Kategorien gibt es?",
     			"Sage zum Beispiel: Zur Rezeptauswahl",
     			"Sage zum Beispiel: Ich habe einen Favoriten",

@@ -5,18 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import verkocht.handlers.TellRecipeStepsIntentHandler;
-
 /*
  * The class that represents a recipe.
  */
 public class Recipe {
     private String name;
-	private List<String> steps = new ArrayList <String>();
+	private List<String> steps = new ArrayList<>();
 	private int numberOfPeople;
 	private int cookingTime;
 	private Category category;
-	private Map<Ingredient, Integer> ingredientAmounts = new HashMap<Ingredient, Integer> ();
+	private Map<Ingredient, Integer> ingredientAmounts = new HashMap<>();
     private static int stepsCounter;
     private static Recipe recipeToRead;
 
@@ -68,12 +66,19 @@ public class Recipe {
         Recipe.stepsCounter++;
     }
     
-
     public static Recipe getRecipeToRead() {
         return recipeToRead;
     }
 
     public static void setRecipeToRead(Recipe recipeToRead) {
         Recipe.recipeToRead = recipeToRead;
+    }
+    
+    public int getNumberOfPeople() {
+        return this.numberOfPeople;
+    }
+    
+    public int getCookingTime() {
+        return this.cookingTime;
     }
 }

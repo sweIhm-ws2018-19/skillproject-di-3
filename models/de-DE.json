@@ -35,7 +35,12 @@
                 },
                 {
                     "name": "SelectRecipeByFavoritsIntent",
-                    "slots": [],
+                    "slots": [
+						{
+                            "name": "FavoritRecipe",
+                            "type": "FavoritRecipes"
+                        }
+					],
                     "samples": [
                         "ich möchte meine Favoriten vorlesen lassen",
                         "welche Favoriten kann ich wählen",
@@ -76,6 +81,19 @@
                         "Ich möchte {Recipe} kochen"
                     ]
                 },
+				{
+                    "name": "SaveRecipeToFavoriteHandler",
+                    "slots": [
+                        {
+                            "name": "FavoritRecipe",
+                            "type": "FavoritRecipes"
+                        }
+                    ],
+                    "samples": [
+                        "Ich möchte ein neues Rezept zu den Favoriten hinzufügen",
+						"Neuen Favoriten anlegen"
+                    ]
+                },
                 
                 {
                     "name": "TellRecipeStepsIntent",
@@ -97,7 +115,12 @@
                 },
 				{
                     "name": "SelectRecipeByFavoritsIntentHandlerSelector",
-                    "slots": [],
+                    "slots": [
+						{
+							"name": "FavoritRecipe",
+                            "type": "FavoritRecipes"
+                        }
+					],
                     "samples": [
                         "ich möchte einen Favoriten auswählen",
                         "ich wähle einen Favoriten aus der Liste",

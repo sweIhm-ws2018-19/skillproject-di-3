@@ -43,9 +43,9 @@ public class SelectRecipeByFavoritsIntentHandlerSelector implements RequestHandl
         
         
         
-        String speechText = "Sage den Rezeptnamen aus der vorgelesen Liste.";
+        String speechText = "Sage den Rezeptnamen deines Favoriten aus der vorgelesen Liste.";
 
-        return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptauswahl", speechText)
+        return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Favoritenauswahl", speechText)
                 .withShouldEndSession(false).build();
     }
 

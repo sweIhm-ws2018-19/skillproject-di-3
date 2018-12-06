@@ -30,12 +30,13 @@ public class SelectRecipeByFavoritsIntentHandlerSelector implements RequestHandl
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
+        // Same as every where else
         Request request = input.getRequestEnvelope().getRequest();
         IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();
         Map<String, Slot> slots = intent.getSlots();
         Slot chosenFavoriteSlot = slots.get(PhrasesForAlexa.SELECTED_FAVORITE);
-        
+        // Takes chosen recipe and puts it into the sesseioAttr
         String chosenRecipe = chosenFavoriteSlot.getValue();
         input.getAttributesManager().setSessionAttributes(Collections.singletonMap(PhrasesForAlexa.SELECTED_FAVORITE, chosenRecipe));
         

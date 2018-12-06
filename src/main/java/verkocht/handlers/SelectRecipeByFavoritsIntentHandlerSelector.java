@@ -22,7 +22,7 @@ public class SelectRecipeByFavoritsIntentHandlerSelector implements RequestHandl
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Sage den Rezptnamen aus der vorgelesen Liste.";
+        String speechText = "Sage den Rezeptnamen aus der vorgelesen Liste.";
 
         return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptauswahl", speechText)
                 .withShouldEndSession(false).build();

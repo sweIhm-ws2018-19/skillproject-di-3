@@ -14,14 +14,20 @@
 package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
+import verkocht.model.PhrasesForAlexa;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.model.Intent;
+import com.amazon.ask.model.IntentRequest;
+import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.Slot;
 
 public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
 
@@ -30,10 +36,34 @@ public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
         return input.matches(intentName("SelectRecipeByFavoritsIntent"));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Optional<Response> handle(HandlerInput input) {
+        Request request = input.getRequestEnvelope().getRequest();
+        //get request from the user
+        IntentRequest intentRequest = (IntentRequest) request;
+        Intent intent = intentRequest.getIntent();
+        // get slots of the request
+        Map<String, Slot> slots = intent.getSlots();
+
+        // get the recipe slot from the list of slots.
+        Slot chosenFavoriteSlot = slots.get(PhrasesForAlexa.SELECTED_FAVORITE);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         AttributesManager attributesManager = input.getAttributesManager();
-        List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get("FavoritRecipes");
+        List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECEPIE_LIST) ;
         StringBuilder allFavorites = new StringBuilder("");
         if (listOfFavorites != null) {
             for (String string : listOfFavorites) {

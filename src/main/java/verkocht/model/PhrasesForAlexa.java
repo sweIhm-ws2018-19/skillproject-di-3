@@ -1,7 +1,14 @@
 package verkocht.model;
 
+/**
+ * Class thats holds all phrases that can be returned by alexa. 
+ * @author Florian Uhrig
+ */
 public final class PhrasesForAlexa {
     
+    /**
+     * A constructor to warn a programmer, that it is not possible to initialize this class.
+     */
     private PhrasesForAlexa() {
         throw new IllegalStateException("Utility class");
     }

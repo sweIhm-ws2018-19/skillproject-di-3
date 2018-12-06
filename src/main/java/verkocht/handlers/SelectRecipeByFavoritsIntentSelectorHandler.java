@@ -1,5 +1,6 @@
 package verkocht.handlers;
 
+
 import static com.amazon.ask.request.Predicates.intentName;
 
 import java.util.Collections;
@@ -21,13 +22,13 @@ import verkocht.model.PhrasesForAlexa;
  * 
  *
  */
-public class SelectRecipeByFavoritsIntentHandlerSelector implements RequestHandler {
+public class SelectRecipeByFavoritsIntentSelectorHandler implements RequestHandler {
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("SelectRecipeByFavoritsIntentHandlerSelector"));
+        return input.matches(intentName("SelectRecipeByFavoritsIntentSelectorHandler"));
     }
-
+    
     @Override
     public Optional<Response> handle(HandlerInput input) {
         // Same as every where else

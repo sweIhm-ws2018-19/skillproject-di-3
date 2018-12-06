@@ -39,6 +39,14 @@ public final class PhrasesForAlexa {
     public static final String FAVORITE_REPROMT = "Bis jetzt hast du noch keine Favoriten. "
     		+ "Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
     
+    // Modify Unit
+    public static final String MODIFY_UNIT_WELCOME = "Hier kannst du ein Rezept entsprechend einer Zutat modifizieren.";
+    public static final String MODIFY_UNIT_REPROMT = "Bitte nenne eine Zutat des Rezept.";
+    public static final String MODIFY_UNIT_SELECT_FIRST = "Du musst erst ein Rezept auswaehlen, bevor du es modifizieren kannst.";
+    public static final String MODIFY_UNIT_SELECT_INGREDIENT = "Waehle eine Zutat.";
+    public static final String MODIFY_UNIT_ERROR = "Dies ist nicht moeglich.";
+    public static final String MODIFY_UNIT_DONE = "Das Rezept wurde angepasst.";
+    
     // Cancel-/Stop-/Help-/Fallback-Intent
     public static final String SORRY = "Tut mir leid, das weiss ich nicht. Sage einfach Hilfe.";
     public static final String HELP = "Wie kann ich dir helfen?";

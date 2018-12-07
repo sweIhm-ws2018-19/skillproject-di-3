@@ -62,8 +62,8 @@ public class Recipe {
         return stepsCounter;
     }
 
-    public static void incStepsCounter() {
-        Recipe.stepsCounter++;
+    public static void setStepsCounter(int step) {
+        Recipe.stepsCounter = step;
     }
     
     public static Recipe getRecipeToRead() {

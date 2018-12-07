@@ -72,12 +72,10 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
             recipe = foundRecipe.getName(); //recipe could be found
         }
         if (recipe != null && !recipe.isEmpty()) {//string is not empty and not null
+            TellRecipeStepsIntentHandler.resetCnt();
             TellRecipeStepsIntentHandler.setRecipeToRead(foundRecipe);
             speechText = String.format("Ich lese dir das Rezept %s vor.", recipe);
-            
-          
-            
-            
+              
         } else {
            speechText = "Ich weiss nicht welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich möchte Schnitzel kochen.";
         }

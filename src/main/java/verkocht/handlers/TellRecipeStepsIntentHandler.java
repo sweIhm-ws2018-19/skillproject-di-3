@@ -8,6 +8,7 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
+import verkocht.model.PhrasesForAlexa;
 import verkocht.model.Recipe;
 
 public class TellRecipeStepsIntentHandler implements RequestHandler {
@@ -23,20 +24,16 @@ public class TellRecipeStepsIntentHandler implements RequestHandler {
         String speechText;
         Recipe recipeToRead = Recipe.getRecipeToRead();
         if (counter >= Recipe.getRecipeToRead().getSteps().size()) {
-            speechText = "Das Rezept ist zu Ende. Sage \"stop\", um ins Hauptmenü zurückzukommen.";
+            speechText = PhrasesForAlexa.END_READ_RECIPE_STEPS;
             counter = 0;
-        } else {
-            
+        } else {          
             String recipeStep = recipeToRead.getSteps().get(counter);
-            speechText = String.format("(%d), %s", counter + 1, recipeStep);
+            speechText = String.format("(%d), %s ", counter + 1, recipeStep);
             counter++;
-            // int nextStep = Recipe.getStepsCounter()+1;
-            // Recipe.setStepsCounter(nextStep);
-        }
+             }
         return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptschritte", speechText)
                 .withReprompt("Wie kann ich dir helfen?").withShouldEndSession(false).build();
     }
-
     public static Recipe getRecipeToRead() {
         return Recipe.getRecipeToRead();
     }

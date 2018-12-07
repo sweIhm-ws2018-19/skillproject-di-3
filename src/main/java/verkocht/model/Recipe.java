@@ -81,4 +81,10 @@ public class Recipe {
     public int getCookingTime() {
         return this.cookingTime;
     }
+    @Override
+    public String toString() {
+        String rec = "";
+        return rec + this.getName();
+        
+    }
 }

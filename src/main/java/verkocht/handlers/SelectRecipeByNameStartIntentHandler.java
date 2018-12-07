@@ -23,7 +23,7 @@ public class SelectRecipeByNameStartIntentHandler implements RequestHandler {
     @Override
     // says the welcoming message and returns the user input
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Nenne das Rezept, das vorgelesen werden soll.";
+        String speechText = "Nenne das Rezept, das vorgelesen werden soll. Sage zum Beispiel: ich möchte Schnitzel kochen.";
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)

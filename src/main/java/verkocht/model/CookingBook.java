@@ -55,7 +55,7 @@ public class CookingBook {
         allRecipes.add(milchshakeRec);
         
         // Nudeln mit Tomatensauce
-		Recipe nudelnMitTomatensauce = new Recipe("nudelnMitTomatensauce", Category.VEGAN, 4, 20);
+		Recipe nudelnMitTomatensauce = new Recipe("nudeln", Category.VEGAN, 4, 20);
 		nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Nudeln"), 200);
 		nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Salz"), 1);
 		nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Tomatensauce"), 100);

@@ -65,6 +65,7 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
         String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
         CookingBook cookingBook = new CookingBook();
         Recipe foundRecipe = cookingBook.findByName(recipeOriginal);//recipe returned 
+        
         String recipe; //recipe name as String
         if (foundRecipe == null) {//recipe could not be found
             recipe = null; 
@@ -74,10 +75,10 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
         if (recipe != null && !recipe.isEmpty()) {//string is not empty and not null
             TellRecipeStepsIntentHandler.resetCnt();
             TellRecipeStepsIntentHandler.setRecipeToRead(foundRecipe);
-            speechText = String.format("Ich lese dir das Rezept %s vor.", recipe);
+            speechText = String.format("Ich lese dir das Rezept %s vor. Sage \"WEITER\", wenn ich weiterlesen soll", recipe);
               
         } else {
-           speechText = "Ich weiss nicht welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich möchte Schnitzel kochen.";
+           speechText = String.format ("Ich weiss nicht, welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich möchte Schnitzel kochen.");
         }
         
         return input.getResponseBuilder()

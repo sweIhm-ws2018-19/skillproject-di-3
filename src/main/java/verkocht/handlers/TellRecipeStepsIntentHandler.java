@@ -23,12 +23,12 @@ public class TellRecipeStepsIntentHandler implements RequestHandler {
         String speechText;
         Recipe recipeToRead = Recipe.getRecipeToRead();
         if (counter >= Recipe.getRecipeToRead().getSteps().size()) {
-            speechText = "Das Rezept ist zu Ende.";
+            speechText = "Das Rezept ist zu Ende. Sage \"stop\", um ins Hauptmenü zurückzukommen.";
             counter = 0;
         } else {
-
+            
             String recipeStep = recipeToRead.getSteps().get(counter);
-            speechText = String.format("Neuer Schritt %s", recipeStep);
+            speechText = String.format("(%d), %s", counter + 1, recipeStep);
             counter++;
             // int nextStep = Recipe.getStepsCounter()+1;
             // Recipe.setStepsCounter(nextStep);

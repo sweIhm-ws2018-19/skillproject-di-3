@@ -20,6 +20,10 @@ public final class PhrasesForAlexa {
     public static final String REPEAT_RECIPE_INPUT ="Ich weiss nicht, welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich moechte Schnitzel kochen.";
     public static final String START_RECIPE_INPUT = "Nenne das Rezept, das vorgelesen werden soll. Sage zum Beispiel: ich moechte Schnitzel kochen.";
 
+    public static final String FAVORTIE_RECEPIE_LIST = "FavoritRecipes";
+    public static final String SELECTED_FAVORITE = "FavoritRecipe";
+
+
     public static final String[] REPROMTS = {"Sage zum Beispiel: Welche Kategorien gibt es?",
 			"Sage zum Beispiel: Zur Rezeptauswahl",
 			"Sage zum Beispiel: Ich habe einen Favoriten",

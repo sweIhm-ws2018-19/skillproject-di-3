@@ -55,7 +55,7 @@ public class SaveRecipeToFavoriteHandler implements RequestHandler {
         listOfFavorites.add(chosenRecipe);
         // put the list back into the persistent databank
         attributeManager.setPersistentAttributes(Collections.singletonMap(PhrasesForAlexa.FAVORTIE_RECEPIE_LIST, listOfFavorites));
-        String speechText = "Das Rezept " + chosenRecipe + " wurde zu den Favoriten hinzugefügt. Du kannst es dir ueber die Auswahl vorlesen lassen.";
+        String speechText = "Das Rezept " + chosenRecipe + " wurde zu den Favoriten hinzugefuegt. Du kannst es dir ueber die Auswahl vorlesen lassen.";
         
         return input.getResponseBuilder()
                 .withSpeech(speechText)

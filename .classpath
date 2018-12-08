@@ -23,14 +23,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/alldocube/.m2/repository/com/amazon/alexa/ask-sdk-core/2.5.5/ask-sdk-core-2.5.5.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="com.amazon.alexa"/>
-			<attribute name="maven.artifactId" value="ask-sdk-core"/>
-			<attribute name="maven.version" value="2.5.5"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

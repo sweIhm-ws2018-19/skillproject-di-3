@@ -67,7 +67,7 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
         }
         if (recipe != null && !recipe.isEmpty()) {
             TellRecipeStepsIntentHandler.resetCnt();
-            TellRecipeStepsIntentHandler.setRecipeToRead(foundRecipe);
+            Recipe.saveRecipe(foundRecipe);
             speechText = String.format(PhrasesForAlexa.READ_RECIPE_STEPS, recipe);
               
         } else {

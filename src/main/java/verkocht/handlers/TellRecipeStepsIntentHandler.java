@@ -22,8 +22,8 @@ public class TellRecipeStepsIntentHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput input) {
         String speechText;
-        Recipe recipeToRead = Recipe.getRecipeToRead();
-        if (counter >= Recipe.getRecipeToRead().getSteps().size()) {
+        Recipe recipeToRead = Recipe.getSavedRecipe();
+        if (counter >= Recipe.getSavedRecipe().getSteps().size()) {
             speechText = PhrasesForAlexa.END_READ_RECIPE_STEPS;
             counter = 0;
         } else {          
@@ -35,11 +35,11 @@ public class TellRecipeStepsIntentHandler implements RequestHandler {
                 .withReprompt("Wie kann ich dir helfen?").withShouldEndSession(false).build();
     }
     public static Recipe getRecipeToRead() {
-        return Recipe.getRecipeToRead();
+        return Recipe.getSavedRecipe();
     }
 
     public static void setRecipeToRead(Recipe recipeToRead) {
-        Recipe.setRecipeToRead(recipeToRead);
+        Recipe.saveRecipe(recipeToRead);
     }
 
     public static void resetCnt() {

@@ -20,7 +20,7 @@ public final class PhrasesForAlexa {
     public static final String REPEAT_RECIPE_INPUT ="Ich weiss nicht, welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich moechte Schnitzel kochen.";
     public static final String START_RECIPE_INPUT = "Nenne das Rezept, das vorgelesen werden soll. Sage zum Beispiel: ich moechte Schnitzel kochen.";
 
-    public static final String[] REPROMTS = {"Sage zum Beispiel: Welche Kategorien gibt es?",
+    protected static final String[] REPROMTS = {"Sage zum Beispiel: Welche Kategorien gibt es?",
 			"Sage zum Beispiel: Zur Rezeptauswahl",
 			"Sage zum Beispiel: Ich habe einen Favoriten",
 			"Ich kann dir helfen, sage zum Beispiel: Wie waehle ich ein Rezept aus?"};
@@ -45,10 +45,11 @@ public final class PhrasesForAlexa {
     		+ "Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
     
     // Modify Unit
-    public static final String MODIFY_UNIT_WELCOME = "Hier kannst du ein Rezept entsprechend einer Zutat modifizieren.";
+    public static final String MODIFY_UNIT_WELCOME = "Hier kannst du ein Rezept entsprechend einer Zutat modifizieren. Sage {Zutat} anpassen.";
     public static final String MODIFY_UNIT_REPROMT = "Bitte nenne eine Zutat des Rezept.";
     public static final String MODIFY_UNIT_SELECT_FIRST = "Du musst erst ein Rezept auswaehlen, bevor du es modifizieren kannst.";
     public static final String MODIFY_UNIT_SELECT_INGREDIENT = "Waehle eine Zutat.";
+    public static final String MODIFY_UNIT_VALUE = "Auf welchen Wert soll die Zutat geaendert werden.";
     public static final String MODIFY_UNIT_ERROR = "Dies ist nicht moeglich.";
     public static final String MODIFY_UNIT_DONE = "Das Rezept wurde angepasst.";
     

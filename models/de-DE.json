@@ -20,7 +20,7 @@
                     "slots": [],
                     "samples": [
                         "welche Kategorien gibt es",
-                        "was für Kategorien stehen zur Auswahl",
+                        "was fuer Kategorien stehen zur Auswahl",
                         "sag mir alle Kategorien"
                     ]
                 },
@@ -28,17 +28,17 @@
                     "name": "SetFavoriteIntent",
                     "slots": [],
                     "samples": [
-                        "ich möchte ein Rezept favorisieren",
+                        "ich moechte ein Rezept favorisieren",
                         "ich habe einen Favoriten",
-                        "speicherst du einen Favorit für mich"
+                        "speicherst du einen Favorit fuer mich"
                     ]
                 },
                 {
                     "name": "SelectRecipeByFavoritsIntent",
                     "slots": [],
                     "samples": [
-                        "ich möchte meine Favoriten vorlesen lassen",
-                        "welche Favoriten kann ich wählen",
+                        "ich moechte meine Favoriten vorlesen lassen",
+                        "welche Favoriten kann ich waehlen",
                         "lese mir meine Favoriten vor"
                     ]
                 },
@@ -46,8 +46,8 @@
                     "name": "SelectRecipeByCategoryIntent",
                     "slots": [],
                     "samples": [
-                        "ich möchte nach Kategorien auswählen",
-                        "nach welchen Kategorien kann ich ein Rezept wählen",
+                        "ich moechte nach Kategorien auswaehlen",
+                        "nach welchen Kategorien kann ich ein Rezept waehlen",
                         "zur Kategorieauswahl"
                     ]
                 },
@@ -55,7 +55,7 @@
                     "name": "SelectRecipeByNameStartIntent",
 					"slots": [],
                     "samples": [
-                        "ich möchte direkt ein Rezept auswählen ",
+                        "ich moechte direkt ein Rezept auswaehlen ",
                         "Rezeptnamen sagen ",
                         "zur Namenauswahl "
                     ]
@@ -70,10 +70,10 @@
                         }
                     ],
                     "samples": [
-                        "Ich möchte das Rezept {Recipe} anhören",
-                        "Ich hätte gerne das Rezept {Recipe}",
+                        "Ich moechte das Rezept {Recipe} anhoeren",
+                        "Ich haette gerne das Rezept {Recipe}",
                         "Kannst du das Rezept {Recipe} vorlesen",
-                        "Ich möchte {Recipe} kochen"
+                        "Ich moechte {Recipe} kochen"
                     ]
                 },
                 
@@ -81,26 +81,39 @@
                     "name": "TellRecipeStepsIntent",
                     "slots": [],
                     "samples": [
+                    	"weiter",
                         "kannst du mir die Rezeptschritte sagen",
                         "welche Schritte muss ich befolge",
-                        "was für Schritte sind wichtig"
+                        "was fuer Schritte sind wichtig"
                     ]
                 },
                 {
                     "name": "ModifyRecipeIntent",
                     "slots": [],
                     "samples": [
-                        "ich möchte das Rezept ändern",
-                        "kann ich ein Rezept ändern",
-                        "ändere ein Rezept für mich"
+                        "ich moechte das Rezept aendern",
+                        "kann ich ein Rezept aendern",
+                        "aendere ein Rezept fuer mich"
+                    ]
+                },
+                {
+                    "name": "ModifyRecipeByUnitsIntent",
+                    "slots": [
+                        {
+                            "name": "Ingredient",
+                        }
+                    ],
+                    "samples": [
+                    	"{Ingredient} anpassen",
+                        "kann ich ein Rezept nach Zutaten aendern"
                     ]
                 },
 				{
                     "name": "SelectRecipeByFavoritsIntentHandlerSelector",
                     "slots": [],
                     "samples": [
-                        "ich möchte einen Favoriten auswählen",
-                        "ich wähle einen Favoriten aus der Liste",
+                        "ich moechte einen Favoriten auswaehlen",
+                        "ich waehle einen Favoriten aus der Liste",
                         "zur Favoritenauswahl"
                     ]
                 },

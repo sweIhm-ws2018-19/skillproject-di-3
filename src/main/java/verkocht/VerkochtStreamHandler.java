@@ -21,6 +21,7 @@ import verkocht.handlers.CancelandStopIntentHandler;
 import verkocht.handlers.FallbackIntentHandler;
 import verkocht.handlers.HelpIntentHandler;
 import verkocht.handlers.LaunchRequestHandler;
+import verkocht.handlers.ModifyRecipeByUnitsIntentHandler;
 import verkocht.handlers.ModifyRecipeIntentHandler;
 import verkocht.handlers.SelectRecipeByCategoryIntentHandler;
 import verkocht.handlers.SelectRecipeByFavoritsIntentHandler;
@@ -46,12 +47,13 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new SelectRecipeIntentHandler(),
                         new SetFavoriteIntentHandler(),
                         new TellRecipeStepsIntentHandler(),
+                        new ModifyRecipeByUnitsIntentHandler(),
                         new LaunchRequestHandler(),
                         new CancelandStopIntentHandler(),
                         new SessionEndedRequestHandler(),
                         new HelpIntentHandler(),
                         new FallbackIntentHandler())
-                		.withSkillId("amzn1.ask.skill.5eb7a2b5-a62c-493e-8499-1a96b68b5c89")
+//                		.withSkillId("amzn1.ask.skill.5eb7a2b5-a62c-493e-8499-1a96b68b5c89")
                 .build();
     }
 

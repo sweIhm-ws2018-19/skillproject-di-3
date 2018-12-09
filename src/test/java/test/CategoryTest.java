@@ -13,4 +13,9 @@ public class CategoryTest {
 		assertEquals("Vegetarisch", Category.VEGETARIAN.getName());
 		assertEquals("Vegan", Category.VEGAN.getName());
 	}
+	
+	@Test
+	public void testGetCategories() {
+		assertEquals("Fleisch, Vegetarisch und Vegan", Category.getCategories());
+	}
 }

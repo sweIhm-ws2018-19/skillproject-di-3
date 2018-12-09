@@ -19,8 +19,8 @@ public class CookingBookTest {
 
         assertEquals("Incorrect value", cookingBook.getAllRecipes().get(0), cookingBook.findByName("schnitzel") );
         assertEquals("Incorrect value",cookingBook.getAllRecipes().get(1), cookingBook.findByName("milchshake"));
-        assertEquals("Incorrect value", cookingBook.getAllRecipes().get(2), cookingBook.findByName("nudelnMitTomatensauce"));
-        assertEquals("Incorrect value", null, cookingBook.findByName("nudeln"));   
+        assertEquals("Incorrect value", cookingBook.getAllRecipes().get(2), cookingBook.findByName("nudeln"));
+        assertEquals("Incorrect value", null, cookingBook.findByName("kartoffeln"));   
     }
     
     @Test
@@ -33,7 +33,7 @@ public class CookingBookTest {
     public void testConstructor() {
         assertEquals ("Zuerst wird wird das Mehl auf einen Teller gestreut.", cookingBook.findByName("schnitzel").getSteps().get(0));
         assertEquals ("Alle Zutaten mit einem Mixer vermischen.", cookingBook.findByName("milchshake").getSteps().get(1));
-        assertEquals ("Die Nudeln abgiessen und mit der Sauce heiss servieren.", cookingBook.findByName("nudelnMitTomatensauce").getSteps().get(2));
+        assertEquals ("Die Nudeln abgiessen und mit der Sauce heiss servieren.", cookingBook.findByName("nudeln").getSteps().get(2));
     }
     
     @Test

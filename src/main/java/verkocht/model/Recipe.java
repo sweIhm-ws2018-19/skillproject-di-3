@@ -62,8 +62,8 @@ public class Recipe {
         return stepsCounter;
     }
 
-    public static void incStepsCounter() {
-        Recipe.stepsCounter++;
+    public static void setStepsCounter(int step) {
+        Recipe.stepsCounter = step;
     }
     
     public static Recipe getRecipeToRead() {
@@ -80,5 +80,11 @@ public class Recipe {
     
     public int getCookingTime() {
         return this.cookingTime;
+    }
+    @Override
+    public String toString() {
+        String rec = "";
+        return rec + this.getName();
+        
     }
 }

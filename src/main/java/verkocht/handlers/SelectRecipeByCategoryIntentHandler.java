@@ -60,22 +60,22 @@ public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
         String actualCategorie = (String) input.getAttributesManager().getSessionAttributes().get(CATEGORY_KEY);
         CookingBook cookingBook = new CookingBook();
         Category[] categories = Category.values();
-        List<Recipe> a = new ArrayList<>();
+        List<Recipe> foundRecipes = new ArrayList<>();
         
         if (actualCategorie != null || !actualCategorie.isEmpty()) {
         
         for (int i = 0; i <= Category.values().length; i++) {
         	if (categories[i].getName() == actualCategorie) {
-                a.add((Recipe) cookingBook.findByCategory(categories[i]));
+        		foundRecipes = cookingBook.findByCategory(categories[i]);
         	} 
         }
         
-        String b = null;
-        for (int i = 0; i <= a.size(); i++){
-        	b += a.get(0).getName();
+        String responseMessage = null;
+        for (int i = 0; i <= foundRecipes.size(); i++){
+        	responseMessage += foundRecipes.get(i).getName();
         }
         
-        speechText = String.format(PhrasesForAlexa.TELL_CATEGORIES, b);
+        speechText = String.format(PhrasesForAlexa.TELL_CATEGORIES, responseMessage);
         
         }
         

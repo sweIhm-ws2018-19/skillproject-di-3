@@ -15,28 +15,83 @@ package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.model.Intent;
+import com.amazon.ask.model.IntentRequest;
+import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.Slot;
+
+import verkocht.model.Category;
+import verkocht.model.CookingBook;
+import verkocht.model.Recipe;
 
 public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
+    public static final String CATEGORY_KEY = "CATEGORY";
+    public static final String CATEGORY_SLOT = "Category";
+
 
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("SelectRecipeByCategoryIntent"));
     }
+    
+    // Zu umsetzende Idee: Eine Kategorie wird ï¿½bergeben und es werden alle Rezepte aus dieser Kategorie zurï¿½ckgegeben. 
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hier kannst du spaeter ein Rezept nach Kategorie auswaehlen.";
-
+        String speechText = "Wenn du das nicht vorliest habe ich ein Problem";
+        Request request = input.getRequestEnvelope().getRequest();
+        IntentRequest intentRequest = (IntentRequest) request;
+        Intent intent = intentRequest.getIntent();
+        Map<String, Slot> slots = intent.getSlots();
+        
+        Slot chosenRecipeSlot = slots.get(CATEGORY_SLOT);
+        
+        // String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get("CATEGORY");
+        
+        String chosenRecipe = chosenRecipeSlot.getValue();
+        input.getAttributesManager().setSessionAttributes(Collections.singletonMap(CATEGORY_KEY, chosenRecipe));
+        
+        
+        String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(CATEGORY_KEY);
+        CookingBook cookingBook = new CookingBook();
+        Category[] categories = Category.values();
+        String response = "";
+        
+        for (int i = 0; i <= Category.values().length; i++) {
+        	if (categories[i].getName() == recipeOriginal) {
+                List<Recipe> a = cookingBook.findByCategory(categories[i]);
+                String listOfRecipes = "";
+                listOfRecipes = a.toString();
+                speechText = String.format("Folgende Rezepte befinden sich in der Kategorie", listOfRecipes);		 
+        	
+        	return input.getResponseBuilder()
+                    .withSpeech(speechText)
+                    .withSimpleCard("Rezeptauswahl", speechText)
+                    .withReprompt("Wie kann ich dir helfen?")
+                    .withShouldEndSession(false)
+                    .build();
+        	
+        	} else {
+        		speechText = "Ich weiss nicht welche Kategorie ich vorlesen soll. Sag mir den Namen der Kategorie. Sage zum Beispiel: Sage mir alle Rezepte der Kategorie Vegan.";
+        		
+        		
+        		}
+        }
+        
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("Rezeptauswahl", speechText)
                 .withReprompt("Wie kann ich dir helfen?")
                 .withShouldEndSession(false)
                 .build();
+  
     }
 }

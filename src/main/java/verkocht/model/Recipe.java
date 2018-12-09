@@ -39,12 +39,15 @@ public class Recipe {
 		return this.ingredientAmounts;
 	}
 	
-	
 	/**
 	 * 
 	 * @return
 	 */
 	public Recipe changeIngredientAmounts() {
+		for (Ingredient key : this.ingredientAmounts.keySet() ) {
+			Integer r = ingredientAmounts.get(key);
+			ingredientAmounts.replace(key, r, r * this.numberOfPeople);
+		}
 		return null;
 	}
 	
@@ -84,6 +87,10 @@ public class Recipe {
         return this.numberOfPeople;
     }
     
+    public void setNumberOfPeople(int numOfPpl) {
+    	this.numberOfPeople = numOfPpl;
+    }
+
     public int getCookingTime() {
         return this.cookingTime;
     }

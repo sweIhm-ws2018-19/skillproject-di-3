@@ -49,11 +49,17 @@
                 },
                 {
                     "name": "SelectRecipeByCategoryIntent",
-                    "slots": [],
+                    "slots": [
+                        {
+                            "name": "Category",
+                            "type": "LIST_OF_CATEGORIES"
+                        }
+                    ],
                     "samples": [
-                        "ich moechte nach Kategorien auswaehlen",
-                        "nach welchen Kategorien kann ich ein Rezept waehlen",
-                        "zur Kategorieauswahl"
+                        "Filter nach Kategorie {Category}",
+                        "Ich haette gerne Rezpte der Kategoire {Category}",
+                        "Sage mir alle Rezepte der Kategorie {Category}",
+                        "Kannst du die Rezepte der Kategire {Category} vorlesen"
                     ]
                 },
                 {
@@ -115,6 +121,22 @@
                     ]
                 },
                 {
+                    "name": "SetNumberOfPeopleIntent",
+                    "slots": [
+                        {
+                            "name": "Number",
+                            "type": "NUMBER_OF_PEOPLE"
+                        }
+                    ],
+                    "samples": [
+                        "Ich moechte das Rezept fuer {Number} Leute kochen",
+                        "Kannst du das Rezept fuer {Number} Personen vorlesen",
+                        "Sage mir das Rezept fuer {Number} Personen",
+                        "Sage mir das Rezept fuer {Number} Person",
+                        "Ich möchte das Rezept fuer {Number} alleine kochen"
+                    ]
+                },
+                {
                     "name": "ModifyRecipeByUnitsIntent",
                     "slots": [
                         {
@@ -169,7 +191,53 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "LIST_OF_CATEGORIES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Fleisch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vegetarisch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vegan"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "NUMBER_OF_PEOPLE",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "eine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mich"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "zwei"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "drei"
+                            }
+                        }
+                    ]
                 }
+                
             ]
         }
     }

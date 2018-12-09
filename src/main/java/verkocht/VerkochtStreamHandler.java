@@ -31,6 +31,7 @@ import verkocht.handlers.SelectRecipeByNameStartIntentHandler;
 import verkocht.handlers.SelectRecipeIntentHandler;
 import verkocht.handlers.SessionEndedRequestHandler;
 import verkocht.handlers.SetFavoriteIntentHandler;
+import verkocht.handlers.SetNumberOfPeopleIntentHandler;
 import verkocht.handlers.TellMeCategoriesIntentHandler;
 import verkocht.handlers.TellRecipeStepsIntentHandler;
 
@@ -48,6 +49,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new SelectRecipeByNameStartIntentHandler(),
                         new SelectRecipeIntentHandler(), 
                         new SetFavoriteIntentHandler(),
+                        new SetNumberOfPeopleIntentHandler(),
                         new TellRecipeStepsIntentHandler(),
                         new LaunchRequestHandler(),
                         new CancelandStopIntentHandler(), 

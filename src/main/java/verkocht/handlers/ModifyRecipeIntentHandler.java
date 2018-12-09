@@ -34,7 +34,9 @@ public Optional<Response> handle(HandlerInput input) {
 
    return input.getResponseBuilder()
            .withSpeech(speechText)
-           .withSimpleCard("CookingSession", speechText)
+           .withSimpleCard("Rezept modifizieren", speechText)
+           .withReprompt("Wie kann ich dir helfen?")
+           .withShouldEndSession(false)
            .build();
 }
 }

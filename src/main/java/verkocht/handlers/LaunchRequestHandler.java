@@ -13,16 +13,23 @@
 
 package verkocht.handlers;
 
+import static com.amazon.ask.request.Predicates.requestType;
+
+import java.security.SecureRandom;
+import java.util.Optional;
+
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 
-import java.util.Optional;
-
-import static com.amazon.ask.request.Predicates.requestType;
-
+/**
+ * Intent handler that greets the user. If nothing is said, the skill will repromt
+ * with a random pick of available repromts.
+ */
 public class LaunchRequestHandler implements RequestHandler {
+	SecureRandom rnd = new SecureRandom();
+	
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(requestType(LaunchRequest.class));
@@ -30,10 +37,15 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
+    	String[] repromts = {"Sage zum Beispiel: Welche Kategorien gibt es?",
+    			"Sage zum Beispiel: Zur Rezeptauswahl",
+    			"Sage zum Beispiel: Ich habe einen Favoriten",
+    			"Ich kann dir helfen, sage zum Beispiel: Wie waehle ich ein Rezept aus?"};
+    	
         String speechText = "Hallo. Ich bin dein interaktives Kochbuch \"Verkocht\"! Was willst du tun?";
-        String repromptText = "Bitte nenne mir dein Anliegen.";
+        String repromptText = repromts[rnd.nextInt(repromts.length)];
         return input.getResponseBuilder()
-                .withSimpleCard("CookingSession", speechText)
+                .withSimpleCard("Verkocht!", speechText)
                 .withSpeech(speechText)
                 .withReprompt(repromptText)
                 .build();

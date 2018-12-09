@@ -1,7 +1,8 @@
 package verkocht.model;
 
-/*
- * Enum for the units of the ingredients.
+/**
+ * Enum that represents all available units in our cooking book. 
+ * @author Florian Uhrig
  */
 public enum Unit {
 	MILLILITER("Milliliter"), 
@@ -13,13 +14,21 @@ public enum Unit {
 	SCHUSS("Schuss"),
 	TASSE("Tasse");
 	
-	String unit;
+	String unitName;
 	
+	/**
+	 * Ctor to initialize the enum class.
+	 * @param unit The units name as string.
+	 */
 	Unit(String unit) {
-		this.unit = unit; 
+		this.unitName = unit; 
 	}
 	
+	/**
+	 * Getter for one units name.
+	 * @return The units name as string.
+	 */
 	public String getUnit() {
-		return this.unit;
+		return this.unitName;
 	}
 }

@@ -23,9 +23,11 @@ import com.amazon.ask.model.Response;
 
 import verkocht.model.Category;
 
+/**
+ * Intent handler that tells the user the current available categories out
+ * of a array of value from the Enum "Category" of the cooking book.
+ */
 public class TellMeCategoriesIntentHandler implements RequestHandler {
-//    public static final String COLOR_KEY = "COLOR";
-//    public static final String COLOR_SLOT = "Color";
 
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -34,27 +36,11 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText;
-//        String favoriteColor = (String) input.getAttributesManager().getSessionAttributes().get(COLOR_KEY);
-        Category[] categories = Category.values();
-        
-        StringBuilder categoryString = new StringBuilder();
-        int length = categories.length;
-        
-        for (int i = 0; i < length; i++) {
-            categoryString.append(categories[i].getName());
-            
-            if (i == length - 2) {
-                categoryString.append(" und ");
-            } else if (i != length - 1) {
-                categoryString.append(", ");
-            }
-        }
-        
-        String respone = categoryString.toString();
+    	String speechText;
+        String response = Category.getCategories();
 
-        if (respone != null && !respone.isEmpty()) {
-            speechText = String.format("Folgende Kategorien stehen zur Auswahl: %s. Auf Wiedersehen.", respone);
+        if (response != null && !response.isEmpty()) {
+            speechText = String.format("Folgende Kategorien stehen zur Auswahl: %s.", response);
         } else {
             // Since the user's favorite color is not set render an error message.
             speechText = "Ich kann dir leider im Moment nicht helfen. Tut mir Leid.";
@@ -62,7 +48,9 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("CookingSession", speechText)
+                .withSimpleCard("Deine Kategorien", speechText)
+                .withReprompt("Wie kann ich dir helfen?")
+                .withShouldEndSession(false)
                 .build();
     }
 }

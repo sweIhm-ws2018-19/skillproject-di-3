@@ -1,3 +1,4 @@
+
 /*
      Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
@@ -21,10 +22,12 @@ import verkocht.handlers.CancelandStopIntentHandler;
 import verkocht.handlers.FallbackIntentHandler;
 import verkocht.handlers.HelpIntentHandler;
 import verkocht.handlers.LaunchRequestHandler;
+import verkocht.handlers.ModifyRecipeByUnitsIntentHandler;
 import verkocht.handlers.ModifyRecipeIntentHandler;
-import verkocht.handlers.SelectRecipeByCategorieIntentHandler;
-import verkocht.handlers.SelectRecipeByFavoritsIntentHandler;
-import verkocht.handlers.SelectRecipeByNameIntentHandler;
+import verkocht.handlers.SelectRecipeByCategoryIntentHandler;
+import verkocht.handlers.SelectRecipeByFavoritsStartIntentHandler;
+import verkocht.handlers.SelectRecipeByNameInputRecipeIntentHandler;
+import verkocht.handlers.SelectRecipeByNameStartIntentHandler;
 import verkocht.handlers.SelectRecipeIntentHandler;
 import verkocht.handlers.SessionEndedRequestHandler;
 import verkocht.handlers.SetFavoriteIntentHandler;
@@ -36,24 +39,22 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
     private static Skill getSkill() {
         return Skills.standard()
                 .addRequestHandlers(
-//                        new WhatsMyColorIntentHandler(),
-//                        new MyColorIsIntentHandler(),
-                		new TellMeCategoriesIntentHandler(),
+                        new TellMeCategoriesIntentHandler(), 
                         new ModifyRecipeIntentHandler(),
-                        new SelectRecipeByCategorieIntentHandler(),
-                        new SelectRecipeByFavoritsIntentHandler(),
-                        new SelectRecipeByNameIntentHandler(),
-                        new SelectRecipeIntentHandler(),
+                        new ModifyRecipeByUnitsIntentHandler(),
+                        new SelectRecipeByCategoryIntentHandler(), 
+                        new SelectRecipeByFavoritsStartIntentHandler(),
+                        new SelectRecipeByNameInputRecipeIntentHandler(),
+                        new SelectRecipeByNameStartIntentHandler(),
+                        new SelectRecipeIntentHandler(), 
                         new SetFavoriteIntentHandler(),
                         new TellRecipeStepsIntentHandler(),
                         new LaunchRequestHandler(),
-                        new CancelandStopIntentHandler(),
-                        new SessionEndedRequestHandler(),
+                        new CancelandStopIntentHandler(), 
+                        new SessionEndedRequestHandler(), 
                         new HelpIntentHandler(),
                         new FallbackIntentHandler())
-                // Add your skill id below
-                //.withSkillId("")
-                .build();
+                .withSkillId("amzn1.ask.skill.5eb7a2b5-a62c-493e-8499-1a96b68b5c89").build();
     }
 
     public VerkochtStreamHandler() {

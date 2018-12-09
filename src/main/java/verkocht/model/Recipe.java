@@ -47,7 +47,7 @@ public class Recipe {
 	}
 	
 	public void modifyByUnit(String ingredient, String value) {
-	    
+	    throw new UnsupportedOperationException();
 	}
 
     public String getName() {

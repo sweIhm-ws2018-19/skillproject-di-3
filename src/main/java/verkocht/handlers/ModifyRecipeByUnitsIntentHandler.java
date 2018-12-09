@@ -36,46 +36,41 @@ public class ModifyRecipeByUnitsIntentHandler implements RequestHandler {
         Recipe recipeToModify = Recipe.getSavedRecipe();
 
         try {
-            if (recipeToModify != null) {
-                if (step == 3) {
-                    recipeToModify.modifyByUnit(this.ingredientToModify, this.ingredientValue);
-                    speechText = PhrasesForAlexa.MODIFY_UNIT_DONE;
-                    step = 0;
-                } else if (step == 2) {
-                    Request request = input.getRequestEnvelope().getRequest();
-                    IntentRequest intentRequest = (IntentRequest) request;
-                    Intent intent = intentRequest.getIntent();
-                    Map<String, Slot> slots = intent.getSlots();
-                    String ingredientValue = slots.get(INGREDIENT_VALUE_SLOT).getValue();
+            if (step == 3) {
+                recipeToModify.modifyByUnit(this.ingredientToModify, this.ingredientValue);
+                speechText = PhrasesForAlexa.MODIFY_UNIT_DONE;
+                step = 0;
+            } else if (step == 2) {
+                Request request = input.getRequestEnvelope().getRequest();
+                IntentRequest intentRequest = (IntentRequest) request;
+                Intent intent = intentRequest.getIntent();
+                Map<String, Slot> slots = intent.getSlots();
+                String getIngredientValue = slots.get(INGREDIENT_VALUE_SLOT).getValue();
 
-                    if (ingredientValue.isEmpty()) {
-                        speechText = PhrasesForAlexa.MODIFY_UNIT_VALUE;
-                    } else {
-                        speechText = "Ok!";
-                        this.ingredientValue = ingredientValue;
-                        step++;
-                    }
-                } else if (step == 1) {
-                    Request request = input.getRequestEnvelope().getRequest();
-                    IntentRequest intentRequest = (IntentRequest) request;
-                    Intent intent = intentRequest.getIntent();
-                    Map<String, Slot> slots = intent.getSlots();
-                    String ingredientToModify = slots.get(INGREDIENT_SLOT).getValue();
-
-                    if (ingredientToModify.isEmpty()) {
-                        speechText = PhrasesForAlexa.MODIFY_UNIT_SELECT_INGREDIENT;
-                    } else {
-                        speechText = "Ok!";
-                        this.ingredientToModify = ingredientToModify;
-                        step++;
-                    }
-                } else if (step == 0) {
-                    speechText = PhrasesForAlexa.MODIFY_UNIT_WELCOME;
+                if (getIngredientValue.isEmpty()) {
+                    speechText = PhrasesForAlexa.MODIFY_UNIT_VALUE;
+                } else {
+                    speechText = "Ok!";
+                    this.ingredientValue = getIngredientValue;
                     step++;
                 }
-            } else {
-                speechText = PhrasesForAlexa.MODIFY_UNIT_SELECT_FIRST;
-                step = 0;
+            } else if (step == 1) {
+                Request request = input.getRequestEnvelope().getRequest();
+                IntentRequest intentRequest = (IntentRequest) request;
+                Intent intent = intentRequest.getIntent();
+                Map<String, Slot> slots = intent.getSlots();
+                String getIngredientToModify = slots.get(INGREDIENT_SLOT).getValue();
+
+                if (getIngredientToModify.isEmpty()) {
+                    speechText = PhrasesForAlexa.MODIFY_UNIT_SELECT_INGREDIENT;
+                } else {
+                    speechText = "Ok!";
+                    this.ingredientToModify = getIngredientToModify;
+                    step++;
+                }
+            } else if (step == 0) {
+                speechText = PhrasesForAlexa.MODIFY_UNIT_WELCOME;
+                step++;
             }
         } catch (Exception e) {
             speechText = PhrasesForAlexa.MODIFY_UNIT_ERROR;

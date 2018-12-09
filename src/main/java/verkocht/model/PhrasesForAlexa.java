@@ -60,6 +60,7 @@ public final class PhrasesForAlexa {
     
     //Number of People
     public static final String PEOPLE_UNKNOWN = "Ich habe die Anzahl der Personen leider nicht genau verstanden, sage zum Beispiel: Ich moechte fuer zwei Personen kochen";
+    public static final String PEOPLE_SET = "Dein Rezept ist nun fuer %s ausgerichtet";
     
     // Cancel-/Stop-/Help-/Fallback-Intent
     public static final String SORRY = "Tut mir leid, das weiss ich nicht. Sage einfach Hilfe.";

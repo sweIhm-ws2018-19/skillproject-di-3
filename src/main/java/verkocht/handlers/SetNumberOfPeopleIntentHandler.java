@@ -85,7 +85,7 @@ public class SetNumberOfPeopleIntentHandler implements RequestHandler {
     			recipe.setNumberOfPeople(6);
     			recipe.changeIngredientAmounts();
     	    }
-    	speechText = "Dein Rezept ist nun fuer" + actualNumber + "ausgerichtet"; 
+    	speechText = String.format(PhrasesForAlexa.PEOPLE_SET, actualNumber); 
     	}
     	
         return input.getResponseBuilder()

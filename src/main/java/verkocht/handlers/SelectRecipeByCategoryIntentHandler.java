@@ -43,7 +43,8 @@ public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
         return input.matches(intentName("SelectRecipeByCategoryIntent"));
     }
 
-    @Override
+    @SuppressWarnings("null")
+	@Override
     public Optional<Response> handle(HandlerInput input) {
         String speechText;
         Request request = input.getRequestEnvelope().getRequest();

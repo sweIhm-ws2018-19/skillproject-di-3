@@ -15,10 +15,7 @@ package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -30,14 +27,8 @@ import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
-import verkocht.model.Category;
-import verkocht.model.CookingBook;
-import verkocht.model.Ingredient;
 import verkocht.model.Recipe;
-
-import com.amazon.ask.dispatcher.request.handler.HandlerInput;
-import com.amazon.ask.dispatcher.request.handler.RequestHandler;
-import com.amazon.ask.model.Response;
+import verkocht.model.PhrasesForAlexa;
 
 public class SetNumberOfPeopleIntentHandler implements RequestHandler {
     public static final String NUMBER_KEY = "NUMBER";
@@ -49,8 +40,6 @@ public class SetNumberOfPeopleIntentHandler implements RequestHandler {
         return input.matches(intentName("SetNumberOfPeopleIntent"));
     }
     
-    // Zu umsetzende Idee: Eine Kategorie wird ï¿½bergeben und es werden alle Rezepte aus dieser Kategorie zurï¿½ckgegeben. 
-
     @Override
     public Optional<Response> handle(HandlerInput input) {
     	String speechText = "";
@@ -66,29 +55,38 @@ public class SetNumberOfPeopleIntentHandler implements RequestHandler {
     	
     	String actualNumber = (String) input.getAttributesManager().getSessionAttributes().get(NUMBER_KEY);
     	
-    	CookingBook cookingBook = new CookingBook();
+    	Recipe recipe = Recipe.getSavedRecipe();
     	if (actualNumber == null || actualNumber.isEmpty()) {
-    		speechText = "Ich habe die Anzahl der Personen leider nicht genau verstanden, sage zum Beispiel: Ich moechte fuer zwei Personen kochen";
+    		speechText = PhrasesForAlexa.PEOPLE_UNKNOWN;
     	} else {
     	switch (actualNumber) {
     		case "eine":
     		case "mich":
-    			for (int i = 0; cookingBook.getAllRecipes().size() <= i; i++) {
-    				cookingBook.getAllRecipes().get(i).setNumberOfPeople(1);
-    				cookingBook.getAllRecipes().get(i).changeIngredientAmounts();
-    			}
+    			recipe.setNumberOfPeople(1);
+    			recipe.changeIngredientAmounts();
     			break;
     		case "zwei":
-    			for (int i = 0; cookingBook.getAllRecipes().size() <= i; i++) {
-    				cookingBook.getAllRecipes().get(i).setNumberOfPeople(2);
-    				cookingBook.getAllRecipes().get(i).changeIngredientAmounts();
-    			}
+    			recipe.setNumberOfPeople(2);
+    			recipe.changeIngredientAmounts();
     			break;
+    		case "drei":
+    			recipe.setNumberOfPeople(3);
+    			recipe.changeIngredientAmounts();
+    			break;
+    		case "vier":
+    			recipe.setNumberOfPeople(4);
+    			recipe.changeIngredientAmounts();
+    			break;
+    		case "fuenf":
+    			recipe.setNumberOfPeople(5);
+    			recipe.changeIngredientAmounts();
+    			break;
+    		case "sechs":
+    			recipe.setNumberOfPeople(6);
+    			recipe.changeIngredientAmounts();
     	    }
     	speechText = "Dein Rezept ist nun fuer" + actualNumber + "ausgerichtet"; 
     	}
-    	
-    	
     	
         return input.getResponseBuilder()
                 .withSpeech(speechText)

@@ -20,7 +20,7 @@
                     "slots": [],
                     "samples": [
                         "welche Kategorien gibt es",
-                        "was fuer Kategorien stehen zur Auswahl",
+                        "was für Kategorien stehen zur Auswahl",
                         "sag mir alle Kategorien"
                     ]
                 },
@@ -28,31 +28,17 @@
                     "name": "SetFavoriteIntent",
                     "slots": [],
                     "samples": [
-                        "ich moechte ein Rezept favorisieren",
+                        "ich möchte ein Rezept favorisieren",
                         "ich habe einen Favoriten",
-                        "speicherst du einen Favorit fuer mich"
-                    ]
-                },
-                {
-                    "name": "SelectRecipeByFavoritsIntent",
-                    "slots": [
-						{
-                            "name": "FavoritRecipe",
-                            "type": "FavoritRecipes"
-                        }
-					],
-                    "samples": [
-                        "ich moechte meine Favoriten vorlesen lassen",
-                        "welche Favoriten kann ich waehlen",
-                        "lese mir meine Favoriten vor"
+                        "speicherst du einen Favorit für mich"
                     ]
                 },
                 {
                     "name": "SelectRecipeByCategoryIntent",
                     "slots": [],
                     "samples": [
-                        "ich moechte nach Kategorien auswaehlen",
-                        "nach welchen Kategorien kann ich ein Rezept waehlen",
+                        "ich möchte nach Kategorien auswählen",
+                        "nach welchen Kategorien kann ich ein Rezept wählen",
                         "zur Kategorieauswahl"
                     ]
                 },
@@ -60,7 +46,7 @@
                     "name": "SelectRecipeByNameStartIntent",
 					"slots": [],
                     "samples": [
-                        "ich moechte direkt ein Rezept auswaehlen ",
+                        "ich möchte direkt ein Rezept auswählen ",
                         "Rezeptnamen sagen ",
                         "zur Namenauswahl "
                     ]
@@ -75,23 +61,10 @@
                         }
                     ],
                     "samples": [
-                        "Ich moechte das Rezept {Recipe} anhoeren",
-                        "Ich haette gerne das Rezept {Recipe}",
+                        "Ich möchte das Rezept {Recipe} anhören",
+                        "Ich hätte gerne das Rezept {Recipe}",
                         "Kannst du das Rezept {Recipe} vorlesen",
-                        "Ich moechte {Recipe} kochen"
-                    ]
-                },
-				{
-                    "name": "SaveRecipeToFavoriteHandler",
-                    "slots": [
-                        {
-                            "name": "FavoritRecipe",
-                            "type": "FavoritRecipes"
-                        }
-                    ],
-                    "samples": [
-                        "Ich moechte ein neues Rezept zu den Favoriten hinzufuegen",
-						"Neuen Favoriten anlegen"
+                        "Ich möchte {Recipe} kochen"
                     ]
                 },
                 
@@ -101,30 +74,50 @@
                     "samples": [
                         "kannst du mir die Rezeptschritte sagen",
                         "welche Schritte muss ich befolge",
-                        "was fuer Schritte sind wichtig"
+                        "was für Schritte sind wichtig"
                     ]
                 },
                 {
                     "name": "ModifyRecipeIntent",
                     "slots": [],
                     "samples": [
-                        "ich moechte das Rezept aendern",
-                        "kann ich ein Rezept aendern",
-                        "aendere ein Rezept fuer mich"
+                        "ich möchte das Rezept ändern",
+                        "kann ich ein Rezept ändern",
+                        "ändere ein Rezept für mich"	
                     ]
                 },
 				{
-                    "name": "SelectRecipeByFavoritsIntentSelectorHandler",
+                    "name": "SelectRecipeByFavoritsStartIntent",
                     "slots": [
-						{
-							"name": "FavoritRecipe",
-                            "type": "FavoritRecipes"
-                        }
+						"favorits" : "LIST_OF_FAVORITES"
 					],
                     "samples": [
-                        "ich moechte einen Favoriten auswaehlen",
-                        "ich waehle einen Favoriten aus der Liste",
-                        "zur Favoritenauswahl"
+                        "ich möchte meine Favoriten vorlesen lassen",
+                        "welche Favoriten kann ich wählen",
+                        "lese mir meine Favoriten vor"
+                    ]
+                },
+				{
+                    "name": "SelectRecipeByFavoritsIntentSelectorIntent",
+                    "slots": [
+						"name" : "FavoritRecipe"
+					],
+                    "samples": [
+                        "ich wähle {FavoritRecipe} aus Favoriten aus",
+                        "nehme {FavoritRecipe} aus meinen Favoriten",
+                        "Kannst du {FavoritRecipe} auswählen"
+                    ]
+                },
+				{
+                    "name": "SaveRecipeToFavoriteIntent",
+                    "slots": [
+						"name" : "FavoritRecipe",
+						"favorits" : "LIST_OF_FAVORITES"
+					],
+                    "samples": [
+                        "ich möchte {FavoritRecipe} als Favoriten speichern",
+                        "füge {FavoritRecipe} zu Favoriten hinzu",
+                        "speichere {FavoritRecipe} als Favoriten"
                     ]
                 },
                 {
@@ -157,7 +150,25 @@
                         }
                     ]
                 }
+            ],
+			"favorits": [
+                {
+                    "name": "LIST_OF_FAVORITES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "spagettiBolognese"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "schnitzel"
+                            }
+                        }
+                    ]
+                }
             ]
+			
         }
     }
 }

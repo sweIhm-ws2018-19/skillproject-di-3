@@ -15,7 +15,7 @@ public final class PhrasesForAlexa {
     
     // LaunchIntent
     public static final String WELCOME = "Hallo. Ich bin dein interaktives Kochbuch \"Verkocht\"! Was willst du tun?";
-    public static final String FAVORTIE_RECEPIE_LIST = "FavoritRecipes";
+    public static final String FAVORTIE_RECIPE_LIST = "LIST_OF_FAVORITES";
     public static final String SELECTED_FAVORITE = "FavoritRecipe";
     public static final String END_READ_RECIPE_STEPS = "Das Rezept ist zu Ende. Sage \"stop\", um ins Hauptmenue zuruezukommen.";
     public static final String READ_RECIPE_STEPS = "Ich lese dir das Rezept %s vor. Sage \"WEITER\", wenn ich weiterlesen soll";

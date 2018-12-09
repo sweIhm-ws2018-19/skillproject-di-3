@@ -26,7 +26,7 @@ public class SelectRecipeByFavoritsIntentSelectorHandler implements RequestHandl
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("SelectRecipeByFavoritsIntentSelectorHandler"));
+        return input.matches(intentName("SelectRecipeByFavoritsIntentSelectorIntent"));
     }
     
     @Override

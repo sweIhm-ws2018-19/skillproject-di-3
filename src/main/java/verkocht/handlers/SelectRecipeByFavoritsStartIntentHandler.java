@@ -33,7 +33,7 @@ public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler 
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("SelectRecipeByFavoritsStartIntentHandler"));
+        return input.matches(intentName("SelectRecipeByFavoritsStartIntent"));
     }
 
     @SuppressWarnings("unchecked")
@@ -41,7 +41,7 @@ public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler 
     public Optional<Response> handle(HandlerInput input) {
        
         AttributesManager attributesManager = input.getAttributesManager();
-        List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECEPIE_LIST) ;
+        List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECIPE_LIST) ;
         StringBuilder allFavorites = new StringBuilder("");
         if (listOfFavorites != null) {
             for (String string : listOfFavorites) {

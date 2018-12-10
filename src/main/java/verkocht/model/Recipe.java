@@ -16,7 +16,7 @@ public class Recipe {
 	private Category category;
 	private Map<Ingredient, Integer> ingredientAmounts = new HashMap<>();
     private static int stepsCounter;
-    private static Recipe recipeToRead;
+    private static Recipe savedRecipe;
 
 	
 	public Recipe(String name, Category category, int nrOfPeople, int coockingTime) {
@@ -24,7 +24,7 @@ public class Recipe {
 	    this.category = category;
 	    this.cookingTime = coockingTime;
 	    this.numberOfPeople = nrOfPeople;
-	    }
+	}
 	
 	public Category getCategory() {
 		return category;
@@ -44,6 +44,10 @@ public class Recipe {
 	 */
 	public Recipe changeIngredientAmounts() {
 		return null;
+	}
+	
+	public void modifyByUnit(String ingredient, String value) {
+	    throw new UnsupportedOperationException();
 	}
 
     public String getName() {
@@ -66,12 +70,12 @@ public class Recipe {
         Recipe.stepsCounter = step;
     }
     
-    public static Recipe getRecipeToRead() {
-        return recipeToRead;
+    public static Recipe getSavedRecipe() {
+        return savedRecipe;
     }
 
-    public static void setRecipeToRead(Recipe recipeToRead) {
-        Recipe.recipeToRead = recipeToRead;
+    public static void saveRecipe(Recipe recipeToSave) {
+        Recipe.savedRecipe = recipeToSave;
     }
     
     public int getNumberOfPeople() {

@@ -35,12 +35,7 @@
                 },
                 {
                     "name": "SelectRecipeByFavoritsIntent",
-                    "slots": [
-						{
-                            "name": "FavoritRecipe",
-                            "type": "FavoritRecipes"
-                        }
-					],
+                    "slots": [],
                     "samples": [
                         "ich moechte meine Favoriten vorlesen lassen",
                         "welche Favoriten kann ich waehlen",
@@ -64,14 +59,13 @@
                 },
                 {
                     "name": "SelectRecipeByNameStartIntent",
-					"slots": [],
+                    "slots": [],
                     "samples": [
                         "ich moechte direkt ein Rezept auswaehlen ",
                         "Rezeptnamen sagen ",
                         "zur Namenauswahl "
                     ]
-                },                
-                
+                },
                 {
                     "name": "SelectRecipeByNameInputRecipeIntent",
                     "slots": [
@@ -85,39 +79,6 @@
                         "Ich haette gerne das Rezept {Recipe}",
                         "Kannst du das Rezept {Recipe} vorlesen",
                         "Ich moechte {Recipe} kochen"
-                    ]
-                },
-				{
-                    "name": "SaveRecipeToFavoriteHandler",
-                    "slots": [
-                        {
-                            "name": "FavoritRecipe",
-                            "type": "FavoritRecipes"
-                        }
-                    ],
-                    "samples": [
-                        "Ich möchte ein neues Rezept zu den Favoriten hinzufügen",
-						"Neuen Favoriten anlegen"
-                    ]
-                },
-                
-                {
-                    "name": "TellRecipeStepsIntent",
-                    "slots": [],
-                    "samples": [
-                    	"weiter",
-                        "kannst du mir die Rezeptschritte sagen",
-                        "welche Schritte muss ich befolge",
-                        "was fuer Schritte sind wichtig"
-                    ]
-                },
-                {
-                    "name": "ModifyRecipeIntent",
-                    "slots": [],
-                    "samples": [
-                        "ich moechte das Rezept aendern",
-                        "kann ich ein Rezept aendern",
-                        "aendere ein Rezept fuer mich"
                     ]
                 },
                 {
@@ -137,25 +98,26 @@
                     ]
                 },
                 {
-                    "name": "ModifyRecipeByUnitsIntent",
-                    "slots": [
-                        {
-                            "name": "Ingredient",
-                        }
-                    ],
+                    "name": "TellRecipeStepsIntent",
+                    "slots": [],
                     "samples": [
-                    	"{Ingredient} anpassen",
-                        "kann ich ein Rezept nach Zutaten aendern"
+                        "kannst du mir die Rezeptschritte sagen",
+                        "welche Schritte muss ich befolge",
+                        "was fuer Schritte sind wichtig"
                     ]
                 },
-				{
-                    "name": "SelectRecipeByFavoritsIntentSelectorHandler",
-                    "slots": [
-						{
-							"name": "FavoritRecipe",
-                            "type": "FavoritRecipes"
-                        }
-					],
+                {
+                    "name": "ModifyRecipeIntent",
+                    "slots": [],
+                    "samples": [
+                        "ich moechte das Rezept aendern",
+                        "kann ich ein Rezept aendern",
+                        "aendere ein Rezept fuer mich"
+                    ]
+                },
+                {
+                    "name": "SelectRecipeByFavoritsIntentHandlerSelector",
+                    "slots": [],
                     "samples": [
                         "ich moechte einen Favoriten auswaehlen",
                         "ich waehle einen Favoriten aus der Liste",
@@ -234,10 +196,24 @@
                             "name": {
                                 "value": "drei"
                             }
+                        },
+                        {
+                        	"name": {
+                        		"value": "vier"
+                        	}
+                        },
+                        {
+                        	"name": {
+                        		"value": "fuenf"
+                        	}
+                        },
+                        {
+                        	"name": {
+                        		"value": "sechs"
+                        	}
                         }
                     ]
                 }
-                
             ]
         }
     }

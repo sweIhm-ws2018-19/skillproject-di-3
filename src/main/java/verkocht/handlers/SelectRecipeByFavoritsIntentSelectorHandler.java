@@ -39,6 +39,7 @@ public class SelectRecipeByFavoritsIntentSelectorHandler implements RequestHandl
         Slot chosenFavoriteSlot = slots.get(PhrasesForAlexa.SELECTED_FAVORITE);
         // Takes chosen recipe and puts it into the sesseioAttr
         String chosenRecipe = chosenFavoriteSlot.getValue();
+        // Sollte funktioieren. ISt die leicheZeile aus select reipe by name, welche bereits läuft.
         input.getAttributesManager().setSessionAttributes(Collections.singletonMap(PhrasesForAlexa.SELECTED_FAVORITE, chosenRecipe));
         
         

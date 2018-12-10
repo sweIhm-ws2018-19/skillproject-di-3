@@ -51,6 +51,7 @@ public class SaveRecipeToFavoriteHandler implements RequestHandler {
         List<String> listOfFavorites = (List<String>) attributeManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECIPE_LIST) ;
         // add current recipe to the list
         listOfFavorites.add(chosenRecipe);
+        // Ist die Frage Alexa dort etwas hineinschreiben wird. Sollte aber zu Beginn keine Probleme hervorrufen.
         attributeManager.setPersistentAttributes(Collections.singletonMap(PhrasesForAlexa.FAVORTIE_RECIPE_LIST, listOfFavorites));
         String speechText = "Das Rezept " + chosenRecipe + " wurde zu den Favoriten hinzugef�gt. Du kannst es dir ueber die Auswahl vorlesen lassen.";
         

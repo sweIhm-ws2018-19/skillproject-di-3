@@ -41,7 +41,9 @@ public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler 
     public Optional<Response> handle(HandlerInput input) {
        
         AttributesManager attributesManager = input.getAttributesManager();
-        List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECIPE_LIST) ;
+        // Probeweise die Liste welche augselesen werden soll dauerhaft auf null setzenum zu scauen ob die Abfrage aus persitentAttributes null zurückliefert. Namen sind korrekt.
+//        List<<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECIPE_LIST);
+        List<String> listOfFavorites = null;
         StringBuilder allFavorites = new StringBuilder("");
         if (listOfFavorites != null) {
             for (String string : listOfFavorites) {

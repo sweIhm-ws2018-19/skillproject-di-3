@@ -116,16 +116,18 @@
                     "name": "ModifyRecipeByUnitsIntent",
                     "slots": [
                         {
+                            "name": "Ingredient_Value",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
                             "name": "Ingredient",
-                            "type": "AMAZON.NUMBER",
-                            "samples": [
-                                "Bitte sage mir die neue Menge dieser Zutat"
-                            ]
+                            "type": "Ingredient"
                         }
                     ],
                     "samples": [
                         "{Ingredient} anpassen",
-                        "kann ich ein Rezept nach Zutaten aendern"
+                        "kann ich ein Rezept nach Zutaten aendern",
+                        "{Ingredient} auf {Ingredient_Value} anpassen"
                     ]
                 },
                 {
@@ -181,6 +183,71 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "Ingredient",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Eis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Oel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paniermehl"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tomatensauce"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Salz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Zucker"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Erdbeeren"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fleisch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Spaghetti"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Milch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ei"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mehl"
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -192,13 +259,21 @@
                     "prompts": {},
                     "slots": [
                         {
-                            "name": "Ingredient",
+                            "name": "Ingredient_Value",
                             "type": "AMAZON.NUMBER",
-                            "confirmationRequired": true,
+                            "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "confirmation": "Confirm.Slot.170099915505.1240512610375",
-                                "elicitation": "Elicit.Slot.170099915505.1240512610375"
+                                "elicitation": "Elicit.Slot.682863053956.858965062831"
+                            }
+                        },
+                        {
+                            "name": "Ingredient",
+                            "type": "Ingredient",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.682863053956.290760397782"
                             }
                         }
                     ]
@@ -207,20 +282,29 @@
         },
         "prompts": [
             {
-                "id": "Elicit.Slot.170099915505.1240512610375",
+                "id": "Elicit.Slot.682863053956.1144850427396",
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Bitte sage mir die neue Menge dieser Zutat"
+                        "value": "Bitte waehle zuerst ein Rezept aus"
                     }
                 ]
             },
             {
-                "id": "Confirm.Slot.170099915505.1240512610375",
+                "id": "Elicit.Slot.682863053956.290760397782",
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Ist {Ingredient} richtig?"
+                        "value": "Bitte waehle eine Zutat aus"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.682863053956.858965062831",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Bitte sage mir die gewuenschte neue Menge"
                     }
                 ]
             }

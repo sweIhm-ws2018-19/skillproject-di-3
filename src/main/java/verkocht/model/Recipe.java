@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
+import verkocht.handlers.ModifyRecipeByUnitsIntentHandler;
 
 /*
  * The class that represents a recipe.
@@ -46,8 +49,27 @@ public class Recipe {
 		return null;
 	}
 	
-	public void modifyByUnit(String ingredient, String value) {
-	    throw new UnsupportedOperationException();
+	public boolean modifyByUnit(String ingredient, int value) {
+	    Set<Ingredient> keys = this.ingredientAmounts.keySet();
+	    int originValue = 1;
+	    boolean found = false;
+	    
+	    for (Ingredient key : keys) {
+	        found = key.getIngredient() == ingredient;
+	        
+	        while (found) {
+	            originValue = ingredientAmounts.get(key);
+	            break;
+	        }
+	    }
+	    
+	    if (found) {
+	        double difference = (value * 100) / originValue;
+	        
+	        ingredientAmounts.forEach((Ingredient k, Integer v) -> v = v * (int) difference);
+	    }
+	    
+	    return found;
 	}
 
     public String getName() {
@@ -76,6 +98,7 @@ public class Recipe {
 
     public static void saveRecipe(Recipe recipeToSave) {
         Recipe.savedRecipe = recipeToSave;
+        ModifyRecipeByUnitsIntentHandler.resetState();
     }
     
     public int getNumberOfPeople() {

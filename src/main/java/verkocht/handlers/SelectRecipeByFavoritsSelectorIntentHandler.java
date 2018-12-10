@@ -22,11 +22,11 @@ import verkocht.model.PhrasesForAlexa;
  * 
  *
  */
-public class SelectRecipeByFavoritsIntentSelectorHandler implements RequestHandler {
+public class SelectRecipeByFavoritsSelectorIntentHandler implements RequestHandler {
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("SelectRecipeByFavoritsIntentSelectorHandler"));
+        return input.matches(intentName("SelectRecipeByFavoritsSelectorIntent"));
     }
     
     @Override

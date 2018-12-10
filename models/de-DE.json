@@ -34,13 +34,13 @@
                     ]
                 },
                 {
-                    "name": "SelectRecipeByFavoritsIntent",
+                    "name": "SelectRecipeByFavoritsStartIntent",
                     "slots": [
-						{
+                        {
                             "name": "FavoritRecipe",
                             "type": "FavoritRecipes"
                         }
-					],
+                    ],
                     "samples": [
                         "ich moechte meine Favoriten vorlesen lassen",
                         "welche Favoriten kann ich waehlen",
@@ -58,14 +58,13 @@
                 },
                 {
                     "name": "SelectRecipeByNameStartIntent",
-					"slots": [],
+                    "slots": [],
                     "samples": [
                         "ich moechte direkt ein Rezept auswaehlen ",
                         "Rezeptnamen sagen ",
                         "zur Namenauswahl "
                     ]
-                },                
-                
+                },
                 {
                     "name": "SelectRecipeByNameInputRecipeIntent",
                     "slots": [
@@ -81,8 +80,8 @@
                         "Ich moechte {Recipe} kochen"
                     ]
                 },
-				{
-                    "name": "SaveRecipeToFavoriteHandler",
+                {
+                    "name": "SaveRecipeToFavoriteIntent",
                     "slots": [
                         {
                             "name": "FavoritRecipe",
@@ -90,16 +89,15 @@
                         }
                     ],
                     "samples": [
-                        "Ich möchte ein neues Rezept zu den Favoriten hinzufügen",
-						"Neuen Favoriten anlegen"
+                        "Ich moechte ein neues Rezept zu den Favoriten hinzufuegen",
+                        "Neuen Favoriten anlegen"
                     ]
                 },
-                
                 {
                     "name": "TellRecipeStepsIntent",
                     "slots": [],
                     "samples": [
-                    	"weiter",
+                        "weiter",
                         "kannst du mir die Rezeptschritte sagen",
                         "welche Schritte muss ich befolge",
                         "was fuer Schritte sind wichtig"
@@ -119,21 +117,25 @@
                     "slots": [
                         {
                             "name": "Ingredient",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "Bitte sage mir die neue Menge dieser Zutat"
+                            ]
                         }
                     ],
                     "samples": [
-                    	"{Ingredient} anpassen",
+                        "{Ingredient} anpassen",
                         "kann ich ein Rezept nach Zutaten aendern"
                     ]
                 },
-				{
-                    "name": "SelectRecipeByFavoritsIntentSelectorHandler",
+                {
+                    "name": "SelectRecipeByFavoritsSelectorIntent",
                     "slots": [
-						{
-							"name": "FavoritRecipe",
+                        {
+                            "name": "FavoritRecipe",
                             "type": "FavoritRecipes"
                         }
-					],
+                    ],
                     "samples": [
                         "ich moechte einen Favoriten auswaehlen",
                         "ich waehle einen Favoriten aus der Liste",
@@ -169,8 +171,59 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "FavoritRecipes",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "schnitzel"
+                            }
+                        }
+                    ]
                 }
             ]
-        }
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "ModifyRecipeByUnitsIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Ingredient",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.170099915505.1240512610375",
+                                "elicitation": "Elicit.Slot.170099915505.1240512610375"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.170099915505.1240512610375",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Bitte sage mir die neue Menge dieser Zutat"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.170099915505.1240512610375",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Ist {Ingredient} richtig?"
+                    }
+                ]
+            }
+        ]
     }
 }

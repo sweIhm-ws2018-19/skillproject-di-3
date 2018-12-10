@@ -30,14 +30,13 @@ import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
-public class SaveRecipeToFavoriteHandler implements RequestHandler {
+public class SaveRecipeToFavoriteIntentHandler implements RequestHandler {
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("SelectRecipeByFavoritsStartIntentHandler"));
+        return input.matches(intentName("SaveRecipeToFavoriteIntent"));
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public Optional<Response> handle(HandlerInput input) {
        

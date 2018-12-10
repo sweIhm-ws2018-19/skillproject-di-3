@@ -34,8 +34,13 @@
                     ]
                 },
                 {
-                    "name": "SelectRecipeByFavoritsIntent",
-                    "slots": [],
+                    "name": "SelectRecipeByFavoritsStartIntent",
+                    "slots": [
+                        {
+                            "name": "FavoritRecipe",
+                            "type": "FavoritRecipes"
+                        }
+                    ],
                     "samples": [
                         "ich moechte meine Favoriten vorlesen lassen",
                         "welche Favoriten kann ich waehlen",
@@ -83,7 +88,7 @@
                 },
                 {
                     "name": "SetNumberOfPeopleIntent",
-                    "slots": [
+                     "slots": [
                         {
                             "name": "Number",
                             "type": "NUMBER_OF_PEOPLE"
@@ -95,12 +100,26 @@
                         "Sage mir das Rezept fuer {Number} Personen",
                         "Sage mir das Rezept fuer {Number} Person",
                         "Ich möchte das Rezept fuer {Number} alleine kochen"
+                   	]
+                 },
+                 {
+                    "name": "SaveRecipeToFavoriteIntent",
+                    "slots": [
+                        {
+                            "name": "FavoritRecipe",
+                            "type": "FavoritRecipes"
+                        }
+                    ],
+                    "samples": [
+                        "Ich moechte ein neues Rezept zu den Favoriten hinzufuegen",
+                        "Neuen Favoriten anlegen"
                     ]
                 },
                 {
                     "name": "TellRecipeStepsIntent",
                     "slots": [],
                     "samples": [
+                        "weiter",
                         "kannst du mir die Rezeptschritte sagen",
                         "welche Schritte muss ich befolge",
                         "was fuer Schritte sind wichtig"
@@ -116,8 +135,29 @@
                     ]
                 },
                 {
-                    "name": "SelectRecipeByFavoritsIntentHandlerSelector",
-                    "slots": [],
+                    "name": "ModifyRecipeByUnitsIntent",
+                    "slots": [
+                        {
+                            "name": "Ingredient",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "Bitte sage mir die neue Menge dieser Zutat"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "{Ingredient} anpassen",
+                        "kann ich ein Rezept nach Zutaten aendern"
+                    ]
+                },
+                {
+                    "name": "SelectRecipeByFavoritsSelectorIntent",
+                    "slots": [
+                        {
+                            "name": "FavoritRecipe",
+                            "type": "FavoritRecipes"
+                        }
+                    ],
                     "samples": [
                         "ich moechte einen Favoriten auswaehlen",
                         "ich waehle einen Favoriten aus der Liste",
@@ -212,9 +252,60 @@
                         		"value": "sechs"
                         	}
                         }
+                   ]
+               },
+               {
+                    "name": "FavoritRecipes",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "schnitzel"
+                            }
+                        }
                     ]
                 }
             ]
-        }
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "ModifyRecipeByUnitsIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Ingredient",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.170099915505.1240512610375",
+                                "elicitation": "Elicit.Slot.170099915505.1240512610375"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.170099915505.1240512610375",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Bitte sage mir die neue Menge dieser Zutat"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.170099915505.1240512610375",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Ist {Ingredient} richtig?"
+                    }
+                ]
+            }
+        ]
     }
 }

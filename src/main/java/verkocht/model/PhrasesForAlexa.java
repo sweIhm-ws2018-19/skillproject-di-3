@@ -52,6 +52,7 @@ public final class PhrasesForAlexa {
     public static final String MODIFY_UNIT_WELCOME = "Hier kannst du ein Rezept entsprechend einer Zutat modifizieren. Sage: {Zutat} auf {Menge} anpassen.";
     public static final String MODIFY_UNIT_REPROMT = "Bitte nenne eine Zutat des Rezept.";
     public static final String MODIFY_UNIT_ERROR = "Dies ist nicht moeglich.";
+    public static final String MODIFY_UNIT_SELECT_RECIPE_FIRST = "Waehle bitte zuerst ein Rezept aus.";
     public static final String MODIFY_UNIT_NOT_DONE = "Das Rezept konnte nicht angepasst werden.";
     public static final String MODIFY_UNIT_DONE = "Das Rezept wurde angepasst.";
     

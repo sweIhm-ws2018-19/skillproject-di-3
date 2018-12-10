@@ -45,8 +45,12 @@ public class Recipe {
 	 * 
 	 * @return
 	 */
-	public Recipe changeIngredientAmounts() {
-		return null;
+	public void addIngredient(Ingredient ingredient, int value) {
+		if (ingredientAmounts.containsKey(ingredient)) {
+		    ingredientAmounts.replace(ingredient, value);
+		} else {
+		    ingredientAmounts.put(ingredient, value);
+		}
 	}
 	
 	public boolean modifyByUnit(String ingredient, int value) {
@@ -55,19 +59,24 @@ public class Recipe {
 	    boolean found = false;
 	    
 	    for (Ingredient key : keys) {
-	        found = key.getIngredient() == ingredient;
+	        found = key.getIngredient().equals(ingredient);
 	        
-	        while (found) {
+	        if (found) {
 	            originValue = ingredientAmounts.get(key);
 	            break;
 	        }
 	    }
 	    
-	    if (found) {
-	        double difference = (value * 100) / originValue;
-	        
-	        ingredientAmounts.forEach((Ingredient k, Integer v) -> v = v * (int) difference);
-	    }
+        if (found) {
+            int difference = ((value * 100) / originValue);
+            ingredientAmounts.forEach((k, v) -> {
+                if (k.getIngredient() != ingredient) {
+                    ingredientAmounts.replace(k, (v * difference) / 100);
+                } else {
+                    ingredientAmounts.replace(k, value);
+                }
+            });
+        }
 	    
 	    return found;
 	}

@@ -16,7 +16,7 @@ public class ModifyRecipeByUnitsIntentHandler implements RequestHandler {
     static boolean state = false;
 
     public static final String INGREDIENT_SLOT = "Ingredient";
-    public static final String INGREDIENT_VALUE_SLOT = "Ingredient_Value";
+    public static final String INGREDIENT_VALUE_SLOT = "IngredientValue";
 
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -31,23 +31,35 @@ public class ModifyRecipeByUnitsIntentHandler implements RequestHandler {
 
         try {
             if (recipeToModify != null) {
+                String getIngredient = "";
+                String getIngredientSlotValue = "";
+                int getIngredientValue = 0;
+                boolean worked = false;
                 if (state) {
-                    String getIngredient = (String) sessionAttributes.get(INGREDIENT_SLOT);
-                    int getIngredientValue = (int) sessionAttributes.get(INGREDIENT_VALUE_SLOT);
-                    boolean worked = recipeToModify.modifyByUnit(getIngredient, getIngredientValue);
-                    if (worked) {
-                        speechText = PhrasesForAlexa.MODIFY_UNIT_DONE;
-                        resetState();
-                    } else {
+                    try {
+                        getIngredient = (String) sessionAttributes.get(INGREDIENT_SLOT);
+                        getIngredientSlotValue = (String) sessionAttributes.get(INGREDIENT_VALUE_SLOT);
+                        getIngredientValue = Integer.parseInt(getIngredientSlotValue);
+                        worked = recipeToModify.modifyByUnit(getIngredient, getIngredientValue);
+                        speechText = getIngredientSlotValue;
+                        if (worked) {
+                            speechText = PhrasesForAlexa.MODIFY_UNIT_DONE;
+                            resetState();
+                        } else {
+                            speechText = PhrasesForAlexa.MODIFY_UNIT_NOT_DONE;
+                        }
+                    } catch (Exception e) {
                         speechText = PhrasesForAlexa.MODIFY_UNIT_NOT_DONE;
                     }
                 } else {
                     speechText = PhrasesForAlexa.MODIFY_UNIT_WELCOME;
                     toggleState();
                 }
+            } else {
+                speechText = PhrasesForAlexa.MODIFY_UNIT_SELECT_RECIPE_FIRST;
             }
         } catch (Exception e) {
-            speechText = PhrasesForAlexa.MODIFY_UNIT_ERROR + "Exception";
+            speechText = PhrasesForAlexa.MODIFY_UNIT_ERROR;
         }
 
         return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptschritte", speechText)

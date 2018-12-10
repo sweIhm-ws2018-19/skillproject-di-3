@@ -159,7 +159,7 @@
                     "values": [
                         {
                             "name": {
-                                "value": "spagettiBolognese"
+                                "value": "nudeln"
                             }
                         },
                         {
@@ -169,7 +169,7 @@
                         },
                         {
                             "name": {
-                                "value": "milchschake"
+                                "value": "milchshake"
                             }
                         }
                     ]
@@ -250,64 +250,6 @@
                     ]
                 }
             ]
-        },
-        "dialog": {
-            "intents": [
-                {
-                    "name": "ModifyRecipeByUnitsIntent",
-                    "confirmationRequired": false,
-                    "prompts": {},
-                    "slots": [
-                        {
-                            "name": "Ingredient_Value",
-                            "type": "AMAZON.NUMBER",
-                            "confirmationRequired": false,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "elicitation": "Elicit.Slot.682863053956.858965062831"
-                            }
-                        },
-                        {
-                            "name": "Ingredient",
-                            "type": "Ingredient",
-                            "confirmationRequired": false,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "elicitation": "Elicit.Slot.682863053956.290760397782"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        "prompts": [
-            {
-                "id": "Elicit.Slot.682863053956.1144850427396",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Bitte waehle zuerst ein Rezept aus"
-                    }
-                ]
-            },
-            {
-                "id": "Elicit.Slot.682863053956.290760397782",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Bitte waehle eine Zutat aus"
-                    }
-                ]
-            },
-            {
-                "id": "Elicit.Slot.682863053956.858965062831",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Bitte sage mir die gewuenschte neue Menge"
-                    }
-                ]
-            }
-        ]
+        }
     }
 }

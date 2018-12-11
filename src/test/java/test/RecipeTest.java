@@ -4,36 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-<<<<<<< HEAD
+
 import verkocht.model.*;
 
-/**
- * Test class for the class Ingredient.
- */
-public class RecipeTest {
-	CookingBook cookingBook = new CookingBook();
-	CookingBook cookingBook2 = new CookingBook();
-    
-    @Test
-    public void testChangeIngredientAmount() {
-    	Integer a = 100;
-    	cookingBook.getAllRecipes().get(0).setNumberOfPeople(2);
-    	cookingBook.getAllRecipes().get(0).changeIngredientAmounts();
-    	Integer b = cookingBook.getAllRecipes().get(0).getIngredients().get(cookingBook.getIngredientByName("Mehl"));
-    	assertEquals(a,b);
-    	
-    	a = 200;
-    	cookingBook2.getAllRecipes().get(0).setNumberOfPeople(4);
-    	cookingBook2.getAllRecipes().get(0).changeIngredientAmounts();
-    	b = cookingBook2.getAllRecipes().get(0).getIngredients().get(cookingBook2.getIngredientByName("Mehl"));
-    	assertEquals(a,b);
-    }
-}
-=======
-import verkocht.model.Category;
-import verkocht.model.Ingredient;
-import verkocht.model.Recipe;
-import verkocht.model.Unit;
 
 public class RecipeTest {
     Recipe recipe = new Recipe("Pfannenkuchen", Category.VEGETARIAN, 2, 20);
@@ -66,6 +39,23 @@ public class RecipeTest {
        
         assertEquals("Should be 300 now", 300, (int) recipe.getIngredients().get(mehl));
     }
-
-}
->>>>>>> 6cd7b9a227d3be0fdd7007c012075d0391a6f23d
+    
+        @Test
+        public void testChangeIngredientAmount() {
+        	     
+        	CookingBook cookingBook = new CookingBook();
+        	CookingBook cookingBook2 = new CookingBook();
+            
+        	Integer a = 100;
+        	cookingBook.getAllRecipes().get(0).setNumberOfPeople(2);
+        	cookingBook.getAllRecipes().get(0).changeIngredientAmounts();
+        	Integer b = cookingBook.getAllRecipes().get(0).getIngredients().get(cookingBook.getIngredientByName("Mehl"));
+        	assertEquals(a,b);
+        	
+        	a = 200;
+        	cookingBook2.getAllRecipes().get(0).setNumberOfPeople(4);
+        	cookingBook2.getAllRecipes().get(0).changeIngredientAmounts();
+        	b = cookingBook2.getAllRecipes().get(0).getIngredients().get(cookingBook2.getIngredientByName("Mehl"));
+        	assertEquals(a,b);
+        }
+    }

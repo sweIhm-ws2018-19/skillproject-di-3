@@ -20,7 +20,6 @@ import verkocht.handlers.TellMeCategoriesIntentHandler;
 
 public class TellMeCategoriesIntentHandlerTest {
 	private TellMeCategoriesIntentHandler handler;
-//    private final String playerName = "Hans";
 
     @Before
     public void setup() {

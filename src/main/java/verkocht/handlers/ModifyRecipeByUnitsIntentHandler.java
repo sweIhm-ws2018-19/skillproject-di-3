@@ -26,8 +26,8 @@ public class ModifyRecipeByUnitsIntentHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput input) {
         Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
-        String speechText = PhrasesForAlexa.MODIFY_UNIT_ERROR;
         Recipe recipeToModify = Recipe.getSavedRecipe();
+        String speechText;
 
 		if (recipeToModify != null) {
 			String getIngredient = "";

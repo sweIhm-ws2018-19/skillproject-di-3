@@ -27,6 +27,7 @@ public class RecipeTest {
     
     @Test
     public void testIngredients() {
+        Recipe.saveRecipe(recipe);
         recipe.addIngredient(mehl, 200);
         recipe.addIngredient(ei, 1);
         recipe.addIngredient(salz, 1);

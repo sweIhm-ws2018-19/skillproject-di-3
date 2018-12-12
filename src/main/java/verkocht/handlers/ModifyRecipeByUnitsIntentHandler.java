@@ -29,38 +29,33 @@ public class ModifyRecipeByUnitsIntentHandler implements RequestHandler {
         String speechText = PhrasesForAlexa.MODIFY_UNIT_ERROR;
         Recipe recipeToModify = Recipe.getSavedRecipe();
 
-        try {
-            if (recipeToModify != null) {
-                String getIngredient = "";
-                String getIngredientSlotValue = "";
-                int getIngredientValue = 0;
-                boolean worked = false;
-                if (state) {
-                    try {
-                        getIngredient = (String) sessionAttributes.get(INGREDIENT_SLOT);
-                        getIngredientSlotValue = (String) sessionAttributes.get(INGREDIENT_VALUE_SLOT);
-                        getIngredientValue = Integer.parseInt(getIngredientSlotValue);
-                        worked = recipeToModify.modifyByUnit(getIngredient, getIngredientValue);
-                        speechText = getIngredientSlotValue;
-                        if (worked) {
-                            speechText = PhrasesForAlexa.MODIFY_UNIT_DONE;
-                            resetState();
-                        } else {
-                            speechText = PhrasesForAlexa.MODIFY_UNIT_NOT_DONE;
-                        }
-                    } catch (Exception e) {
-                        speechText = PhrasesForAlexa.MODIFY_UNIT_NOT_DONE;
-                    }
-                } else {
-                    speechText = PhrasesForAlexa.MODIFY_UNIT_WELCOME;
-                    toggleState();
-                }
-            } else {
-                speechText = PhrasesForAlexa.MODIFY_UNIT_SELECT_RECIPE_FIRST;
-            }
-        } catch (Exception e) {
-            speechText = PhrasesForAlexa.MODIFY_UNIT_ERROR;
-        }
+		if (recipeToModify != null) {
+			String getIngredient = "";
+			String getIngredientSlotValue = "";
+			int getIngredientValue = 0;
+			boolean worked = false;
+			if (state) {
+				try {
+					getIngredient = (String) sessionAttributes.get(INGREDIENT_SLOT);
+					getIngredientSlotValue = (String) sessionAttributes.get(INGREDIENT_VALUE_SLOT);
+					getIngredientValue = Integer.parseInt(getIngredientSlotValue);
+					worked = recipeToModify.modifyByUnit(getIngredient, getIngredientValue);
+					if (worked) {
+						speechText = PhrasesForAlexa.MODIFY_UNIT_DONE;
+						resetState();
+					} else {
+						speechText = PhrasesForAlexa.MODIFY_UNIT_NOT_DONE;
+					}
+				} catch (Exception e) {
+					speechText = PhrasesForAlexa.MODIFY_UNIT_NOT_DONE;
+				}
+			} else {
+				speechText = PhrasesForAlexa.MODIFY_UNIT_WELCOME;
+				toggleState();
+			}
+		} else {
+			speechText = PhrasesForAlexa.MODIFY_UNIT_SELECT_RECIPE_FIRST;
+		}
 
         return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptschritte", speechText)
                 .withReprompt("Wie kann ich dir helfen?").withShouldEndSession(false).build();

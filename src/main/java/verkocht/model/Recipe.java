@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import verkocht.handlers.ModifyRecipeByUnitsIntentHandler;
+import verkocht.handlers.TellRecipeStepsIntentHandler;
 
 /*
  * The class that represents a recipe.
@@ -108,6 +109,7 @@ public class Recipe {
     public static void saveRecipe(Recipe recipeToSave) {
         Recipe.savedRecipe = recipeToSave;
         ModifyRecipeByUnitsIntentHandler.resetState();
+        TellRecipeStepsIntentHandler.resetCnt();
     }
     
     public int getNumberOfPeople() {
@@ -121,6 +123,5 @@ public class Recipe {
     public String toString() {
         String rec = "";
         return rec + this.getName();
-        
     }
 }

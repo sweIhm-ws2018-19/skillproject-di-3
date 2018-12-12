@@ -55,7 +55,8 @@ public class Recipe {
 	}
 	
 	public boolean modifyByUnit(String ingredient, int value) {
-	    Set<Ingredient> keys = this.ingredientAmounts.keySet();
+	    Recipe modifiedRecipe = Recipe.savedRecipe;
+	    Set<Ingredient> keys = modifiedRecipe.ingredientAmounts.keySet();
 	    int originValue = 1;
 	    boolean found = false;
 	    
@@ -63,20 +64,22 @@ public class Recipe {
 	        found = key.getIngredient().equals(ingredient);
 	        
 	        if (found) {
-	            originValue = ingredientAmounts.get(key);
+	            originValue = modifiedRecipe.ingredientAmounts.get(key);
 	            break;
 	        }
 	    }
 	    
         if (found) {
             int difference = ((value * 100) / originValue);
-            ingredientAmounts.forEach((k, v) -> {
+            modifiedRecipe.ingredientAmounts.forEach((k, v) -> {
                 if (k.getIngredient() != ingredient) {
-                    ingredientAmounts.replace(k, (v * difference) / 100);
+                    modifiedRecipe.ingredientAmounts.replace(k, (v * difference) / 100);
                 } else {
-                    ingredientAmounts.replace(k, value);
+                    modifiedRecipe.ingredientAmounts.replace(k, value);
                 }
             });
+            
+            Recipe.saveRecipe(modifiedRecipe);
         }
 	    
 	    return found;

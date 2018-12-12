@@ -2,7 +2,7 @@ package verkocht.model;
 
 /**
  * Class thats holds all phrases that can be returned by alexa. 
- * @author Florian Uhrig
+ * @author carnesirone
  */
 public final class PhrasesForAlexa {
     

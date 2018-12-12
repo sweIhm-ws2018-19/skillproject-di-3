@@ -39,6 +39,10 @@ public class RecipeTest {
         assertEquals("Should have four ingredients", 4, recipe.getIngredients().size());
        
         assertEquals("Should be 300 now", 300, (int) recipe.getIngredients().get(mehl));
+
+        // replacing already existing ingredient
+        recipe.addIngredient(mehl, 100);
+        assertEquals("Should be 100 now", 100, (int) recipe.getIngredients().get(mehl));
     }
 
 }

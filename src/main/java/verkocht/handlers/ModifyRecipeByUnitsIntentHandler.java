@@ -42,7 +42,7 @@ public class ModifyRecipeByUnitsIntentHandler implements RequestHandler {
 			        Map<String, Slot> slots = intent.getSlots();
 
 			        String slotValue = slots.get(INGREDIENT_VALUE_SLOT).getValue();
-			        int getIngredientValue = Integer.valueOf(slotValue);
+			        int getIngredientValue = Integer.parseInt(slotValue);
 
 			        String getIngredient = slots.get(INGREDIENT_SLOT)
 			                .getResolutions()

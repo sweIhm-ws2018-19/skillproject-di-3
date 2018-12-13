@@ -2,7 +2,7 @@ package verkocht.model;
 
 /**
  * Enum that represents all available units in our cooking book. 
- * @author Florian Uhrig
+ * @author carnesirone
  */
 public enum Unit {
 	MILLILITER("Milliliter"), 

@@ -17,13 +17,10 @@ import verkocht.model.PhrasesForAlexa;
 import verkocht.model.Recipe;
 
 public class ModifyRecipeByUnitsIntentHandler implements RequestHandler {
-    static int step;
+    static boolean state = false;
 
     public static final String INGREDIENT_SLOT = "Ingredient";
-    public static final String INGREDIENT_VALUE_SLOT = "IngredientValue";
-
-    private String ingredientToModify;
-    private String ingredientValue;
+    public static final String INGREDIENT_VALUE_SLOT = "Ingredient_Value";
 
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -32,51 +29,57 @@ public class ModifyRecipeByUnitsIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = PhrasesForAlexa.MODIFY_UNIT_ERROR;
         Recipe recipeToModify = Recipe.getSavedRecipe();
+        String speechText;
 
-        try {
-            if (step == 3) {
-                recipeToModify.modifyByUnit(this.ingredientToModify, this.ingredientValue);
-                speechText = PhrasesForAlexa.MODIFY_UNIT_DONE;
-                step = 0;
-            } else if (step == 2) {
-                Request request = input.getRequestEnvelope().getRequest();
-                IntentRequest intentRequest = (IntentRequest) request;
-                Intent intent = intentRequest.getIntent();
-                Map<String, Slot> slots = intent.getSlots();
-                String getIngredientValue = slots.get(INGREDIENT_VALUE_SLOT).getValue();
+		if (recipeToModify != null) {
+			boolean worked = false;
+			if (state) {
+				try {
+					Request request = input.getRequestEnvelope().getRequest();
+			        IntentRequest intentRequest = (IntentRequest) request;
+			        Intent intent = intentRequest.getIntent();
+			        Map<String, Slot> slots = intent.getSlots();
 
-                if (getIngredientValue.isEmpty()) {
-                    speechText = PhrasesForAlexa.MODIFY_UNIT_VALUE;
-                } else {
-                    speechText = "Ok!";
-                    this.ingredientValue = getIngredientValue;
-                    step++;
-                }
-            } else if (step == 1) {
-                Request request = input.getRequestEnvelope().getRequest();
-                IntentRequest intentRequest = (IntentRequest) request;
-                Intent intent = intentRequest.getIntent();
-                Map<String, Slot> slots = intent.getSlots();
-                String getIngredientToModify = slots.get(INGREDIENT_SLOT).getValue();
+			        String slotValue = slots.get(INGREDIENT_VALUE_SLOT).getValue();
+			        int getIngredientValue = Integer.parseInt(slotValue);
 
-                if (getIngredientToModify.isEmpty()) {
-                    speechText = PhrasesForAlexa.MODIFY_UNIT_SELECT_INGREDIENT;
-                } else {
-                    speechText = "Ok!";
-                    this.ingredientToModify = getIngredientToModify;
-                    step++;
-                }
-            } else if (step == 0) {
-                speechText = PhrasesForAlexa.MODIFY_UNIT_WELCOME;
-                step++;
-            }
-        } catch (Exception e) {
-            speechText = PhrasesForAlexa.MODIFY_UNIT_ERROR;
-        }
+			        String getIngredient = slots.get(INGREDIENT_SLOT)
+			                .getResolutions()
+			                .getResolutionsPerAuthority()
+			                .get(0).getValues()
+			                .get(0).getValue()
+			                .getName();
+
+					worked = recipeToModify.modifyByUnit(getIngredient, getIngredientValue);
+					if (worked) {
+						speechText = PhrasesForAlexa.MODIFY_UNIT_DONE;
+					} else {
+					    speechText = PhrasesForAlexa.MODIFY_UNIT_NOT_DONE;
+					}
+				} catch (Exception e) {
+					speechText = PhrasesForAlexa.MODIFY_UNIT_NOT_DONE;
+				}
+				
+				resetState();
+			} else {
+				speechText = PhrasesForAlexa.MODIFY_UNIT_WELCOME;
+				toggleState();
+			}
+		} else {
+			speechText = PhrasesForAlexa.MODIFY_UNIT_SELECT_RECIPE_FIRST;
+			resetState();
+		}
 
         return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptschritte", speechText)
                 .withReprompt("Wie kann ich dir helfen?").withShouldEndSession(false).build();
+    }
+
+    public static void resetState() {
+        state = false;
+    }
+
+    public static void toggleState() {
+        state = !state;
     }
 }

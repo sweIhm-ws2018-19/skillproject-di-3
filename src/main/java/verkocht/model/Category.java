@@ -2,7 +2,7 @@ package verkocht.model;
 
 /**
  *  Enum that represents all categories of the cooking book.
- *  @author Florian Uhrig
+ *  @author carnesirone
  */
 public enum Category {
 	MEAT("Fleisch"), VEGETARIAN("Vegetarisch"), VEGAN("Vegan");

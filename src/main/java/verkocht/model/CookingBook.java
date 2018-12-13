@@ -82,6 +82,43 @@ public class CookingBook {
         }
         return null;
     }
+    
+    /**
+     * Returns recipe for the given name from favorite  list.
+     * @param name name of the recipe to be found
+     * @return recipe if the recipe is in the cooking book and null otherwise
+     */
+    public Recipe findFavoriteByName(String name) {
+        for (Recipe recipe : allRecipes) {
+            if (recipe.getName().equals(name)) {
+                return recipe;
+            } 
+        }
+        return null;
+    }
+    
+    
+    /**
+     * Returns all Favorits in a String.
+     * @return all Favorits in a String.
+     */
+    public String getAllFavorites() {
+        StringBuilder categoryString = new StringBuilder();
+        int length = favorites.size();
+        
+        for (int i = 0; i < length; i++) {
+            categoryString.append(favorites.get(i));
+            
+            if (i == length - 2) {
+                categoryString.append(" und ");
+            } else if (i != length - 1) {
+                categoryString.append(", ");
+            }
+        }
+        
+        return categoryString.toString(); 
+    }
+    
 
     /**
      * This method filters all recipes by their category

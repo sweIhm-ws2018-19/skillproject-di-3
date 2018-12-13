@@ -34,6 +34,7 @@ import verkocht.handlers.SelectRecipeIntentHandler;
 import verkocht.handlers.SessionEndedRequestHandler;
 import verkocht.handlers.SetFavoriteIntentHandler;
 import verkocht.handlers.TellMeCategoriesIntentHandler;
+import verkocht.handlers.TellMeIngredientsIntentHandler;
 import verkocht.handlers.TellRecipeStepsIntentHandler;
 
 public class VerkochtStreamHandler extends SkillStreamHandler {
@@ -57,6 +58,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new SessionEndedRequestHandler(), 
                         new SetFavoriteIntentHandler(),
                         new TellRecipeStepsIntentHandler(),
+                        new TellMeIngredientsIntentHandler(),
                         new TellMeCategoriesIntentHandler())
 //                .withSkillId("amzn1.ask.skill.c5bc074f-b96e-4343-ba1e-393f8084fe94")
                 .build();

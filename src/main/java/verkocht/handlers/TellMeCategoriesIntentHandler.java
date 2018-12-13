@@ -42,11 +42,11 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
         if (response != null && !response.isEmpty()) {
             speechText = String.format("Folgende Kategorien stehen zur Auswahl: %s.", response);
         } else {
-            // Since the user's favorite color is not set render an error message.
             speechText = "Ich kann dir leider im Moment nicht helfen. Tut mir Leid.";
         }
 
-        return input.getResponseBuilder()
+        return input
+        		.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("Deine Kategorien", speechText)
                 .withReprompt("Wie kann ich dir helfen?")

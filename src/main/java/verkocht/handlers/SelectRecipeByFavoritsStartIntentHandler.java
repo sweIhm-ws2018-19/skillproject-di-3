@@ -32,7 +32,6 @@ public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler 
         return input.matches(intentName("SelectRecipeByFavoritsStartIntent"));
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public Optional<Response> handle(HandlerInput input) {
         CookingBook cookingBook = new CookingBook();

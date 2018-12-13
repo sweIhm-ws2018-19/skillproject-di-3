@@ -72,7 +72,7 @@ public class SelectRecipeByFavoritsSelectorIntentHandler implements RequestHandl
         
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("Rezeptauswahl", speechText)
+                .withSimpleCard("Favoritenauswahl", speechText)
                 .withShouldEndSession(false).build();
         
         

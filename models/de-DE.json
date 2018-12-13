@@ -93,8 +93,8 @@
                     "name": "SaveRecipeToFavoriteIntent",
                     "slots": [
                         {
-                            "name": "FavoritRecipe",
-                            "type": "FavoritRecipes"
+                            "name": "Recipe",
+                            "type": "LIST_OF_RECIPES"
                         }
                     ],
                     "samples": [
@@ -121,6 +121,20 @@
                         "aendere ein Rezept fuer mich"
                     ]
                 },
+				{
+                    "name": "SelectRecipeByFavoritsIntentSelectorIntent",
+                    "slots": [
+                        {
+                            "name": "Recipe",
+                            "type": "LIST_OF_RECIPES"
+                        }
+                    ],
+                    "samples": [
+                        "ich wähle {Recipe} aus Favoriten aus",
+                        "nehme {Recipe} aus meinen Favoriten",
+                        "Kannst du {Recipe} auswählen"
+                    ]
+                },
                 {
                     "name": "ModifyRecipeByUnitsIntent",
                     "slots": [
@@ -137,19 +151,6 @@
                         "{Ingredient} anpassen",
                         "kann ich ein Rezept nach Zutaten aendern",
                         "{Ingredient} auf {Ingredient_Value} anpassen"
-                    ]
-                },
-                {
-                    "name": "SelectRecipeByFavoritsSelectorIntent",
-                    "slots": [
-                        {
-                            "name": "Recipe",
-                            "type": "LIST_OF_RECIPES"
-                        }
-                    ],
-                    "samples": [
-                        "ich moechte {Recipe} aus meinen Favoriten auswaehlen",
-                        "ich waehle den Favoriten {Recipe} aus"
                     ]
                 },
                 {

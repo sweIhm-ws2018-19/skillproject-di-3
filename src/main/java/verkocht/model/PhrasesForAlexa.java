@@ -56,6 +56,10 @@ public final class PhrasesForAlexa {
     public static final String MODIFY_UNIT_NOT_DONE = "Das Rezept konnte nicht angepasst werden.";
     public static final String MODIFY_UNIT_DONE = "Das Rezept wurde angepasst.";
     
+    // Tell ingredient list
+    public static final String TELL_INGREDIENTS_OK = "Hier deine Zutatenliste:\n";
+    public static final String TELL_INGREDIENTS_SELECT_FIRST = "Waehle bitte zuerst ein Rezept aus.";
+    
     // Cancel-/Stop-/Help-/Fallback-Intent
     public static final String SORRY = "Tut mir leid, das weiss ich nicht. Sage einfach Hilfe.";
     public static final String HELP = "Wie kann ich dir helfen?";

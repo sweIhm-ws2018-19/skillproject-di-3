@@ -25,6 +25,15 @@
                     ]
                 },
                 {
+                    "name": "TellMeIngredientsIntent",
+                    "slots": [],
+                    "samples": [
+                        "welche Zutaten brauche ich",
+                        "was fuer Zutaten werden benoetigt",
+                        "sag mir alle Zutaten"
+                    ]
+                },
+                {
                     "name": "SetFavoriteIntent",
                     "slots": [],
                     "samples": [

@@ -23,7 +23,7 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
-import verkocht.model.PhrasesForAlexa;
+import verkocht.model.CookingBook;
 
 public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler {
 
@@ -35,29 +35,18 @@ public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler 
     @SuppressWarnings("unchecked")
     @Override
     public Optional<Response> handle(HandlerInput input) {
-       
-        AttributesManager attributesManager = input.getAttributesManager();
-        // Probeweise die Liste welche augselesen werden soll dauerhaft auf null setzenum zu scauen ob die Abfrage aus persitentAttributes null zurückliefert. Namen sind korrekt.
-//        List<<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECIPE_LIST);
-        List<String> listOfFavorites = null;
-        StringBuilder allFavorites = new StringBuilder("");
-        if (listOfFavorites != null) {
-            for (String string : listOfFavorites) {
-                allFavorites.append(string);
-            }
-        }
-        String favoritesString = allFavorites.toString();
-        String speechText = String.format("Das sind alle deine Favoriten: %s. Waehle eine deiner Favoriten fuer den naechsten Schritt aus.",favoritesString);
+        CookingBook cookingBook = new CookingBook();
+
+        String favoritesString = cookingBook.getAllFavorites();
+        String speechText = String.format(
+                "Das sind alle deine Favoriten: %s. Waehle eine deiner Favoriten fuer den naechsten Schritt aus.",
+                favoritesString);
         if (favoritesString.isEmpty()) {
             speechText = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
         }
 
-        return input.getResponseBuilder()
-                .withSpeech(speechText)
-                .withSimpleCard("Rezeptauswahl", speechText)
-                .withReprompt("Wie kann ich dir helfen?")
-                .withShouldEndSession(false)
-                .build();
+        return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptauswahl", speechText)
+                .withReprompt("Wie kann ich dir helfen?").withShouldEndSession(false).build();
     }
 
 }

@@ -15,52 +15,106 @@ package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-import java.util.List;
+import java.util.Collections;
+import java.util.Map;
 import java.util.Optional;
 
-import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.model.Intent;
+import com.amazon.ask.model.IntentRequest;
+import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.Slot;
 
 import verkocht.model.CookingBook;
 import verkocht.model.PhrasesForAlexa;
+import verkocht.model.Recipe;
 
 
 public class SelectRecipeByFavoritsSelectorIntentHandler implements RequestHandler {
-
+    public static final String RECIPE_KEY = "RECIPE";
+    public static final String RECIPE_SLOT = "Recipe";
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("SelectRecipeByFavoritsSelectorIntent"));
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public Optional<Response> handle(HandlerInput input) {
-       
-//        AttributesManager attributesManager = input.getAttributesManager();
-//        List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECEPIE_LIST);
-//        StringBuilder allFavorites = new StringBuilder("");
-//        if (listOfFavorites != null) {
-//            for (String string : listOfFavorites) {
-//                allFavorites.append(string);
-//            }
-//        }
-        
-        CookingBook cookingBook = new CookingBook();
-        
-        String favoritesString = cookingBook.getAllFavorites();
-        String speechText = String.format("Das sind alle deine Favoriten: %s. Waehle eine deiner Favoriten fuer den naechsten Schritt aus.",favoritesString);
-        if (favoritesString.isEmpty()) {
-            speechText = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
-        }
+        String speechText;
+        Request request = input.getRequestEnvelope().getRequest();
+        IntentRequest intentRequest = (IntentRequest) request;
+        Intent intent = intentRequest.getIntent();
+        Map<String, Slot> slots = intent.getSlots();
+        Slot chosenRecipeSlot = slots.get(RECIPE_SLOT);
+        String chosenRecipe = chosenRecipeSlot.getValue();
+        input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
 
+        String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
+        CookingBook cookingBook = new CookingBook();
+        Recipe foundRecipe = cookingBook.findByName(recipeOriginal);//recipe returned 
+        
+        String recipe; 
+        if (foundRecipe == null) {
+            recipe = null; 
+        }else {
+            recipe = foundRecipe.getName(); 
+        }
+        if (recipe != null && !recipe.isEmpty()) {
+            TellRecipeStepsIntentHandler.resetCnt();
+            Recipe.saveRecipe(foundRecipe);
+            speechText = String.format(PhrasesForAlexa.READ_RECIPE_STEPS, recipe);
+              
+        } else {
+           speechText = String.format (PhrasesForAlexa.REPEAT_RECIPE_INPUT);
+        }
+        
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("Rezeptauswahl", speechText)
-                .withReprompt("Wie kann ich dir helfen?")
-                .withShouldEndSession(false)
-                .build();
+                .withShouldEndSession(false).build();
+        
+        
+        
+        
+        
+//        
+//        
+//        
+//        
+//        
+//        
+//        
+//        
+//        
+//        
+//        String speechText;
+//        Request request = input.getRequestEnvelope().getRequest();
+//        IntentRequest intentRequest = (IntentRequest) request;
+//        Map<String, Slot> slots = intentRequest.getIntent().getSlots();
+//        Slot chosenRecipeSlot = slots.get("FavoritRecipe");
+//        String chosenRecipe = chosenRecipeSlot.getValue();
+//        input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
+//        String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
+//        
+//        CookingBook cookingBook = new CookingBook();
+//        Recipe foundRecipe = cookingBook.findByName(recipeOriginal);
+//        
+//        String recipe = foundRecipe == null ? null : foundRecipe.getName();
+//        if (recipe != null && !recipe.isEmpty()) {
+//            TellRecipeStepsIntentHandler.resetCnt();
+//            Recipe.saveRecipe(foundRecipe);
+//            speechText = String.format("Du hast %s ausgewählt. Sage \"WEITER\", wenn ich weiterlesen soll", recipe);
+//              
+//        } else {
+//           speechText = String.format (PhrasesForAlexa.REPEAT_RECIPE_INPUT);
+//        }
+//        
+//        return input.getResponseBuilder()
+//                .withSpeech(speechText)
+//                .withSimpleCard("Rezeptauswahl", speechText)
+//                .withShouldEndSession(false).build();
     }
 
 }

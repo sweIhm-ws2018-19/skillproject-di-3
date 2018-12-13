@@ -32,7 +32,6 @@ public class TellMeIngredientsIntentHandler implements RequestHandler {
 						+ i.getUnit() + " " + i.getIngredient() + "\n"));
 			
 			speechText = stringBuilder.toString();
-			System.out.println(speechText);
 		} else {
 			speechText = PhrasesForAlexa.TELL_INGREDIENTS_SELECT_FIRST;
 		}

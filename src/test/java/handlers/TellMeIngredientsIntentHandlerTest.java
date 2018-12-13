@@ -71,7 +71,6 @@ public class TellMeIngredientsIntentHandlerTest {
 
         assertFalse(response.getShouldEndSession());
         assertNotNull(response.getOutputSpeech());
-        System.out.println(response.getOutputSpeech().toString());
         assertTrue(response.getOutputSpeech().toString()
                 .contains(PhrasesForAlexa.TELL_INGREDIENTS_OK) 
                 && response.getOutputSpeech().toString().contains("- 400 GRAMM Nudeln"));

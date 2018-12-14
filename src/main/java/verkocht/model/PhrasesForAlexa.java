@@ -28,6 +28,9 @@ public final class PhrasesForAlexa {
 			"Sage zum Beispiel: Zur Rezeptauswahl",
 			"Sage zum Beispiel: Ich habe einen Favoriten",
 			"Ich kann dir helfen, sage zum Beispiel: Wie waehle ich ein Rezept aus?"};
+    //Exception 
+    public static final String EXCEPTION = "Entschuldige. Ich habe dich nicht verstanden.";
+    
     //Hauptmenue
     public static final String HAUPTMENUE = "Was willst du tun? Sage \"Rezept direkt auswaehlen\", um Rezeptnamen einzugeben.";
     

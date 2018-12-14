@@ -45,26 +45,19 @@ public class SelectRecipeByFavoritsSelectorIntentHandler implements RequestHandl
         String speechText;
         Request request = input.getRequestEnvelope().getRequest();
         IntentRequest intentRequest = (IntentRequest) request;
-        Intent intent = intentRequest.getIntent();
-        Map<String, Slot> slots = intent.getSlots();
+        Map<String, Slot> slots = intentRequest.getIntent().getSlots();
         Slot chosenRecipeSlot = slots.get(RECIPE_SLOT);
         String chosenRecipe = chosenRecipeSlot.getValue();
         input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
-
         String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
-        CookingBook cookingBook = new CookingBook();
-        Recipe foundRecipe = cookingBook.findByName(recipeOriginal);//recipe returned 
         
-        String recipe; 
-        if (foundRecipe == null) {
-            recipe = null; 
-        }else {
-            recipe = foundRecipe.getName(); 
-        }
+        Recipe foundRecipe = CookingBook.findByName(recipeOriginal);
+        
+        String recipe = foundRecipe == null ? null : foundRecipe.getName();
         if (recipe != null && !recipe.isEmpty()) {
             TellRecipeStepsIntentHandler.resetCnt();
             Recipe.saveRecipe(foundRecipe);
-            speechText = String.format(PhrasesForAlexa.READ_RECIPE_STEPS, recipe);
+            speechText = String.format("Du hast %s ausgewählt. Sage \"WEITER\", wenn ich weiterlesen soll", recipe);
               
         } else {
            speechText = String.format (PhrasesForAlexa.REPEAT_RECIPE_INPUT);
@@ -74,47 +67,6 @@ public class SelectRecipeByFavoritsSelectorIntentHandler implements RequestHandl
                 .withSpeech(speechText)
                 .withSimpleCard("Favoritenauswahl", speechText)
                 .withShouldEndSession(false).build();
-        
-        
-        
-        
-        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        String speechText;
-//        Request request = input.getRequestEnvelope().getRequest();
-//        IntentRequest intentRequest = (IntentRequest) request;
-//        Map<String, Slot> slots = intentRequest.getIntent().getSlots();
-//        Slot chosenRecipeSlot = slots.get("FavoritRecipe");
-//        String chosenRecipe = chosenRecipeSlot.getValue();
-//        input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
-//        String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
-//        
-//        CookingBook cookingBook = new CookingBook();
-//        Recipe foundRecipe = cookingBook.findByName(recipeOriginal);
-//        
-//        String recipe = foundRecipe == null ? null : foundRecipe.getName();
-//        if (recipe != null && !recipe.isEmpty()) {
-//            TellRecipeStepsIntentHandler.resetCnt();
-//            Recipe.saveRecipe(foundRecipe);
-//            speechText = String.format("Du hast %s ausgewählt. Sage \"WEITER\", wenn ich weiterlesen soll", recipe);
-//              
-//        } else {
-//           speechText = String.format (PhrasesForAlexa.REPEAT_RECIPE_INPUT);
-//        }
-//        
-//        return input.getResponseBuilder()
-//                .withSpeech(speechText)
-//                .withSimpleCard("Rezeptauswahl", speechText)
-//                .withShouldEndSession(false).build();
     }
 
 }

@@ -23,6 +23,8 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 
+import verkocht.model.CookingBook;
+
 /**
  * Intent handler that greets the user. If nothing is said, the skill will repromt
  * with a random pick of available repromts.
@@ -37,6 +39,7 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
+        CookingBook.initiateCookingBook();
     	String[] repromts = {"Sage zum Beispiel: Welche Kategorien gibt es?",
     			"Sage zum Beispiel: Zur Rezeptauswahl",
     			"Sage zum Beispiel: Ich habe einen Favoriten",

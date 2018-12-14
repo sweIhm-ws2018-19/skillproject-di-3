@@ -34,9 +34,8 @@ public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler 
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        CookingBook cookingBook = new CookingBook();
 
-        String favoritesString = cookingBook.getAllFavorites();
+        String favoritesString = CookingBook.getAllFavorites();
         String speechText = String.format(
                 "Das sind alle deine Favoriten: %s. Waehle eine deiner Favoriten fuer den naechsten Schritt aus.",
                 favoritesString);

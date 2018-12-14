@@ -16,6 +16,14 @@
                     "samples": []
                 },
                 {
+                    "name": "HauptmenueIntent",
+                    "slots": [],
+                    "samples": [
+                      "zum Hauptmenue",
+                      "zurueck"
+                    ]
+                },
+                {
                     "name": "TellMeCategoriesIntent",
                     "slots": [],
                     "samples": [

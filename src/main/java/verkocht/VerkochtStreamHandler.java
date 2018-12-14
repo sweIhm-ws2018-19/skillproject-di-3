@@ -20,6 +20,7 @@ import com.amazon.ask.Skills;
 
 import verkocht.handlers.CancelandStopIntentHandler;
 import verkocht.handlers.FallbackIntentHandler;
+import verkocht.handlers.HauptmenueIntentHandler;
 import verkocht.handlers.HelpIntentHandler;
 import verkocht.handlers.LaunchRequestHandler;
 import verkocht.handlers.ModifyRecipeByUnitsIntentHandler;
@@ -45,6 +46,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new CancelandStopIntentHandler(), 
                         new FallbackIntentHandler(),
                         new HelpIntentHandler(),
+                        new HauptmenueIntentHandler(),
                         new LaunchRequestHandler(),
                         new ModifyRecipeIntentHandler(),
                         new ModifyRecipeByUnitsIntentHandler(),

@@ -28,6 +28,8 @@ public final class PhrasesForAlexa {
 			"Sage zum Beispiel: Zur Rezeptauswahl",
 			"Sage zum Beispiel: Ich habe einen Favoriten",
 			"Ich kann dir helfen, sage zum Beispiel: Wie waehle ich ein Rezept aus?"};
+    //Hauptmenue
+    public static final String HAUPTMENUE = "Was willst du tun? Sage \"Rezept direkt auswaehlen\", um Rezeptnamen einzugeben.";
     
     // Select Recipe
     public static final String SELECT_RECIPE = "Nenne das Rezept, das vorgelesen werden soll.";

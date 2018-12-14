@@ -36,32 +36,17 @@ public class TellMeCategoriesIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText;
-        Category[] categories = Category.values();
-        
-        StringBuilder categoryString = new StringBuilder();
-        int length = categories.length;
-        
-        for (int i = 0; i < length; i++) {
-            categoryString.append(categories[i].getName());
-            
-            if (i == length - 2) {
-                categoryString.append(" und ");
-            } else if (i != length - 1) {
-                categoryString.append(", ");
-            }
-        }
-        
-        String respone = categoryString.toString();
+    	String speechText;
+        String response = Category.getCategories();
 
-        if (respone != null && !respone.isEmpty()) {
-            speechText = String.format("Folgende Kategorien stehen zur Auswahl: %s.", respone);
+        if (response != null && !response.isEmpty()) {
+            speechText = String.format("Folgende Kategorien stehen zur Auswahl: %s.", response);
         } else {
-            // Since the user's favorite color is not set render an error message.
             speechText = "Ich kann dir leider im Moment nicht helfen. Tut mir Leid.";
         }
 
-        return input.getResponseBuilder()
+        return input
+        		.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("Deine Kategorien", speechText)
                 .withReprompt("Wie kann ich dir helfen?")

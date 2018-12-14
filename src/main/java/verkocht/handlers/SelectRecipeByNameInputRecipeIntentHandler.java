@@ -28,6 +28,7 @@ import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
 import verkocht.model.CookingBook;
+import verkocht.model.PhrasesForAlexa;
 import verkocht.model.Recipe;
 /**
  * Handler to get the requested recipe from the cooking book
@@ -45,40 +46,32 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        //create the welcome message for this intent
         String speechText;
         Request request = input.getRequestEnvelope().getRequest();
-        //get request from the user
         IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();
-        // get slots of the request
         Map<String, Slot> slots = intent.getSlots();
-
-        // get the recipe slot from the list of slots.
         Slot chosenRecipeSlot = slots.get(RECIPE_SLOT);
-
-        // store the user's recipe in the session and create response.
         String chosenRecipe = chosenRecipeSlot.getValue();
         input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
 
-        // get recipe name from the response
         String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
         CookingBook cookingBook = new CookingBook();
         Recipe foundRecipe = cookingBook.findByName(recipeOriginal);//recipe returned 
         
-        String recipe; //recipe name as String
-        if (foundRecipe == null) {//recipe could not be found
+        String recipe; 
+        if (foundRecipe == null) {
             recipe = null; 
         }else {
-            recipe = foundRecipe.getName(); //recipe could be found
+            recipe = foundRecipe.getName(); 
         }
-        if (recipe != null && !recipe.isEmpty()) {//string is not empty and not null
+        if (recipe != null && !recipe.isEmpty()) {
             TellRecipeStepsIntentHandler.resetCnt();
-            TellRecipeStepsIntentHandler.setRecipeToRead(foundRecipe);
-            speechText = String.format("Ich lese dir das Rezept %s vor. Sage \"WEITER\", wenn ich weiterlesen soll", recipe);
+            Recipe.saveRecipe(foundRecipe);
+            speechText = String.format(PhrasesForAlexa.READ_RECIPE_STEPS, recipe);
               
         } else {
-           speechText = String.format ("Ich weiss nicht, welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich möchte Schnitzel kochen.");
+           speechText = String.format (PhrasesForAlexa.REPEAT_RECIPE_INPUT);
         }
         
         return input.getResponseBuilder()

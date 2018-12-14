@@ -23,17 +23,21 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
-public class SelectRecipeByFavoritsIntentHandler implements RequestHandler {
+import verkocht.model.PhrasesForAlexa;
+
+public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler {
 
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("SelectRecipeByFavoritsIntent"));
+        return input.matches(intentName("SelectRecipeByFavoritsStartIntentHandler"));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Optional<Response> handle(HandlerInput input) {
+       
         AttributesManager attributesManager = input.getAttributesManager();
-        List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get("FavoritRecipes");
+        List<String> listOfFavorites = (List<String>) attributesManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECEPIE_LIST) ;
         StringBuilder allFavorites = new StringBuilder("");
         if (listOfFavorites != null) {
             for (String string : listOfFavorites) {

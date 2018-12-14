@@ -66,8 +66,8 @@ public abstract class CookingBook {
         allRecipes.add(nudelnMitTomatensauce);
 
         // add recipes to the list of favorites
-        favorites.add(milchshakeRec);
-        favorites.add(nudelnMitTomatensauce);
+        saveFavorite(milchshakeRec.getName());
+        saveFavorite(nudelnMitTomatensauce.getName());
     }
 
     /**
@@ -122,7 +122,7 @@ public abstract class CookingBook {
         int length = favorites.size();
 
         for (int i = 0; i < length; i++) {
-            categoryString.append(favorites.get(i));
+            categoryString.append(favorites.get(i).getName());
 
             if (i == length - 2) {
                 categoryString.append(" und ");

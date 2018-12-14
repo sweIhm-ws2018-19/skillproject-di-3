@@ -122,7 +122,7 @@
                     ]
                 },
 				{
-                    "name": "SelectRecipeByFavoritsIntentSelectorIntent",
+                    "name": "SelectRecipeByFavoritsSelectorIntent",
                     "slots": [
                         {
                             "name": "Recipe",
@@ -130,9 +130,9 @@
                         }
                     ],
                     "samples": [
-                        "ich wähle {Recipe} aus Favoriten aus",
-                        "nehme {Recipe} aus meinen Favoriten",
-                        "Kannst du {Recipe} auswählen"
+                        "Ich waehle {Recipe} aus Favoriten aus",
+                        "Nehme {Recipe} aus meinen Favoriten",
+                        "Kannst du {Recipe} auswaehlen"
                     ]
                 },
                 {

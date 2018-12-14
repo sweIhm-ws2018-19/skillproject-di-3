@@ -33,8 +33,7 @@ import verkocht.model.Recipe;
 
 
 public class SelectRecipeByFavoritsSelectorIntentHandler implements RequestHandler {
-    public static final String RECIPE_KEY = "RECIPE";
-    public static final String RECIPE_SLOT = "Recipe";
+    
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("SelectRecipeByFavoritsSelectorIntent"));
@@ -46,10 +45,10 @@ public class SelectRecipeByFavoritsSelectorIntentHandler implements RequestHandl
         Request request = input.getRequestEnvelope().getRequest();
         IntentRequest intentRequest = (IntentRequest) request;
         Map<String, Slot> slots = intentRequest.getIntent().getSlots();
-        Slot chosenRecipeSlot = slots.get(RECIPE_SLOT);
+        Slot chosenRecipeSlot = slots.get(PhrasesForAlexa.RECIPE_SLOT);
         String chosenRecipe = chosenRecipeSlot.getValue();
-        input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
-        String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
+        input.getAttributesManager().setSessionAttributes(Collections.singletonMap(PhrasesForAlexa.RECIPE_KEY, chosenRecipe));
+        String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(PhrasesForAlexa.RECIPE_KEY);
         
         Recipe foundRecipe = CookingBook.findByName(recipeOriginal);
         

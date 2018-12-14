@@ -24,6 +24,7 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
 import verkocht.model.CookingBook;
+import verkocht.model.PhrasesForAlexa;
 
 public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler {
 
@@ -37,10 +38,10 @@ public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler 
 
         String favoritesString = CookingBook.getAllFavorites();
         String speechText = String.format(
-                "Das sind alle deine Favoriten: %s. Waehle eine deiner Favoriten fuer den naechsten Schritt aus.",
+                PhrasesForAlexa.FAVORITE_AVAILABLE,
                 favoritesString);
         if (favoritesString.isEmpty()) {
-            speechText = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
+            speechText = PhrasesForAlexa.NO_FAVORITE_AVAILABLE;
         }
 
         return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptauswahl", speechText)

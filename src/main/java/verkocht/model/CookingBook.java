@@ -10,7 +10,11 @@ public abstract class CookingBook {
     private static List<Recipe> favorites = new ArrayList<>();
     private static List<Recipe> allRecipes = new ArrayList<>();
     private static List<Ingredient> allIngredients = new ArrayList<>();
+    
+    private final static String NUDELN = "Nudeln";
 
+    private CookingBook() {};
+    
     public static void initiateCookingBook() {
         // add ingredients to the list of ingredients
         allIngredients.add(new Ingredient("Fleisch", Unit.GRAMM));
@@ -20,7 +24,7 @@ public abstract class CookingBook {
         allIngredients.add(new Ingredient("Milch", Unit.MILLILITER));
         allIngredients.add(new Ingredient("Zucker", Unit.GRAMM));
         allIngredients.add(new Ingredient("Salz", Unit.BRISE));
-        allIngredients.add(new Ingredient("Nudeln", Unit.GRAMM));
+        allIngredients.add(new Ingredient(NUDELN, Unit.GRAMM));
         allIngredients.add(new Ingredient("Tomatensauce", Unit.GRAMM));
         allIngredients.add(new Ingredient("Paniermehl", Unit.GRAMM));
         allIngredients.add(new Ingredient("Oel", Unit.MILLILITER));
@@ -56,8 +60,8 @@ public abstract class CookingBook {
         allRecipes.add(milchshakeRec);
 
         // Nudeln mit Tomatensauce
-        Recipe nudelnMitTomatensauce = new Recipe("Nudeln", Category.VEGAN, 4, 20);
-        nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Nudeln"), 200);
+        Recipe nudelnMitTomatensauce = new Recipe(NUDELN, Category.VEGAN, 4, 20);
+        nudelnMitTomatensauce.getIngredients().put(getIngredientByName(NUDELN), 200);
         nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Salz"), 1);
         nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Tomatensauce"), 100);
         nudelnMitTomatensauce.getSteps().add("Nudeln in kochendem Salzwasser bissfest garen.");
@@ -94,7 +98,7 @@ public abstract class CookingBook {
      * @return recipe if the recipe is in the cooking book and null otherwise
      */
     public static Recipe findFavoriteByName(String name) {
-        for (Recipe recipe : allRecipes) {
+        for (Recipe recipe : favorites) {
             if (recipe.getName().equals(name)) {
                 return recipe;
             }

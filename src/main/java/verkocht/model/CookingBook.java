@@ -7,13 +7,15 @@ import java.util.List;
  * The cooking book that holds all recipes and categories.
  */
 public abstract class CookingBook {
+    private static final String NUDELN = "Nudeln";
+    
     private static List<Recipe> favorites = new ArrayList<>();
     private static List<Recipe> allRecipes = new ArrayList<>();
     private static List<Ingredient> allIngredients = new ArrayList<>();
-    
-    private final static String NUDELN = "Nudeln";
 
-    private CookingBook() {};
+    private CookingBook() {
+        throw new IllegalStateException("Utility class");
+    };
     
     public static void initiateCookingBook() {
         // add ingredients to the list of ingredients

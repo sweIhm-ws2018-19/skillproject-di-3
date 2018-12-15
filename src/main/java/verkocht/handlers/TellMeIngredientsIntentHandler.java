@@ -28,7 +28,7 @@ public class TellMeIngredientsIntentHandler implements RequestHandler {
 			stringBuilder.append(PhrasesForAlexa.TELL_INGREDIENTS_OK);
 
 			recipeToRead.getIngredients()
-				.forEach((i, value) -> stringBuilder.append("- " + value + " "
+				.forEach((i, value) -> stringBuilder.append("* " + value + " "
 						+ i.getUnit() + " " + i.getIngredient() + "\n"));
 			
 			speechText = stringBuilder.toString();

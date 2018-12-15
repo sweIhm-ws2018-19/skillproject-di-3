@@ -73,6 +73,6 @@ public class TellMeIngredientsIntentHandlerTest {
         assertNotNull(response.getOutputSpeech());
         assertTrue(response.getOutputSpeech().toString()
                 .contains(PhrasesForAlexa.TELL_INGREDIENTS_OK) 
-                && response.getOutputSpeech().toString().contains("- 400 GRAMM Nudeln"));
+                && response.getOutputSpeech().toString().contains("* 400 GRAMM Nudeln"));
     }
 }

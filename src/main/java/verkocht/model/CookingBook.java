@@ -15,7 +15,7 @@ public abstract class CookingBook {
 
     private CookingBook() {
         throw new IllegalStateException("Utility class");
-    };
+    }
     
     public static void initiateCookingBook() {
         // add ingredients to the list of ingredients

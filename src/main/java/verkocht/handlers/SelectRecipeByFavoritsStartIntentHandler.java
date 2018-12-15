@@ -44,7 +44,7 @@ public class SelectRecipeByFavoritsStartIntentHandler implements RequestHandler 
             speechText = PhrasesForAlexa.NO_FAVORITE_AVAILABLE;
         }
 
-        return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Rezeptauswahl", speechText)
+        return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Alle Favoriten vorlesen", speechText)
                 .withReprompt("Wie kann ich dir helfen?").withShouldEndSession(false).build();
     }
 

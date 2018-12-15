@@ -51,28 +51,11 @@ public class SaveRecipeToFavoriteHandler implements RequestHandler {
         
         CookingBook.saveFavorite(recipeOriginal);
         
-        
-        
-        
-        
-       
-//        Request request = input.getRequestEnvelope().getRequest();
-//        IntentRequest intentRequest = (IntentRequest) request;
-//        Intent intent = intentRequest.getIntent();
-//        Map<String, Slot> slots = intent.getSlots();
-//        Slot chosenRecipeSlot = slots.get(PhrasesForAlexa.SELECTED_FAVORITE);
-//        String chosenRecipe = chosenRecipeSlot.getValue();
-//        AttributesManager attributeManager = input.getAttributesManager(); 
-//        List<String> listOfFavorites = (List<String>) attributeManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECIPE_LIST) ;
-//        // add current recipe to the list
-//        listOfFavorites.add(chosenRecipe);
-//        // Ist die Frage Alexa dort etwas hineinschreiben wird. Sollte aber zu Beginn keine Probleme hervorrufen.
-//        attributeManager.setPersistentAttributes(Collections.singletonMap(PhrasesForAlexa.FAVORTIE_RECIPE_LIST, listOfFavorites));
         speechText = "Das Rezept " + chosenRecipe + " wurde zu den Favoriten hinzugefuegt. Du kannst es dir ueber die Auswahl vorlesen lassen.";
         
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("Rezeptauswahl", speechText)
+                .withSimpleCard("Favoriten speichern", speechText)
                 .withReprompt("Wie kann ich dir helfen?")
                 .withShouldEndSession(false)
                 .build();

@@ -33,7 +33,7 @@ public abstract class CookingBook {
         allIngredients.add(new Ingredient("Eis", Unit.GRAMM));
 
         // Schnitzel
-        Recipe schniztelRec = new Recipe("Schnitzel", Category.MEAT, 4, 40);
+        Recipe schniztelRec = new Recipe("schnitzel", Category.MEAT, 4, 40);
         schniztelRec.getIngredients().put(getIngredientByName("Fleisch"), 200);
         schniztelRec.getIngredients().put(getIngredientByName("Ei"), 1);
         schniztelRec.getIngredients().put(getIngredientByName("Mehl"), 100);
@@ -50,7 +50,7 @@ public abstract class CookingBook {
         allRecipes.add(schniztelRec);
 
         // Erdbeermilchshake
-        Recipe milchshakeRec = new Recipe("Milchshake", Category.VEGETARIAN, 2, 15);
+        Recipe milchshakeRec = new Recipe("milchshake", Category.VEGETARIAN, 2, 15);
         milchshakeRec.getIngredients().put(getIngredientByName("Erdbeeren"), 200);
         milchshakeRec.getIngredients().put(getIngredientByName("Milch"), 400);
         milchshakeRec.getIngredients().put(getIngredientByName("Zucker"), 20);
@@ -62,7 +62,7 @@ public abstract class CookingBook {
         allRecipes.add(milchshakeRec);
 
         // Nudeln mit Tomatensauce
-        Recipe nudelnMitTomatensauce = new Recipe(NUDELN, Category.VEGAN, 4, 20);
+        Recipe nudelnMitTomatensauce = new Recipe("nudeln", Category.VEGAN, 4, 20);
         nudelnMitTomatensauce.getIngredients().put(getIngredientByName(NUDELN), 200);
         nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Salz"), 1);
         nudelnMitTomatensauce.getIngredients().put(getIngredientByName("Tomatensauce"), 100);

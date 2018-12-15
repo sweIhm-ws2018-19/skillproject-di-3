@@ -19,10 +19,10 @@ public class CookingBookTest {
     
     @Test
     public void testFindByName() {
-        assertEquals("Incorrect value", CookingBook.getAllRecipes().get(0), CookingBook.findByName("Schnitzel") );
-        assertEquals("Incorrect value",CookingBook.getAllRecipes().get(1), CookingBook.findByName("Milchshake"));
-        assertEquals("Incorrect value", CookingBook.getAllRecipes().get(2), CookingBook.findByName("Nudeln"));
-        assertEquals("Incorrect value", null, CookingBook.findByName("Kartoffeln"));   
+        assertEquals("Incorrect value", CookingBook.getAllRecipes().get(0), CookingBook.findByName("schnitzel") );
+        assertEquals("Incorrect value",CookingBook.getAllRecipes().get(1), CookingBook.findByName("milchshake"));
+        assertEquals("Incorrect value", CookingBook.getAllRecipes().get(2), CookingBook.findByName("nudeln"));
+        assertEquals("Incorrect value", null, CookingBook.findByName("kartoffeln"));   
     }
     
     @Test
@@ -30,12 +30,13 @@ public class CookingBookTest {
         assertEquals (CookingBook.getAllIngredients().get(0), CookingBook.getIngredientByName("Fleisch"));
         assertEquals (CookingBook.getAllIngredients().get(1), CookingBook.getIngredientByName("Ei"));
         assertEquals (null, CookingBook.getIngredientByName("Pute"));
-            }
+    }
+    
     @Test
     public void testConstructor() {
-        assertEquals ("Zuerst wird wird das Mehl auf einen Teller gestreut.", CookingBook.findByName("Schnitzel").getSteps().get(0));
-        assertEquals ("Alle Zutaten mit einem Mixer vermischen.", CookingBook.findByName("Milchshake").getSteps().get(1));
-        assertEquals ("Die Nudeln abgiessen und mit der Sauce heiss servieren.", CookingBook.findByName("Nudeln").getSteps().get(2));
+        assertEquals ("Zuerst wird wird das Mehl auf einen Teller gestreut.", CookingBook.findByName("schnitzel").getSteps().get(0));
+        assertEquals ("Alle Zutaten mit einem Mixer vermischen.", CookingBook.findByName("milchshake").getSteps().get(1));
+        assertEquals ("Die Nudeln abgiessen und mit der Sauce heiss servieren.", CookingBook.findByName("nudeln").getSteps().get(2));
     }
     
     @Test

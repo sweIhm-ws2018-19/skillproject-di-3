@@ -47,8 +47,8 @@
                     "slots": [],
                     "samples": [
                         "Rezept favorisieren",
-                        "Favorit wählen",
-                        "Favoriten wählen"
+                        "Favorit waehlen",
+                        "Favoriten waehlen"
                         
                     ]
                 },
@@ -141,12 +141,16 @@
                         {
                             "name": "Ingredient",
                             "type": "Ingredient"
+                        },
+                        {
+                        	"name": "Unit",
+                        	"type":	"Unit"
                         }
                     ],
                     "samples": [
                         "{Ingredient} anpassen",
                         "Rezept nach Zutaten aendern",
-                        "{Ingredient} auf {Ingredient_Value} anpassen"
+                        "{Ingredient} auf {Ingredient_Value} {Unit} anpassen"
                     ]
                 },
                 {
@@ -264,6 +268,51 @@
                         {
                             "name": {
                                 "value": "Mehl"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Unit",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "milliliter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gramm"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stueck"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "teeloeffel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "essloeffel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "brise"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "schuss"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tasse"
                             }
                         }
                     ]

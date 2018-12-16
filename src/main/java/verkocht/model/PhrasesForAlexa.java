@@ -40,7 +40,7 @@ public final class PhrasesForAlexa {
     			"Sag mir den Rezeptnamen. Sage zum Beispiel: ich moechte Schnitzel kochen.";
     
     // Categories
-    public static final String TELL_CATEGORIES = "Folgende Rezepte befinden sich in der Kategorie";
+    public static final String TELL_CATEGORIES = "Die Rezepte %s befinden sich in der ausgewählten Kategorie";
     public static final String CATEGORIES_UNKOWN = "Ich weiss nicht welche Kategorie ich vorlesen soll. Sag mir den Namen der Kategorie. Sage zum Beispiel: Sage mir alle Rezepte der Kategorie Vegan.";
     
     // Favorites
@@ -59,7 +59,8 @@ public final class PhrasesForAlexa {
     
     //Number of People
     public static final String PEOPLE_UNKNOWN = "Ich habe die Anzahl der Personen leider nicht genau verstanden, sage zum Beispiel: Ich moechte fuer zwei Personen kochen";
-    public static final String PEOPLE_SET = "Dein Rezept ist nun fuer %s ausgerichtet";
+    public static final String PEOPLE_SET = "Dein Rezept ist nun fuer %i ausgerichtet";
+    public static final String PEOPLE_NUMBER_UNCLEAR = "Die Gerichte koennen fuer maximal sechs Leute ausgerichtet werden";
     
     // Cancel-/Stop-/Help-/Fallback-Intent
     public static final String SORRY = "Tut mir leid, das weiss ich nicht. Sage einfach Hilfe.";

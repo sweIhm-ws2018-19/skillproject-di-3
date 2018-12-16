@@ -46,15 +46,13 @@ public class RecipeTest {
         	CookingBook cookingBook = new CookingBook();
         	CookingBook cookingBook2 = new CookingBook();
             
-        	Integer a = 100;
-        	cookingBook.getAllRecipes().get(0).setNumberOfPeople(2);
-        	cookingBook.getAllRecipes().get(0).changeIngredientAmounts();
+        	Integer a = 25;
+        	cookingBook.getAllRecipes().get(0).changeIngredientAmounts(2);
         	Integer b = cookingBook.getAllRecipes().get(0).getIngredients().get(cookingBook.getIngredientByName("Mehl"));
         	assertEquals(a,b);
         	
-        	a = 200;
-        	cookingBook2.getAllRecipes().get(0).setNumberOfPeople(4);
-        	cookingBook2.getAllRecipes().get(0).changeIngredientAmounts();
+        	a = 50;
+        	cookingBook2.getAllRecipes().get(0).changeIngredientAmounts(4);
         	b = cookingBook2.getAllRecipes().get(0).getIngredients().get(cookingBook2.getIngredientByName("Mehl"));
         	assertEquals(a,b);
         }

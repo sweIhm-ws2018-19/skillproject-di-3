@@ -60,7 +60,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new SetNumberOfPeopleIntentHandler(),
                         new TellRecipeStepsIntentHandler(),
                         new TellMeCategoriesIntentHandler())
-//                .withSkillId("amzn1.ask.skill.c5bc074f-b96e-4343-ba1e-393f8084fe94")
+                .withSkillId("amzn1.ask.skill.4c560721-fd0a-48db-9101-37b3f9c67a4d")
                 .build();
     }
 

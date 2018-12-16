@@ -43,10 +43,9 @@ public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
         return input.matches(intentName("SelectRecipeByCategoryIntent"));
     }
 
-    @SuppressWarnings("null")
 	@Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText;
+        String speechText = "";
         Request request = input.getRequestEnvelope().getRequest();
         IntentRequest intentRequest = (IntentRequest) request;
         Intent intent = intentRequest.getIntent();
@@ -56,31 +55,34 @@ public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
         
         String chosenCategorie = chosenCategorieSlot.getValue();
         input.getAttributesManager().setSessionAttributes(Collections.singletonMap(CATEGORY_KEY, chosenCategorie));
-        
-        
+               
         String actualCategorie = (String) input.getAttributesManager().getSessionAttributes().get(CATEGORY_KEY);
-        CookingBook cookingBook = new CookingBook();
-        Category[] categories = Category.values();
-        List<Recipe> foundRecipes = new ArrayList<>();
         
-        if (actualCategorie != null || !actualCategorie.isEmpty()) {
-        
-        for (int i = 0; i <= Category.values().length; i++) {
-        	if (categories[i].getName() == actualCategorie) {
+        if (actualCategorie == null || actualCategorie.isEmpty()) {
+        	speechText = PhrasesForAlexa.CATEGORIES_UNKOWN;
+        } else {
+            CookingBook cookingBook = new CookingBook();
+            Category[] categories = Category.values();
+            List<Recipe> foundRecipes = new ArrayList<>();
+            
+            for (int i = 0; i < categories.length; i++) {
+            	if (categories[i].getName().equalsIgnoreCase(actualCategorie)) {
         		foundRecipes = cookingBook.findByCategory(categories[i]);
-        	} 
-        }
-        
-        String responseMessage = null;
-        for (int i = 0; i <= foundRecipes.size(); i++){
-        	responseMessage += foundRecipes.get(i).getName();
-        }
-        
-        speechText = String.format(PhrasesForAlexa.TELL_CATEGORIES, responseMessage);
-        
-        }
-        
-        speechText = PhrasesForAlexa.CATEGORIES_UNKOWN;
+            	} 
+            }
+            
+            String responseMessage = "";
+            
+            if (foundRecipes.size() == 1) {
+            	speechText = PhrasesForAlexa.TELL_CATEGORIES;
+            } else {
+            	for (int i = 0; i < foundRecipes.size() - 1 ; i++){
+                	responseMessage += foundRecipes.get(i).getName();
+                }
+            	responseMessage += "und" + foundRecipes.get(foundRecipes.size());
+            	speechText = String.format(PhrasesForAlexa.TELL_CATEGORIES, responseMessage);
+            } 
+        }	
         
         return input.getResponseBuilder()
                 .withSpeech(speechText)

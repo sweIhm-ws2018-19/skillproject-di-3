@@ -47,6 +47,5 @@ public class CookingBookTest {
 		listOfRecipes.clear();
     	listOfRecipes.add(cookingBook.getAllRecipes().get(2));
 		assertEquals(cookingBook.findByCategory(Category.VEGAN),listOfRecipes);
-    }
-    
+    } 
 }

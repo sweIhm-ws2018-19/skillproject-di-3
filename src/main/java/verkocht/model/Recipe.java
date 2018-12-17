@@ -65,6 +65,7 @@ public class Recipe {
 	}
 	
 	public boolean modifyByUnit(String ingredient, int value) {
+		Recipe modifiedRecipe = Recipe.savedRecipe;
 	    Set<Ingredient> keys = this.ingredientAmounts.keySet();
 	    int originValue = 1;
 	    boolean found = false;

@@ -61,13 +61,12 @@ public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
         if (actualCategorie == null || actualCategorie.isEmpty()) {
         	speechText = PhrasesForAlexa.CATEGORY_UNKOWN;
         } else {
-            CookingBook cookingBook = new CookingBook();
             Category[] categories = Category.values();
             List<Recipe> foundRecipes = new ArrayList<>();
             
             for (int i = 0; i < categories.length; i++) {
             	if (categories[i].getName().equalsIgnoreCase(actualCategorie)) {
-        		foundRecipes = cookingBook.findByCategory(categories[i]);
+        		foundRecipes = CookingBook.findByCategory(categories[i]);
             	} 
             }
             

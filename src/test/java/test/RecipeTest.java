@@ -46,18 +46,18 @@ public class RecipeTest {
     }
     
         @Test
-        public void testChangeIngredientAmount() {     	     
-        	CookingBook cookingBook = new CookingBook();
-        	CookingBook cookingBook2 = new CookingBook();
-            
+        public void testChangeIngredientAmount() { 
+            CookingBook.initiateCookingBook();
+            Recipe recipe = CookingBook.getAllRecipes().get(0);
+        	       	
         	Integer a = 25;
-        	cookingBook.getAllRecipes().get(0).changeIngredientAmounts(2);
-        	Integer b = cookingBook.getAllRecipes().get(0).getIngredients().get(cookingBook.getIngredientByName("Mehl"));
+        	recipe.changeIngredientAmounts(2);
+        	Integer b = CookingBook.getAllRecipes().get(0).getIngredients().get(CookingBook.getIngredientByName("Mehl"));
         	assertEquals(a,b);
         	
         	a = 50;
-        	cookingBook2.getAllRecipes().get(0).changeIngredientAmounts(4);
-        	b = cookingBook2.getAllRecipes().get(0).getIngredients().get(cookingBook2.getIngredientByName("Mehl"));
+        	recipe.changeIngredientAmounts(4);
+        	b = CookingBook.getAllRecipes().get(0).getIngredients().get(CookingBook.getIngredientByName("Mehl"));
         	assertEquals(a,b);
         }
     }

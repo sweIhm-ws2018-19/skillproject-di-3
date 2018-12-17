@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -42,13 +43,13 @@ public class CookingBookTest {
     @Test
     public void testFindByCategory() {
     	List<Recipe> listOfRecipes = new ArrayList<Recipe>();
-    	listOfRecipes.add(cookingBook.getAllRecipes().get(0));
-		assertEquals(cookingBook.findByCategory(Category.MEAT),listOfRecipes);
+    	listOfRecipes.add(CookingBook.getAllRecipes().get(0));
+		assertEquals(CookingBook.findByCategory(Category.MEAT),listOfRecipes);
 		listOfRecipes.clear();
-    	listOfRecipes.add(cookingBook.getAllRecipes().get(1));
-		assertEquals(cookingBook.findByCategory(Category.VEGETARIAN),listOfRecipes);
+    	listOfRecipes.add(CookingBook.getAllRecipes().get(1));
+		assertEquals(CookingBook.findByCategory(Category.VEGETARIAN),listOfRecipes);
 		listOfRecipes.clear();
-    	listOfRecipes.add(cookingBook.getAllRecipes().get(2));
-		assertEquals(cookingBook.findByCategory(Category.VEGAN),listOfRecipes);
+    	listOfRecipes.add(CookingBook.getAllRecipes().get(2));
+		assertEquals(CookingBook.findByCategory(Category.VEGAN),listOfRecipes);
     } 
 }

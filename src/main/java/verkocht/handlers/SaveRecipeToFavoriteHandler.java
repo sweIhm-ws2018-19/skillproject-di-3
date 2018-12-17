@@ -14,51 +14,48 @@
 package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
-import verkocht.model.PhrasesForAlexa;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
-import com.amazon.ask.model.Intent;
 import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
-public class SaveRecipeToFavoriteIntentHandler implements RequestHandler {
+import verkocht.model.CookingBook;
 
+public class SaveRecipeToFavoriteHandler implements RequestHandler {
+    public static final String RECIPE_KEY = "RECIPE";
+    public static final String RECIPE_SLOT = "Recipe";
+    
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("SaveRecipeToFavoriteIntent"));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Optional<Response> handle(HandlerInput input) {
-       
+        String speechText;
         Request request = input.getRequestEnvelope().getRequest();
         IntentRequest intentRequest = (IntentRequest) request;
-        Intent intent = intentRequest.getIntent();
-        Map<String, Slot> slots = intent.getSlots();
-        Slot chosenRecipeSlot = slots.get(PhrasesForAlexa.SELECTED_FAVORITE);
-        // get current chosen recipe
+        Map<String, Slot> slots = intentRequest.getIntent().getSlots();
+        Slot chosenRecipeSlot = slots.get(RECIPE_SLOT);
         String chosenRecipe = chosenRecipeSlot.getValue();
-        AttributesManager attributeManager = input.getAttributesManager(); 
-        // get current list of favorites
-        List<String> listOfFavorites = (List<String>) attributeManager.getPersistentAttributes().get(PhrasesForAlexa.FAVORTIE_RECEPIE_LIST) ;
-        // add current recipe to the list
-        listOfFavorites.add(chosenRecipe);
-        // put the list back into the persistent databank
-        attributeManager.setPersistentAttributes(Collections.singletonMap(PhrasesForAlexa.FAVORTIE_RECEPIE_LIST, listOfFavorites));
-        String speechText = "Das Rezept " + chosenRecipe + " wurde zu den Favoriten hinzugefuegt. Du kannst es dir ueber die Auswahl vorlesen lassen.";
+        input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
+        String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
+        
+        CookingBook.saveFavorite(recipeOriginal);
+        
+        speechText = "Das Rezept " + chosenRecipe + " wurde zu den Favoriten hinzugefuegt. Du kannst es dir ueber die Auswahl vorlesen lassen.";
         
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("Rezeptauswahl", speechText)
+                .withSimpleCard("Favoriten speichern", speechText)
                 .withReprompt("Wie kann ich dir helfen?")
                 .withShouldEndSession(false)
                 .build();

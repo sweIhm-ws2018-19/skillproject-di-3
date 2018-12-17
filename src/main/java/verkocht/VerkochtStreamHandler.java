@@ -1,4 +1,3 @@
-
 /*
      Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
@@ -24,7 +23,7 @@ import verkocht.handlers.HelpIntentHandler;
 import verkocht.handlers.LaunchRequestHandler;
 import verkocht.handlers.ModifyRecipeByUnitsIntentHandler;
 import verkocht.handlers.ModifyRecipeIntentHandler;
-import verkocht.handlers.SaveRecipeToFavoriteIntentHandler;
+import verkocht.handlers.SaveRecipeToFavoriteHandler;
 import verkocht.handlers.SelectRecipeByCategoryIntentHandler;
 import verkocht.handlers.SelectRecipeByFavoritsSelectorIntentHandler;
 import verkocht.handlers.SelectRecipeByFavoritsStartIntentHandler;
@@ -35,6 +34,7 @@ import verkocht.handlers.SessionEndedRequestHandler;
 import verkocht.handlers.SetFavoriteIntentHandler;
 import verkocht.handlers.SetNumberOfPeopleIntentHandler;
 import verkocht.handlers.TellMeCategoriesIntentHandler;
+import verkocht.handlers.TellMeIngredientsIntentHandler;
 import verkocht.handlers.TellRecipeStepsIntentHandler;
 
 public class VerkochtStreamHandler extends SkillStreamHandler {
@@ -48,7 +48,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new LaunchRequestHandler(),
                         new ModifyRecipeIntentHandler(),
                         new ModifyRecipeByUnitsIntentHandler(),
-                        new SaveRecipeToFavoriteIntentHandler(),
+                        new SaveRecipeToFavoriteHandler(),
                         new SelectRecipeByCategoryIntentHandler(), 
                         new SelectRecipeByFavoritsSelectorIntentHandler(),
                         new SelectRecipeByFavoritsStartIntentHandler(),
@@ -59,8 +59,9 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new SetFavoriteIntentHandler(),
                         new SetNumberOfPeopleIntentHandler(),
                         new TellRecipeStepsIntentHandler(),
+                        new TellMeIngredientsIntentHandler(),
                         new TellMeCategoriesIntentHandler())
-                .withSkillId("amzn1.ask.skill.4c560721-fd0a-48db-9101-37b3f9c67a4d")
+//                .withSkillId("amzn1.ask.skill.c5bc074f-b96e-4343-ba1e-393f8084fe94")
                 .build();
     }
 

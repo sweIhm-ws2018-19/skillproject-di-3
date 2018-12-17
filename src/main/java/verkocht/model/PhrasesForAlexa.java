@@ -2,7 +2,7 @@ package verkocht.model;
 
 /**
  * Class thats holds all phrases that can be returned by alexa. 
- * @author Florian Uhrig
+ * @author carnesirone
  */
 public final class PhrasesForAlexa {
     
@@ -15,19 +15,23 @@ public final class PhrasesForAlexa {
     
     // LaunchIntent
     public static final String WELCOME = "Hallo. Ich bin dein interaktives Kochbuch \"Verkocht\"! Was willst du tun?";
+    public static final String FAVORTIE_RECIPE_LIST = "LIST_OF_FAVORITES";
+    public static final String SELECTED_FAVORITE = "FavoritRecipe";
+
     public static final String END_READ_RECIPE_STEPS = "Das Rezept ist zu Ende. Sage \"stop\", um ins Hauptmenue zuruezukommen.";
     public static final String READ_RECIPE_STEPS = "Ich lese dir das Rezept %s vor. Sage \"WEITER\", wenn ich weiterlesen soll";
     public static final String REPEAT_RECIPE_INPUT ="Ich weiss nicht, welches Rezept ich vorlesen soll. Sag mir den Rezeptnamen. Sage zum Beispiel: ich moechte Schnitzel kochen.";
     public static final String START_RECIPE_INPUT = "Nenne das Rezept, das vorgelesen werden soll. Sage zum Beispiel: ich moechte Schnitzel kochen.";
 
-    
-    public static final String FAVORTIE_RECEPIE_LIST = "FavoritRecipes";
-    public static final String SELECTED_FAVORITE = "FavoritRecipe";
-
     protected static final String[] REPROMTS = {"Sage zum Beispiel: Welche Kategorien gibt es?",
 			"Sage zum Beispiel: Zur Rezeptauswahl",
 			"Sage zum Beispiel: Ich habe einen Favoriten",
 			"Ich kann dir helfen, sage zum Beispiel: Wie waehle ich ein Rezept aus?"};
+    //Exception 
+    public static final String EXCEPTION = "Entschuldige. Ich habe dich nicht verstanden.";
+    
+    //Hauptmenue
+    public static final String HAUPTMENUE = "Was willst du tun? Sage \"Rezept direkt auswaehlen\", um Rezeptnamen einzugeben.";
     
     // Select Recipe
     public static final String SELECT_RECIPE = "Nenne das Rezept, das vorgelesen werden soll.";
@@ -48,11 +52,13 @@ public final class PhrasesForAlexa {
     // Favorites
     public static final String TELL_FAVORITE = "Das sind alle deine Favoriten: %s. "
     		+ "Waehle eine deiner Favoriten fuer den naechsten Schritt aus.";
+    public static final String NO_FAVORITE_AVAILABLE = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
+    public static final String FAVORITE_AVAILABLE = "Das sind alle deine Favoriten: %s. Waehle eine deiner Favoriten fuer den naechsten Schritt aus.";
     public static final String FAVORITE_REPROMT = "Bis jetzt hast du noch keine Favoriten. "
     		+ "Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
     
     // Modify Unit
-    public static final String MODIFY_UNIT_WELCOME = "Hier kannst du ein Rezept entsprechend einer Zutat modifizieren. Sage: {Zutat} auf {Menge} anpassen.";
+    public static final String MODIFY_UNIT_WELCOME = "Hier kannst du ein Rezept entsprechend einer Zutat modifizieren. Sage: Ei auf drei Stueck anpassen.";
     public static final String MODIFY_UNIT_REPROMT = "Bitte nenne eine Zutat des Rezept.";
     public static final String MODIFY_UNIT_ERROR = "Dies ist nicht moeglich.";
     public static final String MODIFY_UNIT_SELECT_RECIPE_FIRST = "Waehle bitte zuerst ein Rezept aus.";
@@ -64,6 +70,10 @@ public final class PhrasesForAlexa {
     public static final String PEOPLE_SET = "Dein Rezept ist nun fuer %s ausgerichtet";
     public static final String PEOPLE_NUMBER_UNCLEAR = "Die Gerichte koennen fuer maximal sechs Leute ausgerichtet werden";
     public static final String PEOPLE_ONE = "Das Rezept ist nun fuer eine Person ausgerichtet";
+
+    // Tell ingredient list
+    public static final String TELL_INGREDIENTS_OK = "Hier deine Zutatenliste:\n";
+    public static final String TELL_INGREDIENTS_SELECT_FIRST = "Waehle bitte zuerst ein Rezept aus.";
     
     // Cancel-/Stop-/Help-/Fallback-Intent
     public static final String SORRY = "Tut mir leid, das weiss ich nicht. Sage einfach Hilfe.";
@@ -75,4 +85,7 @@ public final class PhrasesForAlexa {
     public static final String RECIPE = "Hier kannst du spaeter ein Rezept auswaehlen.";
     public static final String CATEGORIES = "Hier kannst du spaeter ein Rezept nach Kategorie auswaehlen.";
     public static final String MODIFY = "Hier kannst du spaeter ein Rezept modifizieren.";
+    
+    public static final String RECIPE_KEY = "RECIPE";
+    public static final String RECIPE_SLOT = "Recipe";
 }

@@ -1,39 +1,42 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
-
-import verkocht.model.*;
+import verkocht.model.Category;
+import verkocht.model.CookingBook;
+import verkocht.model.Recipe;
 
 public class CookingBookTest {
-    CookingBook cookingBook = new CookingBook();
-
+    @Before
+    public void testInitiate() {
+        CookingBook.initiateCookingBook();
+    }
+    
     @Test
     public void testFindByName() {
-        System.out.println(cookingBook.getAllIngredients());
-
-        assertEquals("Incorrect value", cookingBook.getAllRecipes().get(0), cookingBook.findByName("schnitzel") );
-        assertEquals("Incorrect value",cookingBook.getAllRecipes().get(1), cookingBook.findByName("milchshake"));
-        assertEquals("Incorrect value", cookingBook.getAllRecipes().get(2), cookingBook.findByName("nudeln"));
-        assertEquals("Incorrect value", null, cookingBook.findByName("kartoffeln"));   
+        assertEquals("Incorrect value", CookingBook.getAllRecipes().get(0), CookingBook.findByName("schnitzel") );
+        assertEquals("Incorrect value",CookingBook.getAllRecipes().get(1), CookingBook.findByName("milchshake"));
+        assertEquals("Incorrect value", CookingBook.getAllRecipes().get(2), CookingBook.findByName("nudeln"));
+        assertEquals("Incorrect value", null, CookingBook.findByName("kartoffeln"));   
     }
     
     @Test
     public void testGetIngredientByName() {
-        assertEquals (cookingBook.getAllIngredients().get(0), cookingBook.getIngredientByName("Fleisch"));
-        assertEquals (cookingBook.getAllIngredients().get(1), cookingBook.getIngredientByName("Ei"));
-        assertEquals (null, cookingBook.getIngredientByName("Pute"));
-            }
+        assertEquals (CookingBook.getAllIngredients().get(0), CookingBook.getIngredientByName("Fleisch"));
+        assertEquals (CookingBook.getAllIngredients().get(1), CookingBook.getIngredientByName("Ei"));
+        assertEquals (null, CookingBook.getIngredientByName("Pute"));
+    }
+    
     @Test
     public void testConstructor() {
-        assertEquals ("Zuerst wird wird das Mehl auf einen Teller gestreut.", cookingBook.findByName("schnitzel").getSteps().get(0));
-        assertEquals ("Alle Zutaten mit einem Mixer vermischen.", cookingBook.findByName("milchshake").getSteps().get(1));
-        assertEquals ("Die Nudeln abgiessen und mit der Sauce heiss servieren.", cookingBook.findByName("nudeln").getSteps().get(2));
+        assertEquals ("Zuerst wird wird das Mehl auf einen Teller gestreut.", CookingBook.findByName("schnitzel").getSteps().get(0));
+        assertEquals ("Alle Zutaten mit einem Mixer vermischen.", CookingBook.findByName("milchshake").getSteps().get(1));
+        assertEquals ("Die Nudeln abgiessen und mit der Sauce heiss servieren.", CookingBook.findByName("nudeln").getSteps().get(2));
     }
     
     @Test

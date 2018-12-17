@@ -7,22 +7,22 @@ import java.util.Map;
 import java.util.Set;
 
 import verkocht.handlers.ModifyRecipeByUnitsIntentHandler;
+import verkocht.handlers.TellRecipeStepsIntentHandler;
 
 /*
  * The class that represents a recipe.
  */
 public class Recipe {
     private String name;
-	private List<String> steps = new ArrayList<>();
-	private int numberOfPeople;
-	private int cookingTime;
-	private Category category;
-	private Map<Ingredient, Integer> ingredientAmounts = new HashMap<>();
+    private List<String> steps = new ArrayList<>();
+    private int numberOfPeople;
+    private int cookingTime;
+    private Category category;
+    private Map<Ingredient, Integer> ingredientAmounts = new HashMap<>();
     private static int stepsCounter;
     private static Recipe savedRecipe;
-
 	
-
+    
 	public Category getCategory(){
 		return category;
 	}
@@ -80,17 +80,19 @@ public class Recipe {
 	    
         if (found) {
             int difference = ((value * 100) / originValue);
-            ingredientAmounts.forEach((k, v) -> {
+            modifiedRecipe.ingredientAmounts.forEach((k, v) -> {
                 if (k.getIngredient() != ingredient) {
-                    ingredientAmounts.replace(k, (v * difference) / 100);
+                    modifiedRecipe.ingredientAmounts.replace(k, (v * difference) / 100);
                 } else {
-                    ingredientAmounts.replace(k, value);
+                    modifiedRecipe.ingredientAmounts.replace(k, value);
                 }
             });
+
+            Recipe.saveRecipe(modifiedRecipe);
         }
-	    
-	    return found;
-	}
+
+        return found;
+    }
 
     public String getName() {
         return name;
@@ -111,16 +113,17 @@ public class Recipe {
     public static void setStepsCounter(int step) {
         Recipe.stepsCounter = step;
     }
-    
+
     public static Recipe getSavedRecipe() {
         return savedRecipe;
     }
 
     public static void saveRecipe(Recipe recipeToSave) {
-        Recipe.savedRecipe = recipeToSave;
         ModifyRecipeByUnitsIntentHandler.resetState();
+        TellRecipeStepsIntentHandler.resetCnt();
+        Recipe.savedRecipe = recipeToSave;
     }
-    
+
     public int getNumberOfPeople() {
         return this.numberOfPeople;
     }
@@ -132,10 +135,9 @@ public class Recipe {
     public int getCookingTime() {
         return this.cookingTime;
     }
+
     @Override
     public String toString() {
-        String rec = "";
-        return rec + this.getName();
-        
+        return this.getName();
     }
 }

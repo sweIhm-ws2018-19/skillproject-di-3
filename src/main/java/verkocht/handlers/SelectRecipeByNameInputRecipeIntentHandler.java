@@ -56,8 +56,7 @@ public class SelectRecipeByNameInputRecipeIntentHandler implements RequestHandle
         input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
 
         String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
-        CookingBook cookingBook = new CookingBook();
-        Recipe foundRecipe = cookingBook.findByName(recipeOriginal);//recipe returned 
+        Recipe foundRecipe = CookingBook.findByName(recipeOriginal);//recipe returned 
         
         String recipe; 
         if (foundRecipe == null) {

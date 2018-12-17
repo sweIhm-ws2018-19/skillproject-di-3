@@ -59,34 +59,41 @@ public class SetNumberOfPeopleIntentHandler implements RequestHandler {
     	if (actualNumber == null || actualNumber.isEmpty()) {
     		speechText = PhrasesForAlexa.PEOPLE_UNKNOWN;
     	} else {
-    	switch (actualNumber) {
+    	switch (actualNumber.toString()) {
     		case "eine":
     		case "mich":
     			recipe.setNumberOfPeople(1);
-    			speechText = PhrasesForAlexa.ONLY_ONE_RECIPE;
+    			speechText = PhrasesForAlexa.PEOPLE_ONE;
     			break;
+    		case "2":
     		case "zwei":
     			recipe.setNumberOfPeople(2);
     			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 2);
     			break;
+    		case "3":
     		case "drei":
     			recipe.setNumberOfPeople(3);
     			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 3);
     			break;
+    		case "4":
     		case "vier":
     			recipe.setNumberOfPeople(4);
     			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 4);
     			break;
+    		case "5":
+    		case "fünf":
     		case "fuenf":
     			recipe.setNumberOfPeople(5);
     			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 5);
     			break;
+    		case "6":
     		case "sechs":
     			recipe.setNumberOfPeople(6);
     			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 6);
     			break;
     		default:
     			speechText = PhrasesForAlexa.PEOPLE_NUMBER_UNCLEAR;
+    			break;
     	    }
     	}
     	

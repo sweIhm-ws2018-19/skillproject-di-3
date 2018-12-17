@@ -98,8 +98,7 @@
                         "Ich moechte das Rezept fuer {Number} Leute kochen",
                         "Kannst du das Rezept fuer {Number} Personen vorlesen",
                         "Sage mir das Rezept fuer {Number} Personen",
-                        "Sage mir das Rezept fuer {Number} Person",
-                        "Ich möchte das Rezept fuer {Number} alleine kochen"
+                        "Sage mir das Rezept fuer {Number} Person"
                    	]
                  },
                  {
@@ -222,11 +221,6 @@
                         {
                             "name": {
                                 "value": "eine"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "mich"
                             }
                         },
                         {

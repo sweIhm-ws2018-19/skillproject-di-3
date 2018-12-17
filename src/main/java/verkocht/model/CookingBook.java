@@ -149,10 +149,11 @@ public abstract class CookingBook {
      */
     public static List<Recipe> findByCategory(Category category) {
         List<Recipe> recipe = new ArrayList<>();
-        for (int i = 0; i < allRecipes.size() - allRecipes.size() / 2; i++) {
-            if (allRecipes.get(i).getCategory() == category) {
-                recipe.add(allRecipes.get(i));
-            }
+        for (int i = 0; i < allRecipes.size(); i++) {
+        	Recipe currentRecipe = allRecipes.get(i);
+        	if (currentRecipe.getCategory() == category && !recipe.contains(findByName(currentRecipe.getName()))) {
+                recipe.add(currentRecipe);
+        	}
         }
         return recipe;
     }

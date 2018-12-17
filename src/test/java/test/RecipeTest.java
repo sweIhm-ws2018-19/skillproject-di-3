@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 
@@ -15,6 +16,11 @@ public class RecipeTest {
     Ingredient ei = new Ingredient("Ei", Unit.STUECK);
     Ingredient milch = new Ingredient("Milch", Unit.MILLILITER);
     Ingredient notAdded = new Ingredient("NotAdded", Unit.ESSLOEFFEL);
+    
+    @Before
+    public void testInitiate() {
+        CookingBook.initiateCookingBook();
+    }
 
     @Test
     public void testConstructorAndGetter() {
@@ -47,7 +53,6 @@ public class RecipeTest {
     
         @Test
         public void testChangeIngredientAmount() { 
-            CookingBook.initiateCookingBook();
             Recipe recipe = CookingBook.getAllRecipes().get(0);
         	       	
         	Integer a = 25;

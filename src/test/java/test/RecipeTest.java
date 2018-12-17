@@ -41,8 +41,7 @@ public class RecipeTest {
     }
     
         @Test
-        public void testChangeIngredientAmount() {
-        	     
+        public void testChangeIngredientAmount() {     	     
         	CookingBook cookingBook = new CookingBook();
         	CookingBook cookingBook2 = new CookingBook();
             

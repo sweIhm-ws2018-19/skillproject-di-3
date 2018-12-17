@@ -63,7 +63,7 @@ public class SetNumberOfPeopleIntentHandler implements RequestHandler {
     		case "eine":
     		case "mich":
     			recipe.setNumberOfPeople(1);
-    			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 1);
+    			speechText = PhrasesForAlexa.ONLY_ONE_RECIPE;
     			break;
     		case "zwei":
     			recipe.setNumberOfPeople(2);

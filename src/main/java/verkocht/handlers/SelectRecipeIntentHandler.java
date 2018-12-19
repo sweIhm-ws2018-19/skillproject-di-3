@@ -21,6 +21,8 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
+import verkocht.model.PhrasesForAlexa;
+
 public class SelectRecipeIntentHandler implements RequestHandler {
 
     @Override
@@ -30,7 +32,7 @@ public class SelectRecipeIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hier kannst du spaeter ein Rezept auswaehlen.";
+        String speechText = PhrasesForAlexa.SELECT_RECIPE_INSTRUCTION;
 
         return input.getResponseBuilder()
                 .withSpeech(speechText)

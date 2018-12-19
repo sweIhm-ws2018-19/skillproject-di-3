@@ -27,6 +27,7 @@ public final class PhrasesForAlexa {
 			"Sage zum Beispiel: Zur Rezeptauswahl",
 			"Sage zum Beispiel: Ich habe einen Favoriten",
 			"Ich kann dir helfen, sage zum Beispiel: Wie waehle ich ein Rezept aus?"};
+    
     //Exception 
     public static final String EXCEPTION = "Entschuldige. Ich habe dich nicht verstanden.";
     
@@ -34,6 +35,11 @@ public final class PhrasesForAlexa {
     public static final String HAUPTMENUE = "Was willst du tun? Sage \"Rezept direkt auswaehlen\", um Rezeptnamen einzugeben.";
     
     // Select Recipe
+    public static final String SELECT_RECIPE_INSTRUCTION = "Hier kannst du ein Rezept auswaehlen.\n" +
+    			"Du kannst folgende Optionen:\n" +
+    			"Sage \"zur Namenauswahl\", wenn du ein Rezept direkt waehlen moechtest.\n" +
+    			"Sage \"zur Kategorieauswahl\", wenn du ein Rezept aus einer Kategorie suchst.\n" + 
+    			"Sage \"zur Favoritenauswahl\", wenn du ein Rezept aus deinen Favoriten kochen willst.\n";
     public static final String SELECT_RECIPE = "Nenne das Rezept, das vorgelesen werden soll.";
     public static final String TELL_RECIPE = "Sage den Rezptnamen aus der vorgelesen Liste.";
     
@@ -53,6 +59,12 @@ public final class PhrasesForAlexa {
     public static final String FAVORITE_AVAILABLE = "Das sind alle deine Favoriten: %s. Waehle eine deiner Favoriten fuer den naechsten Schritt aus.";
     public static final String FAVORITE_REPROMT = "Bis jetzt hast du noch keine Favoriten. "
     		+ "Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
+    
+    // Modify
+    public static final String MODIFY_RECIPE_INSTRUCTION = "Hier kannst du ein Rezept modifizieren.\n" +
+			"Du kannst folgende Optionen:\n" +
+			"Sage \"Rezept nach Zutaten anpassen\", wenn du ein Rezept nach einer bestimmten Zutatenmenge anpassen willst.\n" +
+			"Sage \"Personenzahl aendern\", wenn du ein Rezept aufgrund einer geaenderten Personenzahl anpassen moechtest.\n";
     
     // Modify Unit
     public static final String MODIFY_UNIT_WELCOME = "Hier kannst du ein Rezept entsprechend einer Zutat modifizieren. Sage: Ei auf drei Stueck anpassen.";

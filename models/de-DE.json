@@ -63,7 +63,8 @@
                     "samples": [
                         "Favoriten vorlesen",
                         "welche Favoriten habe ich",
-                        "lese mir meine Favoriten vor"
+                        "lese mir meine Favoriten vor",
+                        "zur Favoritenauswahl"
                     ]
                 },
                 {
@@ -128,6 +129,7 @@
                     "slots": [],
                     "samples": [
                         "Rezept aendern",
+                        "Rezept modifizieren",
                         "aendere ein Rezept"
                     ]
                 },

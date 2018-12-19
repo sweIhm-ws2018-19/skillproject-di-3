@@ -16,8 +16,7 @@ Zur Entwicklung des Projekts wird eine agile Methode der Softwareentwicklung ver
 
 ## Status
 ![](https://travis-ci.org/sweIhm-ws2018-19/skillproject-di-3.svg?branch=master)
-
-[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=sweIhm_ws2018_19:verkocht&metric=alert_status)](https://sonarcloud.io/dashboard?id=sweIhm_ws2018_19:verkocht)
+[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=sweIhm_ws2018_19:verkocht&metric=alert_status)](https://sonarcloud.io/dashboard?id=alexa-skills-kit-samples%3Averkocht)
 
 "Verkocht!" wurde mithilfe von Models und Handlern realisiert.
 Der Programmcode wurde während der Sprints sowohl durch Spracheingabe, als auch durch Mockito- und JUnit-Tests auf Funktionalität getestet.

@@ -34,7 +34,8 @@ public class HauptmenueIntentHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput input) {
         String speechText = PhrasesForAlexa.HAUPTMENUE;
-        Recipe.saveRecipe(null);
+        ModifyRecipeByUnitsIntentHandler.resetState();
+        TellRecipeStepsIntentHandler.resetCnt();
 
         return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("ZumHauptmenue", speechText)
                 .withReprompt("Wie kann ich dir helfen?").withShouldEndSession(false).build();

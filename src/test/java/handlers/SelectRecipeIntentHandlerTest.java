@@ -48,7 +48,7 @@ public class SelectRecipeIntentHandlerTest {
         assertTrue(response.getOutputSpeech().toString()
                 .contains("Hier kannst du ein Rezept auswaehlen.")
                 && response.getOutputSpeech().toString()
-                .contains("Du kannst folgende Optionen:")
+                .contains("Du hast folgende Optionen:")
                 && response.getOutputSpeech().toString()
                 .contains("Sage \"zur Namenauswahl\", wenn du ein Rezept direkt waehlen moechtest.")
                 && response.getOutputSpeech().toString()

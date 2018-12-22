@@ -11,6 +11,11 @@
                     "name": "AMAZON.HelpIntent",
                     "samples": []
                 },
+                 {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                
                 {
                     "name": "AMAZON.StopIntent",
                     "samples": []
@@ -42,16 +47,18 @@
                         "Zutatenliste vorlesen"
                     ]
                 },
-                {
-                    "name": "SetFavoriteIntent",
+                
+                
+                        {
+                    "name": "SelectRecipeIntent",
                     "slots": [],
                     "samples": [
-                        "Rezept favorisieren",
-                        "Favorit waehlen",
-                        "Favoriten waehlen"
-                        
+                        "Rezept auswaehlen",
+                        "Rezeptauswahl"
+                   
                     ]
                 },
+
                 {
                     "name": "SelectRecipeByFavoritsStartIntent",
                     "slots": [
@@ -109,8 +116,11 @@
                         }
                     ],
                     "samples": [
-                        "Ich moechte ein neues Rezept zu den Favoriten hinzufuegen",
-                        "Neuen Favoriten anlegen"
+                        "Rezept zu den Favoriten hinzufuegen",
+                        "Neuen Favoriten anlegen",
+                        "Rezept favorisieren",
+                        "Favorit waehlen",
+                        "Favoriten waehlen"
                     ]
                 },
                 {
@@ -119,7 +129,7 @@
                     "samples": [
                         "weiter",
                         "kannst du mir die Rezeptschritte sagen",
-                        "welche Schritte muss ich befolge",
+                        "welche Schritte muss ich befolgen",
                         "was fuer Schritte sind wichtig",
                         "Rezeptschritte vorlesen"
                     ]

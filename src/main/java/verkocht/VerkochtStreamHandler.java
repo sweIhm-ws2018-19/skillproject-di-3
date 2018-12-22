@@ -19,6 +19,7 @@ import com.amazon.ask.Skills;
 
 import verkocht.handlers.CancelandStopIntentHandler;
 import verkocht.handlers.FallbackIntentHandler;
+import verkocht.handlers.HauptmenueIntentHandler;
 import verkocht.handlers.HelpIntentHandler;
 import verkocht.handlers.LaunchRequestHandler;
 import verkocht.handlers.ModifyRecipeByUnitsIntentHandler;
@@ -31,7 +32,6 @@ import verkocht.handlers.SelectRecipeByNameInputRecipeIntentHandler;
 import verkocht.handlers.SelectRecipeByNameStartIntentHandler;
 import verkocht.handlers.SelectRecipeIntentHandler;
 import verkocht.handlers.SessionEndedRequestHandler;
-import verkocht.handlers.SetFavoriteIntentHandler;
 import verkocht.handlers.TellMeCategoriesIntentHandler;
 import verkocht.handlers.TellMeIngredientsIntentHandler;
 import verkocht.handlers.TellRecipeStepsIntentHandler;
@@ -41,7 +41,8 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
     private static Skill getSkill() {
         return Skills.standard()
                 .addRequestHandlers(
-                        new CancelandStopIntentHandler(), 
+                        new CancelandStopIntentHandler(),
+                        new HauptmenueIntentHandler(),
                         new FallbackIntentHandler(),
                         new HelpIntentHandler(),
                         new LaunchRequestHandler(),
@@ -55,7 +56,6 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new SelectRecipeByNameStartIntentHandler(),
                         new SelectRecipeIntentHandler(), 
                         new SessionEndedRequestHandler(), 
-                        new SetFavoriteIntentHandler(),
                         new TellRecipeStepsIntentHandler(),
                         new TellMeIngredientsIntentHandler(),
                         new TellMeCategoriesIntentHandler())

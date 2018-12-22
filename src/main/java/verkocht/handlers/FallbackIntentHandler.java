@@ -16,11 +16,12 @@ public class FallbackIntentHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("AMAZON.FallbackIntent"));
+        
     }
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Tut mir leid, das weiss ich nicht. Sage einfach Hilfe.";
+        String speechText = "Tut mir leid, ich habe dich nicht verstanden.";
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("ColorSession", speechText)

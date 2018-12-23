@@ -177,4 +177,12 @@ public abstract class CookingBook {
         return favorites;
     }
 
+    /**
+     * This method clears favorites list
+     * 
+     */
+    public static void clearFavorites() {
+        favorites.clear();
+    }
+
 }

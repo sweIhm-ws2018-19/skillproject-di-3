@@ -40,6 +40,7 @@ public class SelectRecipeByFavoritsStartIntentHandlerTest {
 
     @Test
     public void testHandleWithoutFavorites() {
+        CookingBook.clearFavorites();
         Recipe.saveRecipe(null);
     	final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
     	when(inputMock.getResponseBuilder()).thenReturn(new ResponseBuilder());
@@ -47,7 +48,7 @@ public class SelectRecipeByFavoritsStartIntentHandlerTest {
     	final Optional<Response> returnResponse = handler.handle(inputMock);        
 
         assertTrue(returnResponse.isPresent());
-        final Response response = returnResponse.get();;
+        final Response response = returnResponse.get();
 
         assertFalse(response.getShouldEndSession());
         assertNotNull(response.getOutputSpeech());

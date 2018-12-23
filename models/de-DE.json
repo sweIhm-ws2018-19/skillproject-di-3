@@ -11,22 +11,9 @@
                     "name": "AMAZON.HelpIntent",
                     "samples": []
                 },
-                 {
-                    "name": "AMAZON.FallbackIntent",
-                    "samples": []
-                },
-                
                 {
                     "name": "AMAZON.StopIntent",
                     "samples": []
-                },
-                {
-                    "name": "HauptmenueIntent",
-                    "slots": [],
-                    "samples": [
-                      "zum Hauptmenue",
-                      "zurueck"
-                    ]
                 },
                 {
                     "name": "TellMeCategoriesIntent",
@@ -38,27 +25,14 @@
                     ]
                 },
                 {
-                    "name": "TellMeIngredientsIntent",
+                    "name": "SetFavoriteIntent",
                     "slots": [],
                     "samples": [
-                        "welche Zutaten brauche ich",
-                        "was fuer Zutaten werden benoetigt",
-                        "sag mir alle Zutaten",
-                        "Zutatenliste vorlesen"
+                        "ich moechte ein Rezept favorisieren",
+                        "ich habe einen Favoriten",
+                        "speicherst du einen Favorit fuer mich"
                     ]
                 },
-                
-                
-                        {
-                    "name": "SelectRecipeIntent",
-                    "slots": [],
-                    "samples": [
-                        "Rezept auswaehlen",
-                        "Rezeptauswahl"
-                   
-                    ]
-                },
-
                 {
                     "name": "SelectRecipeByFavoritsStartIntent",
                     "slots": [
@@ -68,26 +42,31 @@
                         }
                     ],
                     "samples": [
-                        "Favoriten vorlesen",
-                        "welche Favoriten habe ich",
-                        "lese mir meine Favoriten vor",
-                        "zur Favoritenauswahl"
+                        "ich moechte meine Favoriten vorlesen lassen",
+                        "welche Favoriten kann ich waehlen",
+                        "lese mir meine Favoriten vor"
                     ]
                 },
                 {
                     "name": "SelectRecipeByCategoryIntent",
-                    "slots": [],
+                    "slots": [
+                        {
+                            "name": "Category",
+                            "type": "LIST_OF_CATEGORIES"
+                        }
+                    ],
                     "samples": [
-                        "nach Kategorien auswaehlen",
-                        "nach welchen Kategorien",
-                        "zur Kategorieauswahl"
+                        "Filter nach Kategorie {Category}",
+                        "Ich haette gerne Rezpte der Kategoire {Category}",
+                        "Sage mir alle Rezepte der Kategorie {Category}",
+                        "Kannst du die Rezepte der Kategire {Category} vorlesen"
                     ]
                 },
                 {
                     "name": "SelectRecipeByNameStartIntent",
                     "slots": [],
                     "samples": [
-                        "Rezept direkt auswaehlen",
+                        "ich moechte direkt ein Rezept auswaehlen ",
                         "Rezeptnamen sagen ",
                         "zur Namenauswahl "
                     ]
@@ -101,26 +80,38 @@
                         }
                     ],
                     "samples": [
-                        "Rezept {Recipe} anhoeren",
+                        "Ich moechte das Rezept {Recipe} anhoeren",
                         "Ich haette gerne das Rezept {Recipe}",
-                        "Rezept {Recipe} vorlesen",
-                        "{Recipe} kochen"
+                        "Kannst du das Rezept {Recipe} vorlesen",
+                        "Ich moechte {Recipe} kochen"
+                    ]
+                },
+                {
+                    "name": "SetNumberOfPeopleIntent",
+                    "slots": [
+                        {
+                            "name": "Number",
+                            "type": "NUMBER_OF_PEOPLE"
+                        }
+                    ],
+                    "samples": [
+                        "Ich moechte das Rezept fuer {Number} Leute kochen",
+                        "Kannst du das Rezept fuer {Number} Personen vorlesen",
+                        "Sage mir das Rezept fuer {Number} Personen",
+                        "Sage mir das Rezept fuer {Number} Person"
                     ]
                 },
                 {
                     "name": "SaveRecipeToFavoriteIntent",
                     "slots": [
                         {
-                            "name": "Recipe",
-                            "type": "LIST_OF_RECIPES"
+                            "name": "FavoritRecipe",
+                            "type": "FavoritRecipes"
                         }
                     ],
                     "samples": [
-                        "Rezept zu den Favoriten hinzufuegen",
-                        "Neuen Favoriten anlegen",
-                        "Rezept favorisieren",
-                        "Favorit waehlen",
-                        "Favoriten waehlen"
+                        "Ich moechte ein {FavoritRecipe} zu den Favoriten hinzufuegen",
+                        "Fuege {FavoritRecipe} zu meinen Favoriten hinzu"
                     ]
                 },
                 {
@@ -129,32 +120,17 @@
                     "samples": [
                         "weiter",
                         "kannst du mir die Rezeptschritte sagen",
-                        "welche Schritte muss ich befolgen",
-                        "was fuer Schritte sind wichtig",
-                        "Rezeptschritte vorlesen"
+                        "welche Schritte muss ich befolge",
+                        "was fuer Schritte sind wichtig"
                     ]
                 },
                 {
                     "name": "ModifyRecipeIntent",
                     "slots": [],
                     "samples": [
-                        "Rezept aendern",
-                        "Rezept modifizieren",
-                        "aendere ein Rezept"
-                    ]
-                },
-				{
-                    "name": "SelectRecipeByFavoritsSelectorIntent",
-                    "slots": [
-                        {
-                            "name": "Recipe",
-                            "type": "LIST_OF_RECIPES"
-                        }
-                    ],
-                    "samples": [
-                        "Ich waehle {Recipe} aus Favoriten aus",
-                        "Nehme {Recipe} aus meinen Favoriten",
-                        "Kannst du {Recipe} auswaehlen"
+                        "ich moechte das Rezept aendern",
+                        "kann ich ein Rezept aendern",
+                        "aendere ein Rezept fuer mich"
                     ]
                 },
                 {
@@ -167,16 +143,26 @@
                         {
                             "name": "Ingredient",
                             "type": "Ingredient"
-                        },
-                        {
-                        	"name": "Unit",
-                        	"type":	"Unit"
                         }
                     ],
                     "samples": [
                         "{Ingredient} anpassen",
-                        "Rezept nach Zutaten aendern",
-                        "{Ingredient} auf {Ingredient_Value} {Unit} anpassen"
+                        "kann ich ein Rezept nach Zutaten aendern",
+                        "{Ingredient} auf {Ingredient_Value} anpassen"
+                    ]
+                },
+                {
+                    "name": "SelectRecipeByFavoritsSelectorIntent",
+                    "slots": [
+                        {
+                            "name": "FavoritRecipe",
+                            "type": "FavoritRecipes"
+                        }
+                    ],
+                    "samples": [
+                        "ich moechte einen Favoriten auswaehlen",
+                        "ich waehle einen Favoriten aus der Liste",
+                        "zur Favoritenauswahl"
                     ]
                 },
                 {
@@ -185,6 +171,10 @@
                 },
                 {
                     "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
                     "samples": []
                 }
             ],
@@ -210,21 +200,66 @@
                     ]
                 },
                 {
+                    "name": "LIST_OF_CATEGORIES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Fleisch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vegetarisch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vegan"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "NUMBER_OF_PEOPLE",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "eine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "zwei"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "drei"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vier"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fuenf"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sechs"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "FavoritRecipes",
                     "values": [
                         {
                             "name": {
-                                "value": "nudeln"
-                            }
-                        },
-                        {
-                            "name": {
                                 "value": "schnitzel"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "milchshake"
                             }
                         }
                     ]
@@ -290,51 +325,6 @@
                         {
                             "name": {
                                 "value": "Mehl"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Unit",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "milliliter"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "gramm"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "stueck"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "teeloeffel"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "essloeffel"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "brise"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "schuss"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "tasse"
                             }
                         }
                     ]

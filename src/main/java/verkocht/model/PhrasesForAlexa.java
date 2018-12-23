@@ -64,7 +64,7 @@ public final class PhrasesForAlexa {
     public static final String TELL_FAVORITE = "Das sind alle deine Favoriten: %s. "
             + "Waehle eine deiner Favoriten fuer den naechsten Schritt aus.";
     public static final String NO_FAVORITE_AVAILABLE = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
-    public static final String FAVORITE_AVAILABLE = "Das sind alle deine Favoriten: %s. Waehle einen deiner Favoriten fuer den naechsten Schritt aus.";
+    public static final String FAVORITE_AVAILABLE = "Das sind alle deine Favoriten: %s. Waeshle das Rezept, das vorgelesen werden soll.";
     public static final String FAVORITE_REPROMT = "Bis jetzt hast du noch keine Favoriten. "
             + "Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
 
@@ -98,5 +98,5 @@ public final class PhrasesForAlexa {
     public static final String MODIFY = "Hier kannst du spaeter ein Rezept modifizieren.";
 
     public static final String RECIPE_KEY = "RECIPE";
-    public static final String RECIPE_SLOT = "Recipe";
+    public static final String RECIPE_SLOT = "FavoritRecipe";
 }

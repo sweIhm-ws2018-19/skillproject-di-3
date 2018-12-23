@@ -58,7 +58,7 @@ public class ModifyRecipeByUnitsIntentHandlerTest {
     	final Optional<Response> returnResponse = handler.handle(inputMock);        
 
         assertTrue(returnResponse.isPresent());
-        final Response response = returnResponse.get();;
+        final Response response = returnResponse.get();
 
         assertFalse(response.getShouldEndSession());
         assertNotNull(response.getOutputSpeech());

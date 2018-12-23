@@ -22,7 +22,6 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
 import verkocht.model.PhrasesForAlexa;
-import verkocht.model.Recipe;
 
 public class HauptmenueIntentHandler implements RequestHandler {
 

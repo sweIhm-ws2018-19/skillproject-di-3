@@ -23,19 +23,19 @@ import com.amazon.ask.model.Session;
 import com.amazon.ask.model.Slot;
 import com.amazon.ask.response.ResponseBuilder;
 
-import verkocht.handlers.SaveRecipeToFavoriteHandler;
+import verkocht.handlers.SelectRecipeByFavoritsSelectorIntentHandler;
 import verkocht.model.Category;
 import verkocht.model.CookingBook;
 import verkocht.model.PhrasesForAlexa;
 import verkocht.model.Recipe;
 
-public class SelectRecipeByFavoritsSelectorIntentHandlerTest {
-    private SaveRecipeToFavoriteHandler handler;
+public class SaveRecipeToFavoriteHandlerTest {
+    private SelectRecipeByFavoritsSelectorIntentHandler handler;
     private Recipe testRecipe = new Recipe("test", Category.MEAT, 2, 20);
 
     @Before
     public void setup() {
-        handler = new SaveRecipeToFavoriteHandler();
+        handler = new SelectRecipeByFavoritsSelectorIntentHandler();
         CookingBook.initiateCookingBook();
     }
 
@@ -83,16 +83,16 @@ public class SelectRecipeByFavoritsSelectorIntentHandlerTest {
 
         assertTrue(returnResponse.isPresent());
         Response response = returnResponse.get();
-        String recipe = "KennIchNicht";
+        String recipe = "schnitzel";
 
         assertFalse(response.getShouldEndSession());
-        assertTrue(response.getOutputSpeech().toString().contains("Das Rezept " + recipe + " ist mir nicht bekannt. Sage zum Beispiel, füge schnitzel zu meinen Favoriten hinzu."));
+        assertTrue(response.getOutputSpeech().toString().contains(PhrasesForAlexa.REPEAT_RECIPE_INPUT));
     }
 
     @Test
     public void testHandleWithKnownRecipe() {
         Map<String, Slot> slots = new HashMap<String, Slot>();
-        slots.put("FavoritRecipe", Slot.builder().withValue("schnitzel").build());
+        slots.put("FavoritRecipe", Slot.builder().withValue("nudeln").build());
         RequestEnvelope requestEnvelope = RequestEnvelope.builder()
                 .withRequest(IntentRequest.builder().withIntent(Intent.builder().withSlots(slots).build()).build())
                 .withSession(Session.builder().withSessionId("1").build()).build();
@@ -106,9 +106,10 @@ public class SelectRecipeByFavoritsSelectorIntentHandlerTest {
 
         assertTrue(returnResponse.isPresent());
         Response response = returnResponse.get();
-        String recipe = "schnitzel";
+        String recipe = "nudeln";
 
         assertFalse(response.getShouldEndSession());
-        assertTrue(response.getOutputSpeech().toString().contains("Das Rezept " + recipe + " wurde zu den Favoriten hinzugefuegt. Du kannst es dir ueber die Auswahl vorlesen lassen."));
+        System.out.println(response.getOutputSpeech().toString());
+        assertTrue(response.getOutputSpeech().toString().contains(String.format("Du hast %s ausgewählt. Sage \"WEITER\", wenn ich weiterlesen soll", recipe)));
     }
 }

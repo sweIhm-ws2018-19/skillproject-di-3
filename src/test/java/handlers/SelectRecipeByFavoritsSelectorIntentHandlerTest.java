@@ -31,7 +31,6 @@ import verkocht.model.Recipe;
 
 public class SelectRecipeByFavoritsSelectorIntentHandlerTest {
     private SaveRecipeToFavoriteHandler handler;
-    private Recipe testRecipe = new Recipe("test", Category.MEAT, 2, 20);
 
     @Before
     public void setup() {

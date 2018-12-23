@@ -4,6 +4,8 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
+import verkocht.model.PhrasesForAlexa;
+
 import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
@@ -21,7 +23,7 @@ public class FallbackIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Tut mir leid, ich habe dich nicht verstanden.";
+        String speechText = PhrasesForAlexa.SORRY;
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("ColorSession", speechText)

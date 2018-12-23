@@ -87,7 +87,7 @@ public final class PhrasesForAlexa {
     public static final String TELL_INGREDIENTS_SELECT_FIRST = "Waehle bitte zuerst ein Rezept aus.";
 
     // Cancel-/Stop-/Help-/Fallback-Intent
-    public static final String SORRY = "Tut mir leid, das weiss ich nicht. Sage einfach Hilfe.";
+    public static final String SORRY = "Tut mir leid, ich habe dich nicht verstanden.";
     public static final String HELP = "Wie kann ich dir helfen?";
     public static final String GOODBYE = "Auf Wiedersehen";
 

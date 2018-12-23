@@ -34,13 +34,13 @@ public final class PhrasesForAlexa {
 
     // Hauptmenue
     public static final String HAUPTMENUE = "Was willst du tun?\n"
-            + "Um ein Rezept auszuwählen, sage \"Rezept auswaehlen.\"\n"
+            + "Um ein Rezept auszuwaehlen, sage \"Rezept auswaehlen.\"\n"
             + "Du kannst die Rezeptkategorien oder die Favoriten vorlesen lassen.\n"
-            + "Sage dafür: \"Kategorien,\" oder: \"Favoriten\".\n"
-            + "Möchtest du ein neues Rezept zu den Favoriten hinzufügen, sage: \"Rezept favorisieren\".\n"
-            + "Um das Rezept zu ändern, sage: \"Rezept modifizieren.\"\n"
-            + "Um die Rezeptschritte für ein ausgewaehltes Rezept gleich anzuhören, sage:\"Rezeptschritte vorlesen\"."
-            + "Wenn du die Wahloptionen noch einmal anhören willst, sage: \"Zum Hauptmenue\".";
+            + "Sage dafuer: \"Kategorien,\" oder: \"Favoriten\".\n"
+            + "Moechtest du ein neues Rezept zu den Favoriten hinzufuegen, sage: \"Rezept favorisieren\".\n"
+            + "Um das Rezept zu aendern, sage: \"Rezept modifizieren.\"\n"
+            + "Um die Rezeptschritte für ein ausgewaehltes Rezept gleich anzuhoeren, sage:\"Rezeptschritte vorlesen\"."
+            + "Wenn du die Wahloptionen noch einmal anhoeren willst, sage: \"Zum Hauptmenue\".";
 
     // Select Recipe
     public static final String SELECT_RECIPE_INSTRUCTION = "Hier kannst du ein Rezept auswaehlen.\n"

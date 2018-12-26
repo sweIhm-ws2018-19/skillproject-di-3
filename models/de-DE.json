@@ -110,7 +110,7 @@
                      "slots": [
                         {
                             "name": "Number",
-                            "type": "NUMBER_OF_PEOPLE"
+                            "type": "AMAZON.NUMBER"
                         }
                     ],
                     "samples": [
@@ -238,41 +238,6 @@
                         }
                     ]
                 },
-                {
-                    "name": "NUMBER_OF_PEOPLE",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "eine"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "zwei"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "drei"
-                            }
-                        },
-                        {
-                        	"name": {
-                        		"value": "vier"
-                        	}
-                        },
-                        {
-                        	"name": {
-                        		"value": "fuenf"
-                        	}
-                        },
-                        {
-                        	"name": {
-                        		"value": "sechs"
-                        	}
-                        }
-                   ]
-               },
                {
                     "name": "FavoritRecipes",
                     "values": [

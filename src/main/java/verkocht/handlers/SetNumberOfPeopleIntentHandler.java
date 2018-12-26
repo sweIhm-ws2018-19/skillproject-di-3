@@ -15,7 +15,6 @@ package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
 
@@ -43,59 +42,36 @@ public class SetNumberOfPeopleIntentHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput input) {
     	String speechText = "";
-    	Request request = input.getRequestEnvelope().getRequest();
-    	IntentRequest intentRequest = (IntentRequest) request;
-    	Intent intent = intentRequest.getIntent();
-    	Map<String, Slot> slots = intent.getSlots();
-    	
-    	Slot chosenNumberSlot = slots.get(NUMBER_SLOT);
-    	
-    	String chosenNumber = chosenNumberSlot.getValue();
-    	input.getAttributesManager().setSessionAttributes(Collections.singletonMap(NUMBER_KEY, chosenNumber));
-    	
-    	String actualNumber = (String) input.getAttributesManager().getSessionAttributes().get(NUMBER_KEY);
-    	
     	Recipe recipe = Recipe.getSavedRecipe();
-    	if (actualNumber == null || actualNumber.isEmpty()) {
-    		speechText = PhrasesForAlexa.PEOPLE_UNKNOWN;
+    	
+    	if (recipe == null) {
+    	 speechText = PhrasesForAlexa.MODIFY_UNIT_SELECT_RECIPE_FIRST;
     	} else {
-    	switch (actualNumber.toString()) {
-    		case "eine":
-    		case "mich":
-    			recipe.setNumberOfPeople(1);
-    			speechText = PhrasesForAlexa.PEOPLE_ONE;
-    			break;
-    		case "2":
-    		case "zwei":
-    			recipe.setNumberOfPeople(2);
-    			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 2);
-    			break;
-    		case "3":
-    		case "drei":
-    			recipe.setNumberOfPeople(3);
-    			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 3);
-    			break;
-    		case "4":
-    		case "vier":
-    			recipe.setNumberOfPeople(4);
-    			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 4);
-    			break;
-    		case "5":
-    		case "fünf":
-    		case "fuenf":
-    			recipe.setNumberOfPeople(5);
-    			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 5);
-    			break;
-    		case "6":
-    		case "sechs":
-    			recipe.setNumberOfPeople(6);
-    			speechText = String.format(PhrasesForAlexa.PEOPLE_SET, 6);
-    			break;
-    		default:
-    			speechText = PhrasesForAlexa.PEOPLE_NUMBER_UNCLEAR;
-    			break;
-    	    }
-    	}
+    		try {
+    			Request request = input.getRequestEnvelope().getRequest();
+    			IntentRequest intentRequest = (IntentRequest) request;
+    			Intent intent = intentRequest.getIntent();
+    			Map<String, Slot> slots = intent.getSlots();
+    	
+    			Slot chosenNumberSlot = slots.get(NUMBER_SLOT);
+    			String chosenNumber = chosenNumberSlot.getValue();
+    			int getNumberOfPeople = Integer.parseInt(chosenNumber);
+    	 	
+    			if (getNumberOfPeople <= 0 || getNumberOfPeople > 12) {
+    				speechText = PhrasesForAlexa.PEOPLE_NUMBER_UNCLEAR;
+    			} else {
+    				if (getNumberOfPeople == 1) {
+    					recipe.setNumberOfPeople(1);
+    					speechText = PhrasesForAlexa.PEOPLE_ONE;
+    				} else {
+    					recipe.setNumberOfPeople(getNumberOfPeople);
+    					speechText = String.format(PhrasesForAlexa.PEOPLE_SET, getNumberOfPeople);
+    				}
+    			}    			
+    		}   			catch (Exception e) {
+    						speechText = PhrasesForAlexa.PEOPLE_UNKNOWN;
+    		}
+    	} 
     	
         return input.getResponseBuilder()
                 .withSpeech(speechText)

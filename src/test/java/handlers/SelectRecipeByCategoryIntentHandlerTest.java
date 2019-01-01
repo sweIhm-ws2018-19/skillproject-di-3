@@ -34,6 +34,7 @@ public class SelectRecipeByCategoryIntentHandlerTest {
 	@Before
 	public void setup() {
         handler = new SelectRecipeByCategoryIntentHandler();
+		CookingBook.initiateCookingBook();
     }
 	
 	@Test
@@ -70,7 +71,6 @@ public class SelectRecipeByCategoryIntentHandlerTest {
 	
 	@Test
     public void testHandleWith() {
-		CookingBook.initiateCookingBook();
 		Recipe aRecipe = CookingBook.getAllRecipes().get(0);
 		String b = aRecipe.getName();
 

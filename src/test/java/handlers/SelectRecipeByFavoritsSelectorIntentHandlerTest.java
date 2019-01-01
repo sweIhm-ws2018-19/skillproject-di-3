@@ -29,6 +29,7 @@ public class SelectRecipeByFavoritsSelectorIntentHandlerTest {
     @Before
     public void setup() {
         handler = new SelectRecipeByFavoritsSelectorIntentHandler();
+        CookingBook.initiateCookingBook();
     }
 
     @Test
@@ -57,7 +58,6 @@ public class SelectRecipeByFavoritsSelectorIntentHandlerTest {
     
     
     public void testHandleWithAllFavoritesSaved() {
-        CookingBook.initiateCookingBook();
         final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
         when(inputMock.getResponseBuilder()).thenReturn(new ResponseBuilder());
 

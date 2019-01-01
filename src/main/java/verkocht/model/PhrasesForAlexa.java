@@ -47,6 +47,7 @@ public final class PhrasesForAlexa {
     public static final String ONLY_ONE_RECIPE = "In dieser Kategorie befindet sich bloß das Rezept %s";
     public static final String TELL_RECIPES_FROM_CATEGORY = "Die Rezepte %s befinden sich in der ausgewählten Kategorie";
     public static final String CATEGORY_UNKOWN = "Ich weiss nicht welche Kategorie ich vorlesen soll. Sag mir den Namen der Kategorie. Sage zum Beispiel: Sage mir alle Rezepte der Kategorie Vegan.";
+    public static final String NO_RECIPE_IN_THIS_CATEGORY = "Innerhalb dieser Kategorie befindet sich kein Rezept";
     
     
     // Favorites

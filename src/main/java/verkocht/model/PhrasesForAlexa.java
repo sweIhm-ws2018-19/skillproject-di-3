@@ -58,17 +58,11 @@ public final class PhrasesForAlexa {
             + "Sag mir den Rezeptnamen. Sage zum Beispiel: ich moechte Schnitzel kochen.";
 
     // Categories
-<<<<<<< HEAD
     public static final String ONLY_ONE_RECIPE = "In dieser Kategorie befindet sich bloß das Rezept %s";
     public static final String TELL_RECIPES_FROM_CATEGORY = "Die Rezepte %s befinden sich in der ausgewählten Kategorie";
     public static final String CATEGORY_UNKOWN = "Ich weiss nicht welche Kategorie ich vorlesen soll. Sag mir den Namen der Kategorie. Sage zum Beispiel: Sage mir alle Rezepte der Kategorie Vegan.";
     public static final String NO_RECIPE_IN_THIS_CATEGORY = "Innerhalb dieser Kategorie befindet sich kein Rezept";
     
-    
-=======
-    public static final String TELL_CATEGORIES = "Folgende Kategorien stehen zur Auswahl: %s.";
-
->>>>>>> 51f0f1e62250393217b7c53547e24441633c4822
     // Favorites
     public static final String TELL_FAVORITE = "Das sind alle deine Favoriten: %s. "
             + "Waehle eine deiner Favoriten fuer den naechsten Schritt aus.";
@@ -90,15 +84,12 @@ public final class PhrasesForAlexa {
     public static final String MODIFY_UNIT_SELECT_RECIPE_FIRST = "Waehle bitte zuerst ein Rezept aus.";
     public static final String MODIFY_UNIT_NOT_DONE = "Das Rezept konnte nicht angepasst werden.";
     public static final String MODIFY_UNIT_DONE = "Das Rezept wurde angepasst.";
-<<<<<<< HEAD
     
     //Number of People
     public static final String PEOPLE_UNKNOWN = "Ich habe die Anzahl der Personen leider nicht genau verstanden, sage zum Beispiel: Ich moechte fuer zwei Personen kochen";
     public static final String PEOPLE_SET = "Dein Rezept ist nun fuer %s ausgerichtet";
     public static final String PEOPLE_NUMBER_UNCLEAR = "Die Gerichte koennen fuer maximal sechs Leute ausgerichtet werden";
     public static final String PEOPLE_ONE = "Das Rezept ist nun fuer eine Person ausgerichtet";
-=======
->>>>>>> 51f0f1e62250393217b7c53547e24441633c4822
 
     // Tell ingredient list
     public static final String TELL_INGREDIENTS_OK = "Hier deine Zutatenliste:\n";

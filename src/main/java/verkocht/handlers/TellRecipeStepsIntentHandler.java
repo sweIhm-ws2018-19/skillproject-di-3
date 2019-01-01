@@ -56,4 +56,14 @@ public class TellRecipeStepsIntentHandler implements RequestHandler {
         counter++;
     }
 
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        TellRecipeStepsIntentHandler.counter = counter;
+    }
+    
+    
+
 }

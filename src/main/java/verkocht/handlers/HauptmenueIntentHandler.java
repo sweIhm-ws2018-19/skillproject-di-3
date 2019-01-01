@@ -22,7 +22,6 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
 import verkocht.model.PhrasesForAlexa;
-import verkocht.model.Recipe;
 
 public class HauptmenueIntentHandler implements RequestHandler {
 
@@ -34,7 +33,8 @@ public class HauptmenueIntentHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput input) {
         String speechText = PhrasesForAlexa.HAUPTMENUE;
-        Recipe.saveRecipe(null);
+        ModifyRecipeByUnitsIntentHandler.resetState();
+        TellRecipeStepsIntentHandler.resetCnt();
 
         return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("ZumHauptmenue", speechText)
                 .withReprompt("Wie kann ich dir helfen?").withShouldEndSession(false).build();

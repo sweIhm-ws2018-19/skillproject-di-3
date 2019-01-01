@@ -15,6 +15,7 @@ import verkocht.model.Recipe;
 public class CookingBookTest {
     @Before
     public void testInitiate() {
+    	CookingBook.clearRecipes();
         CookingBook.initiateCookingBook();
     }
     

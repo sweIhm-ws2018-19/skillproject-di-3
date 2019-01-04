@@ -30,7 +30,7 @@ import verkocht.model.CookingBook;
 
 public class SaveRecipeToFavoriteHandler implements RequestHandler {
     public static final String RECIPE_KEY = "RECIPE";
-    public static final String RECIPE_SLOT = "Recipe";
+    public static final String RECIPE_SLOT = "FavoritRecipe";
     
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -49,9 +49,12 @@ public class SaveRecipeToFavoriteHandler implements RequestHandler {
         input.getAttributesManager().setSessionAttributes(Collections.singletonMap(RECIPE_KEY, chosenRecipe));
         String recipeOriginal = (String) input.getAttributesManager().getSessionAttributes().get(RECIPE_KEY);
         
-        CookingBook.saveFavorite(recipeOriginal);
+        if(CookingBook.saveFavorite(recipeOriginal)) {
         
         speechText = "Das Rezept " + chosenRecipe + " wurde zu den Favoriten hinzugefuegt. Du kannst es dir ueber die Auswahl vorlesen lassen.";
+        } else {
+            speechText = "Das Rezept " + chosenRecipe + " ist mir nicht bekannt. Sage zum Beispiel, füge schnitzel zu meinen Favoriten hinzu."; 
+        }
         
         return input.getResponseBuilder()
                 .withSpeech(speechText)

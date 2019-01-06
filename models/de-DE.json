@@ -128,6 +128,15 @@
                         "Sage mir das Rezept fuer {Number} Person"
                    	]
                  },
+                   {
+                    "name": "ModifyNumberOfPeopleIntent",
+                     "slots": [],
+                    "samples": [
+                        "Personenzahl aendern",
+                        "Ich moechte die Personenanzahl aendern",
+                        "Kann ich die Personenanzahl aendern"
+                   	]
+                 },
                  {
                     "name": "SaveRecipeToFavoriteIntent",
                     "slots": [

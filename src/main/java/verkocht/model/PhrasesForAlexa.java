@@ -86,6 +86,7 @@ public final class PhrasesForAlexa {
     public static final String MODIFY_UNIT_DONE = "Das Rezept wurde angepasst.";
     
     //Number of People
+    public static final String PEOPLE_WELCOME = "Hier kannst du dein Rezept, sofern du eines ausgewaehlt hast, nach der Anzahlt der Personen anpassen. Sage zum Beispiel Ich möchte das Rezept fuer vier Leute kochen";
     public static final String PEOPLE_UNKNOWN = "Ich habe die Anzahl der Personen leider nicht genau verstanden, sage zum Beispiel: Ich moechte fuer zwei Personen kochen";
     public static final String PEOPLE_SET = "Dein Rezept ist nun fuer %s ausgerichtet";
     public static final String PEOPLE_NUMBER_UNCLEAR = "Die Gerichte können fuer maximal zwölf Leute ausgerichtet werden";

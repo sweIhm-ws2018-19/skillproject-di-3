@@ -88,7 +88,7 @@ public final class PhrasesForAlexa {
     //Number of People
     public static final String PEOPLE_UNKNOWN = "Ich habe die Anzahl der Personen leider nicht genau verstanden, sage zum Beispiel: Ich moechte fuer zwei Personen kochen";
     public static final String PEOPLE_SET = "Dein Rezept ist nun fuer %s ausgerichtet";
-    public static final String PEOPLE_NUMBER_UNCLEAR = "Die Gerichte koennen fuer maximal sechs Leute ausgerichtet werden";
+    public static final String PEOPLE_NUMBER_UNCLEAR = "Die Gerichte können fuer maximal zwölf Leute ausgerichtet werden";
     public static final String PEOPLE_ONE = "Das Rezept ist nun fuer eine Person ausgerichtet";
 
     // Tell ingredient list

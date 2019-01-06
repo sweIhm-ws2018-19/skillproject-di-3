@@ -24,10 +24,8 @@ import com.amazon.ask.model.Slot;
 import com.amazon.ask.response.ResponseBuilder;
 
 import verkocht.handlers.SaveRecipeToFavoriteHandler;
-import verkocht.model.Category;
 import verkocht.model.CookingBook;
 import verkocht.model.PhrasesForAlexa;
-import verkocht.model.Recipe;
 
 public class SelectRecipeByFavoritsSelectorIntentHandlerTest {
     private SaveRecipeToFavoriteHandler handler;

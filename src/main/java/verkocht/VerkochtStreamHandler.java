@@ -22,6 +22,7 @@ import verkocht.handlers.FallbackIntentHandler;
 import verkocht.handlers.HauptmenueIntentHandler;
 import verkocht.handlers.HelpIntentHandler;
 import verkocht.handlers.LaunchRequestHandler;
+import verkocht.handlers.ModifyNumberOfPeopleIntentHander;
 import verkocht.handlers.ModifyRecipeByUnitsIntentHandler;
 import verkocht.handlers.ModifyRecipeIntentHandler;
 import verkocht.handlers.SaveRecipeToFavoriteHandler;
@@ -31,6 +32,7 @@ import verkocht.handlers.SelectRecipeByFavoritsStartIntentHandler;
 import verkocht.handlers.SelectRecipeByNameInputRecipeIntentHandler;
 import verkocht.handlers.SelectRecipeByNameStartIntentHandler;
 import verkocht.handlers.SelectRecipeIntentHandler;
+import verkocht.handlers.SetNumberOfPeopleIntentHandler;
 import verkocht.handlers.SessionEndedRequestHandler;
 import verkocht.handlers.TellMeCategoriesIntentHandler;
 import verkocht.handlers.TellMeIngredientsIntentHandler;
@@ -48,6 +50,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new LaunchRequestHandler(),
                         new ModifyRecipeIntentHandler(),
                         new ModifyRecipeByUnitsIntentHandler(),
+                        new ModifyNumberOfPeopleIntentHander(),
                         new SaveRecipeToFavoriteHandler(),
                         new SelectRecipeByCategoryIntentHandler(), 
                         new SelectRecipeByFavoritsSelectorIntentHandler(),
@@ -55,6 +58,7 @@ public class VerkochtStreamHandler extends SkillStreamHandler {
                         new SelectRecipeByNameInputRecipeIntentHandler(),
                         new SelectRecipeByNameStartIntentHandler(),
                         new SelectRecipeIntentHandler(), 
+                        new SetNumberOfPeopleIntentHandler(),
                         new SessionEndedRequestHandler(), 
                         new TellRecipeStepsIntentHandler(),
                         new TellMeIngredientsIntentHandler(),

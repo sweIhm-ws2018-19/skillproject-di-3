@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -14,6 +15,7 @@ import verkocht.model.Recipe;
 public class CookingBookTest {
     @Before
     public void testInitiate() {
+    	CookingBook.clearRecipes();
         CookingBook.initiateCookingBook();
     }
     
@@ -41,10 +43,14 @@ public class CookingBookTest {
     
     @Test
     public void testFindByCategory() {
-    	List<Recipe> listOfRecipes = CookingBook.getAllRecipes();
-    	assertTrue(CookingBook.findByCategory(Category.MEAT).contains(listOfRecipes.get(0)));
-    	assertTrue(CookingBook.findByCategory(Category.VEGETARIAN).contains(listOfRecipes.get(1)));
-    	assertTrue(CookingBook.findByCategory(Category.VEGAN).contains(listOfRecipes.get(2)));
-    }
-    
+    	List<Recipe> listOfRecipes = new ArrayList<Recipe>();
+    	listOfRecipes.add(CookingBook.getAllRecipes().get(0));
+		assertEquals(CookingBook.findByCategory(Category.MEAT),listOfRecipes);
+		listOfRecipes.clear();
+    	listOfRecipes.add(CookingBook.getAllRecipes().get(1));
+		assertEquals(CookingBook.findByCategory(Category.VEGETARIAN),listOfRecipes);
+		listOfRecipes.clear();
+    	listOfRecipes.add(CookingBook.getAllRecipes().get(2));
+		assertEquals(CookingBook.findByCategory(Category.VEGAN),listOfRecipes);
+    } 
 }

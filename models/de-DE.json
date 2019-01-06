@@ -91,7 +91,7 @@
                     "slots": [
                         {
                             "name": "Number",
-                            "type": "NUMBER_OF_PEOPLE"
+                            "type": "AMAZON.NUMBER"
                         }
                     ],
                     "samples": [

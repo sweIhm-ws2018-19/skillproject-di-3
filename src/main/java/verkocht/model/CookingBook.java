@@ -159,6 +159,10 @@ public abstract class CookingBook {
     public static List<Recipe> getAllRecipes() {
         return allRecipes;
     }
+    
+    public static void addRecipe(Recipe recipe) {
+    	allRecipes.add(recipe);
+    }
 
     public static Ingredient getIngredientByName(String name) {
         for (Ingredient ingr : allIngredients) {
@@ -184,5 +188,20 @@ public abstract class CookingBook {
     public static void clearFavorites() {
         favorites.clear();
     }
-
+    
+    /**
+     * This method sets the all recipes to 0.
+     * 
+     */
+    public static void clearRecipes() {
+    	allRecipes.clear();
+    }
+    
+    /**
+     * This method clears the ingredient list
+     * 
+     */
+    public static void clearIngredients() {
+    	allIngredients.clear();
+    }
 }

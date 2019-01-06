@@ -78,7 +78,7 @@ public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
 					for (int i = 0; i < foundRecipes.size() - 1; i++) {
 						responseMessage.append(foundRecipes.get(i).getName()).append(" ");
 					}
-					responseMessage.append("und").append(foundRecipes.get(foundRecipes.size()));
+					responseMessage.append("und ").append(foundRecipes.get(foundRecipes.size() - 1));
 					speechText = String.format(PhrasesForAlexa.TELL_RECIPES_FROM_CATEGORY, responseMessage);
 				}
 			} catch (Exception e) {

@@ -159,6 +159,10 @@ public abstract class CookingBook {
     public static List<Recipe> getAllRecipes() {
         return allRecipes;
     }
+    
+    public static void addRecipe(Recipe recipe) {
+    	allRecipes.add(recipe);
+    }
 
     public static Ingredient getIngredientByName(String name) {
         for (Ingredient ingr : allIngredients) {

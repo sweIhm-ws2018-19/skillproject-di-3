@@ -74,8 +74,8 @@ public class SelectRecipeByCategoryIntentHandlerTest {
 		CookingBook.clearRecipes();
 		CookingBook.clearIngredients();
 		CookingBook.initiateCookingBook();
-		Recipe aRecipe = CookingBook.getAllRecipes().get(0);
-		String b = aRecipe.getName();
+		Recipe firstRecipe = CookingBook.getAllRecipes().get(0);
+		String nameOfAllRecipes = firstRecipe.getName();
 
         Map<String, Slot> slots = new HashMap<String, Slot>();
         slots.put("Category", Slot.builder().withValue("Fleisch").build());
@@ -96,7 +96,7 @@ public class SelectRecipeByCategoryIntentHandlerTest {
 
         assertFalse(response.getShouldEndSession());
         assertTrue(response.getOutputSpeech().toString()
-                .contains(String.format(PhrasesForAlexa.ONLY_ONE_RECIPE,b)));
+                .contains(String.format(PhrasesForAlexa.ONLY_ONE_RECIPE,nameOfAllRecipes)));
     }
 	
 	@Test
@@ -106,10 +106,10 @@ public class SelectRecipeByCategoryIntentHandlerTest {
 		CookingBook.initiateCookingBook();
 		Recipe Steak = new Recipe("steak", Category.MEAT, 4, 40);
 		CookingBook.addRecipe(Steak);
-		Recipe aRecipe = CookingBook.getAllRecipes().get(0);
-		String b = aRecipe.getName();
-		Recipe sdad = CookingBook.getAllRecipes().get(3);
-		b += " und " + sdad;
+		Recipe firstRecipe = CookingBook.getAllRecipes().get(0);
+		String nameOfAllRecipes = firstRecipe.getName();
+		Recipe secondRecipe = CookingBook.getAllRecipes().get(CookingBook.getAllRecipes().size() - 1);
+		nameOfAllRecipes += " und " + secondRecipe;
 
         Map<String, Slot> slots = new HashMap<String, Slot>();
         slots.put("Category", Slot.builder().withValue("Fleisch").build());
@@ -130,7 +130,7 @@ public class SelectRecipeByCategoryIntentHandlerTest {
 
         assertFalse(response.getShouldEndSession());
         assertTrue(response.getOutputSpeech().toString()
-                .contains(String.format(PhrasesForAlexa.TELL_RECIPES_FROM_CATEGORY,b)));
+                .contains(String.format(PhrasesForAlexa.TELL_RECIPES_FROM_CATEGORY,nameOfAllRecipes)));
     }
 	
 	@Test
@@ -142,12 +142,12 @@ public class SelectRecipeByCategoryIntentHandlerTest {
 		Recipe Gulasch = new Recipe("Gulasch", Category.MEAT, 3, 50);
 		CookingBook.addRecipe(Steak);
 		CookingBook.addRecipe(Gulasch);
-		Recipe aRecipe = CookingBook.getAllRecipes().get(0);
-		String b = aRecipe.getName();
-		Recipe sdad = CookingBook.getAllRecipes().get(3);
-		b += " " + sdad;
-		Recipe asdad = CookingBook.getAllRecipes().get(4);
-		b += " und " + asdad;
+		Recipe firstRecipe = CookingBook.getAllRecipes().get(0);
+		String nameOfAllRecipes = firstRecipe.getName();
+		Recipe secondRecipe = CookingBook.getAllRecipes().get(CookingBook.getAllRecipes().size() - 2);
+		nameOfAllRecipes += " " + secondRecipe;
+		Recipe thirdRecipe = CookingBook.getAllRecipes().get(CookingBook.getAllRecipes().size() - 1);
+		nameOfAllRecipes += " und " + thirdRecipe;
 
         Map<String, Slot> slots = new HashMap<String, Slot>();
         slots.put("Category", Slot.builder().withValue("Fleisch").build());
@@ -168,6 +168,6 @@ public class SelectRecipeByCategoryIntentHandlerTest {
 
         assertFalse(response.getShouldEndSession());
         assertTrue(response.getOutputSpeech().toString()
-                .contains(String.format(PhrasesForAlexa.TELL_RECIPES_FROM_CATEGORY,b)));
+                .contains(String.format(PhrasesForAlexa.TELL_RECIPES_FROM_CATEGORY,nameOfAllRecipes)));
     }
 }

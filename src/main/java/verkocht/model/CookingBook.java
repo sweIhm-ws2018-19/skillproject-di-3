@@ -189,10 +189,18 @@ public abstract class CookingBook {
         favorites.clear();
     }
     
+    /**
+     * This method sets the all recipes to 0.
+     * 
+     */
     public static void clearRecipes() {
     	allRecipes.clear();
     }
     
+    /**
+     * This method clears the ingredient list
+     * 
+     */
     public static void clearIngredients() {
     	allIngredients.clear();
     }

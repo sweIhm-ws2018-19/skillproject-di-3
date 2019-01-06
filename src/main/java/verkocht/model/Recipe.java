@@ -43,6 +43,7 @@ public class Recipe {
 	}
 	
 	/**
+	 * This algorithm adjusts the recipe to the provided quantity of people
 	 * 
 	 * @return
 	 */

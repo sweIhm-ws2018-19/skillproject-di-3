@@ -61,10 +61,10 @@ public class SetNumberOfPeopleIntentHandler implements RequestHandler {
     				speechText = PhrasesForAlexa.PEOPLE_NUMBER_UNCLEAR;
     			} else {
     				if (getNumberOfPeople == 1) {
-    					recipe.setNumberOfPeople(1);
+    					recipe.changeIngredientAmounts(1);
     					speechText = PhrasesForAlexa.PEOPLE_ONE;
     				} else {
-    					recipe.setNumberOfPeople(getNumberOfPeople);
+    					recipe.changeIngredientAmounts(getNumberOfPeople);
     					speechText = String.format(PhrasesForAlexa.PEOPLE_SET, getNumberOfPeople);
     				}
     			}    			

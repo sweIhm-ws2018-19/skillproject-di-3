@@ -58,7 +58,7 @@ public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
                
         String actualCategorie = (String) input.getAttributesManager().getSessionAttributes().get(CATEGORY_KEY);
         
-		if (actualCategorie == null || actualCategorie.isEmpty()) {
+		if (actualCategorie == null) {
 			speechText = PhrasesForAlexa.CATEGORY_UNKOWN;
 		} else {
 			try {
@@ -71,14 +71,14 @@ public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
 					}
 				}
 
-				String responseMessage = "";
+				StringBuilder responseMessage = new StringBuilder();
 				if (foundRecipes.size() == 1) {
 					speechText = String.format(PhrasesForAlexa.ONLY_ONE_RECIPE, foundRecipes.get(0).getName());
 				} else {
 					for (int i = 0; i < foundRecipes.size() - 1; i++) {
-						responseMessage += foundRecipes.get(i).getName();
+						responseMessage.append(foundRecipes.get(i).getName()).append(" ");
 					}
-					responseMessage += "und" + foundRecipes.get(foundRecipes.size());
+					responseMessage.append("und").append(foundRecipes.get(foundRecipes.size()));
 					speechText = String.format(PhrasesForAlexa.TELL_RECIPES_FROM_CATEGORY, responseMessage);
 				}
 			} catch (Exception e) {

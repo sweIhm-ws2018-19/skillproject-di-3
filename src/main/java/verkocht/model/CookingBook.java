@@ -7,6 +7,7 @@ import java.util.List;
  * The cooking book that holds all recipes and categories.
  */
 public abstract class CookingBook {
+	private static int initiatingCounter;
     private static final String NUDELN = "Nudeln";
     
     private static List<Recipe> favorites = new ArrayList<>();
@@ -18,6 +19,8 @@ public abstract class CookingBook {
     }
     
     public static void initiateCookingBook() {
+    	setInitiatingCounter(getInitiatingCounter() + 1);
+    	
         // add ingredients to the list of ingredients
         allIngredients.add(new Ingredient("Fleisch", Unit.GRAMM));
         allIngredients.add(new Ingredient("Ei", Unit.STUECK));
@@ -207,4 +210,12 @@ public abstract class CookingBook {
     public static void clearIngredients() {
     	allIngredients.clear();
     }
+
+	public static int getInitiatingCounter() {
+		return initiatingCounter;
+	}
+
+	public static void setInitiatingCounter(int initiatingCounter) {
+		CookingBook.initiatingCounter = initiatingCounter;
+	}
 }

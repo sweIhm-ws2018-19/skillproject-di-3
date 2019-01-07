@@ -39,7 +39,9 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        CookingBook.initiateCookingBook();
+    	if (CookingBook.getInitiatingCounter() == 0) {
+    		CookingBook.initiateCookingBook();
+    	}
     	String[] repromts = {"Sage zum Beispiel: Welche Kategorien gibt es?",
     			"Sage zum Beispiel: Zur Rezeptauswahl",
     			"Sage zum Beispiel: Ich habe einen Favoriten",
@@ -47,10 +49,11 @@ public class LaunchRequestHandler implements RequestHandler {
     	
         String speechText = "Hallo. Ich bin dein interaktives Kochbuch \"Verkocht\"! Was willst du tun?";
         String repromptText = repromts[rnd.nextInt(repromts.length)];
+        
         return input.getResponseBuilder()
                 .withSimpleCard("Verkocht!", speechText)
                 .withSpeech(speechText)
                 .withReprompt(repromptText)
                 .build();
-    }
-}
+    		}
+    	}

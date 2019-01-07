@@ -26,11 +26,31 @@ Der Programmcode wurde während der Sprints sowohl durch Spracheingabe, als auch
 ## Use Cases
 <img src="images/verkocht_UseCases.png" alt="UseCases" class="inline"/>
 
-## Fachklassendiagramm
-<img src="images/verkocht_Fachklassendiagramm.png" alt="Fachklassendiagramm" class="inline"/>
+## Storyline
+<img src="images/verkocht_Storyline.png" alt="Storyline" class="inline"/>
 
 ## Anwendungsfalldiagramm
-<img src="images/verkocht_AnalyseKlassenmodell.png" alt="Fachklassendiagramm" class="inline"/>
+<img src="images/verkocht_AnalyseKlassenmodell.png" alt="AnalyseKlassendiagramm" class="inline"/>
 
 ## Intents und Intent-Samples
-<img src="images/verkocht_Intentsamples.png" alt="Fachklassendiagramm" class="inline"/>
+<img src="images/verkocht_Intentsamples.png" alt="Intentsamples" class="inline"/>
+
+## User-Stories und deren Background
+Am Beispiel:
+|Menge|Als User will ich ein Rezept aufgrund einer gegebenen Menge einer Zutat modifizieren, um eine angepasste Zutatenliste zu erhalten.|* Rückgabe des korrekt modifizierten Rezepts|
+
+Am Beispiel der User-Story "Menge" lässt sich sehr gut darstellen, wie eine Implementierung abhängig von Vorherigen, schrittweise in ein Projekt eingearbeitet wird.
+Vorher musste die User-Story "Rezept auswählen" vollständig fertig gestellt werden. Nach Abschluss der User-Stories im ersten Sprint, konnte nun "Menge" hinzugefügt werden.
+Hierbei wird ein bereits ausgewähltes Rezept z.B. mittels des Befehls "ich möchte das Rezept nach Mengen anpassen" anhand einer Zutat und alle anderen Zutaten relativ dazu angepasst und für den User gespeichert.
+
+Bei erfolgreichem Ausführen dieser Handlung erhält der User eine entsprechende Ausgabe.
+
+## Erfahrungen und Eindrücke
+Jannik: "Der Zeitaufwand bei der Verwaltung der verschiedenen Dienste und Seiten erwies sich als relativ hoch, was die Zusammenarbeit erschwerte. Allerdings lässt sich sagen, dass die Benutzung von github, nach einer angemessenen Einarbeitungszeit, eine positive Auswirkungen auf die Teamarbeit hatte."
+
+Olga: "github hat mir gut gefallen. Die Modellierung und das Erstellen von Diagrammen fand ich bei großen Projektteilen sehr sinnvoll. Bei den kleinereren Issues, wie etwa den einzelnen User-Stories bin ich gegenteiliger Meinung. Die Teamarbeit hat sich zeitweise als nicht einfach herausgestellt."
+
+Florian: "Die Verwendung von SCRUM war für mich eine positive Erfahrung. Hierbei ließen sich die Zwischenziele wie gewünscht einteilen und die Zusammenarbeit wurde dadurch, im Vergleich zu einer normalen Projektarbeit, sehr vereinfacht. Die Teamarbeit war zwischenzeitlich recht holprig - am Ende wurden wir aber mit dem Projekt fertig."
+
+Finn: "folgt"
+

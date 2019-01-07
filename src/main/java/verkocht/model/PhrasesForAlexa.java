@@ -67,7 +67,7 @@ public final class PhrasesForAlexa {
     public static final String TELL_FAVORITE = "Das sind alle deine Favoriten: %s. "
             + "Waehle eine deiner Favoriten fuer den naechsten Schritt aus.";
     public static final String NO_FAVORITE_AVAILABLE = "Bis jetzt hast du noch keine Favoriten. Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
-    public static final String FAVORITE_AVAILABLE = "Das sind alle deine Favoriten: %s. Waeshle das Rezept, das vorgelesen werden soll.";
+    public static final String FAVORITE_AVAILABLE = "Das sind alle deine Favoriten: %s. Waehle das Rezept, das vorgelesen werden soll.";
     public static final String FAVORITE_REPROMT = "Bis jetzt hast du noch keine Favoriten. "
             + "Markiere zuerst Favoriten, damit ich sie dir vorlesen kann.";
 
@@ -86,7 +86,7 @@ public final class PhrasesForAlexa {
     public static final String MODIFY_UNIT_DONE = "Das Rezept wurde angepasst.";
     
     //Number of People
-    public static final String PEOPLE_WELCOME = "Hier kannst du dein Rezept, sofern du eines ausgewaehlt hast, nach der Anzahlt der Personen anpassen. Sage zum Beispiel Ich möchte das Rezept fuer vier Leute kochen";
+    public static final String PEOPLE_WELCOME = "Hier kannst du dein Rezept, sofern du eines ausgewaehlt hast, nach der Anzahl der Personen anpassen. Sage zum Beispiel Ich möchte das Rezept fuer vier Leute kochen";
     public static final String PEOPLE_UNKNOWN = "Ich habe die Anzahl der Personen leider nicht genau verstanden, sage zum Beispiel: Ich moechte fuer zwei Personen kochen";
     public static final String PEOPLE_SET = "Dein Rezept ist nun fuer %s ausgerichtet";
     public static final String PEOPLE_NUMBER_UNCLEAR = "Die Gerichte können fuer maximal zwölf Leute ausgerichtet werden";

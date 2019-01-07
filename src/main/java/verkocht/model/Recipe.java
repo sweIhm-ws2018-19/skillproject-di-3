@@ -52,6 +52,9 @@ public class Recipe {
 		for (Ingredient key : keys) {
 			Integer r = ingredientAmounts.get(key);
 			int a = (int) r * numberOfPerson / this.numberOfPeople;
+			if (a == 0) {
+				a = 1;
+			}
 			ingredientAmounts.replace(key, r, a);
 		}
 		this.setNumberOfPeople(numberOfPerson);

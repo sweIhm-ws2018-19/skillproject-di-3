@@ -147,13 +147,16 @@ public abstract class CookingBook {
      * @return list of filtered recipes
      */
     public static List<Recipe> findByCategory(Category category) {
-        List<Recipe> recipe = new ArrayList<>();
-        for (int i = 0; i < allRecipes.size(); i++) {
-            if (allRecipes.get(i).getCategory() == category) {
-                recipe.add(allRecipes.get(i));
-            }
-        }
-        return recipe;
+		List<Recipe> recipe = new ArrayList<>();
+		for (int i = 0; i < allRecipes.size(); i++) {
+			if (allRecipes.get(i).getCategory() == category) {
+				String foundRecipe = allRecipes.get(i).getName();
+				if (!recipe.contains(CookingBook.findByName(foundRecipe))) {
+					recipe.add(allRecipes.get(i));
+				}
+			}
+		}
+		return recipe;
     }
 
     public static List<Recipe> getAllRecipes() {

@@ -52,5 +52,12 @@ public class CookingBookTest {
 		listOfRecipes.clear();
     	listOfRecipes.add(CookingBook.getAllRecipes().get(2));
 		assertEquals(CookingBook.findByCategory(Category.VEGAN),listOfRecipes);
-    } 
+		
+		listOfRecipes.clear();
+		Recipe schniztelRec = new Recipe("schnitzel", Category.MEAT, 4, 40);
+		CookingBook.addRecipe(schniztelRec);
+		listOfRecipes.add(CookingBook.getAllRecipes().get(0));
+		assertEquals(CookingBook.getAllRecipes().get(CookingBook.getAllRecipes().size() - 1), schniztelRec);
+		assertEquals(CookingBook.findByCategory(Category.MEAT), listOfRecipes);
+	}
 }

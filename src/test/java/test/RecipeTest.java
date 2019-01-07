@@ -64,5 +64,12 @@ public class RecipeTest {
         	recipe.changeIngredientAmounts(4);
         	b = CookingBook.getAllRecipes().get(0).getIngredients().get(CookingBook.getIngredientByName("Mehl"));
         	assertEquals(a,b);
+         	
+        	Recipe recipe2 = new Recipe("Pfannenkuchen", Category.VEGETARIAN, 2, 20);
+        	a = 1;
+        	recipe2.getIngredients().put(CookingBook.getIngredientByName("Ei"), 0);
+        	recipe2.changeIngredientAmounts(2);
+        	b = recipe2.getIngredients().get(CookingBook.getIngredientByName("Ei"));
+        	assertEquals(a,b);
         }
     }

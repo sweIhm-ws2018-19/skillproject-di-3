@@ -31,12 +31,17 @@ Der Programmcode wurde während der Sprints sowohl durch Spracheingabe, als auch
 
 ## Anwendungsfalldiagramm
 <img src="images/verkocht_AnalyseKlassenmodell.png" alt="AnalyseKlassendiagramm" class="inline"/>
+<img src="images/verkocht_AnalyseKlassenmodell_Handler.png" alt="AnalyseKlassendiagrammHandler" class="inline"/>
+<img src="images/verkocht_AnalyseKlassenmodell_Model.png" alt="AnalyseKlassendiagrammModel" class="inline"/>
 
 ## Intents und Intent-Samples
 <img src="images/verkocht_Intentsamples.png" alt="Intentsamples" class="inline"/>
 
 ## User-Stories und deren Background
 Am Beispiel:
+
+|Name der User Story|User Story|Akzeptanzkriterien|
+|---|---|---|
 |Menge|Als User will ich ein Rezept aufgrund einer gegebenen Menge einer Zutat modifizieren, um eine angepasste Zutatenliste zu erhalten.|* Rückgabe des korrekt modifizierten Rezepts|
 
 Am Beispiel der User-Story "Menge" lässt sich sehr gut darstellen, wie eine Implementierung abhängig von Vorherigen, schrittweise in ein Projekt eingearbeitet wird.
@@ -52,5 +57,5 @@ Olga: "github hat mir gut gefallen. Die Modellierung und das Erstellen von Diagr
 
 Florian: "Die Verwendung von SCRUM war für mich eine positive Erfahrung. Hierbei ließen sich die Zwischenziele wie gewünscht einteilen und die Zusammenarbeit wurde dadurch, im Vergleich zu einer normalen Projektarbeit, sehr vereinfacht. Die Teamarbeit war zwischenzeitlich recht holprig - am Ende wurden wir aber mit dem Projekt fertig."
 
-Finn: "folgt"
+Finn: "Die Arbeit mit GitHub, TravisCI, Mockito und Sonarqube hatte definitv einen positiven Mehrwert. Alexa und AWS fand ich persönlich problematisch, da es immer wieder Probleme mit der Toolchain gab und die Coverage für Java sehr mangelhaft ist. Das Arbeiten mit SCRUM fand ich in dem kleinen und engen Rahmen etwas deplatziert."
 

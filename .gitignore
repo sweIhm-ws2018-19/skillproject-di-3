@@ -8,8 +8,9 @@
 # Log file
 *.log
 
-# target-folder
-target/
+# target folder
+target/*
+/target/
 
 # BlueJ files
 *.ctxt

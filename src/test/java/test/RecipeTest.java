@@ -2,12 +2,12 @@ package test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
-import verkocht.model.Category;
-import verkocht.model.Ingredient;
-import verkocht.model.Recipe;
-import verkocht.model.Unit;
+
+import verkocht.model.*;
+
 
 public class RecipeTest {
     Recipe recipe = new Recipe("Pfannenkuchen", Category.VEGETARIAN, 2, 20);
@@ -16,6 +16,11 @@ public class RecipeTest {
     Ingredient ei = new Ingredient("Ei", Unit.STUECK);
     Ingredient milch = new Ingredient("Milch", Unit.MILLILITER);
     Ingredient notAdded = new Ingredient("NotAdded", Unit.ESSLOEFFEL);
+    
+    @Before
+    public void testInitiate() {
+        CookingBook.initiateCookingBook();
+    }
 
     @Test
     public void testConstructorAndGetter() {
@@ -45,5 +50,19 @@ public class RecipeTest {
         recipe.addIngredient(mehl, 100);
         assertEquals("Should be 100 now", 100, (int) recipe.getIngredients().get(mehl));
     }
-
-}
+    
+        @Test
+        public void testChangeIngredientAmount() { 
+            Recipe recipe = CookingBook.getAllRecipes().get(0);
+        	       	
+        	Integer a = 25;
+        	recipe.changeIngredientAmounts(2);
+        	Integer b = CookingBook.getAllRecipes().get(0).getIngredients().get(CookingBook.getIngredientByName("Mehl"));
+        	assertEquals(a,b);
+        	
+        	a = 50;
+        	recipe.changeIngredientAmounts(4);
+        	b = CookingBook.getAllRecipes().get(0).getIngredients().get(CookingBook.getIngredientByName("Mehl"));
+        	assertEquals(a,b);
+        }
+    }

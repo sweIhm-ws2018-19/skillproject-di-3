@@ -15,23 +15,77 @@ package verkocht.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.model.Intent;
+import com.amazon.ask.model.IntentRequest;
+import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.Slot;
+
+import verkocht.model.Category;
+import verkocht.model.CookingBook;
+import verkocht.model.Recipe;
+import verkocht.model.PhrasesForAlexa;
 
 public class SelectRecipeByCategoryIntentHandler implements RequestHandler {
+    public static final String CATEGORY_KEY = "CATEGORY";
+    public static final String CATEGORY_SLOT = "Category";
 
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("SelectRecipeByCategoryIntent"));
     }
 
-    @Override
+	@Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hier kannst du spaeter ein Rezept nach Kategorie auswaehlen.";
+        String speechText = "";
+        Request request = input.getRequestEnvelope().getRequest();
+        IntentRequest intentRequest = (IntentRequest) request;
+        Intent intent = intentRequest.getIntent();
+        Map<String, Slot> slots = intent.getSlots();
+        
+        Slot chosenCategorieSlot = slots.get(CATEGORY_SLOT);
+        
+        String chosenCategorie = chosenCategorieSlot.getValue();
+        input.getAttributesManager().setSessionAttributes(Collections.singletonMap(CATEGORY_KEY, chosenCategorie));
+               
+        String actualCategorie = (String) input.getAttributesManager().getSessionAttributes().get(CATEGORY_KEY);
+        
+		if (actualCategorie == null) {
+			speechText = PhrasesForAlexa.CATEGORY_UNKOWN;
+		} else {
+			try {
+				Category[] categories = Category.values();
+				List<Recipe> foundRecipes = new ArrayList<>();
 
+				for (int i = 0; i < categories.length; i++) {
+					if (categories[i].getName().equalsIgnoreCase(actualCategorie)) {
+						foundRecipes = CookingBook.findByCategory(categories[i]);
+					}
+				}
+
+				StringBuilder responseMessage = new StringBuilder();
+				if (foundRecipes.size() == 1) {
+					speechText = String.format(PhrasesForAlexa.ONLY_ONE_RECIPE, foundRecipes.get(0).getName());
+				} else {
+					for (int i = 0; i < foundRecipes.size() - 1; i++) {
+						responseMessage.append(foundRecipes.get(i).getName()).append(" ");
+					}
+					responseMessage.append("und ").append(foundRecipes.get(foundRecipes.size() - 1));
+					speechText = String.format(PhrasesForAlexa.TELL_RECIPES_FROM_CATEGORY, responseMessage);
+				}
+			} catch (Exception e) {
+				speechText = PhrasesForAlexa.NO_RECIPE_IN_THIS_CATEGORY;
+			}
+		}
+        
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("Rezeptauswahl", speechText)

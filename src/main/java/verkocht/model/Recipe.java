@@ -48,7 +48,8 @@ public class Recipe {
 	 * @return
 	 */
 	public Recipe changeIngredientAmounts(int numberOfPerson) {
-		for (Ingredient key : this.ingredientAmounts.keySet() ) {
+		Set<Ingredient> keys = this.ingredientAmounts.keySet();
+		for (Ingredient key : keys) {
 			Integer r = ingredientAmounts.get(key);
 			int a = (int) r * numberOfPerson / this.numberOfPeople;
 			ingredientAmounts.replace(key, r, a);
